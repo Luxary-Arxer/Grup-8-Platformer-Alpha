@@ -76,6 +76,12 @@ bool Player::Update()
 		vel = b2Vec2(speed, -GRAVITY_Y);
 	}
 
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+		
+		vel = b2Vec2(0, +GRAVITY_Y);
+		
+	}
+
 	//Set the velocity of the pbody of the player
 	pbody->body->SetLinearVelocity(vel);
 
