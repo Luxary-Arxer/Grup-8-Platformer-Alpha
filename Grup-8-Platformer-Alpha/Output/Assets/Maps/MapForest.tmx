@@ -57,7 +57,7 @@
   <image source="MapMetadata.png" width="67" height="34"/>
  </tileset>
  <tileset firstgid="51" name="Forest 32" tilewidth="32" tileheight="32" tilecount="84" columns="12">
-  <image source="32x32.png" width="384" height="224"/>
+  <image source="Tileset_32x32.png" width="384" height="224"/>
  </tileset>
  <layer id="5" name="Fondo" width="64" height="24">
   <data>
