@@ -48,6 +48,7 @@ bool Player::Start() {
 
 	//initialize audio effect - !! Path is hardcoded, should be loaded from config.xml
 	pickCoinFxId = app->audio->LoadFx("Assets/Audio/Fx/retro-video-game-coin-pickup-38299.ogg");
+	deathsound = app->audio->LoadFx("Assets/Audio/Fx/Death-sound-in-Minecraft.ogg");
 
 	return true;
 }
@@ -108,10 +109,14 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 	{
 		case ColliderType::ITEM:
 			LOG("Collision ITEM");
-			app->audio->PlayFx(pickCoinFxId);
+			//app->audio->PlayFx(pickCoinFxId);
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
+			break;
+		case ColliderType::WATER:
+			LOG("Collision WATER");
+			app->audio->PlayFx(deathsound);
 			break;
 		case ColliderType::UNKNOWN:
 			LOG("Collision UNKNOWN");

@@ -39,6 +39,7 @@ private:
 	PhysBody* pbody;
 
 	int pickCoinFxId;
+	int deathsound;
 
 };
 
