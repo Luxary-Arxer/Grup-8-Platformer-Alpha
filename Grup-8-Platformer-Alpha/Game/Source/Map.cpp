@@ -214,6 +214,26 @@ bool Map::Load()
     PhysBody* c5 = app->physics->CreateRectangle(48+544, 704 + 64+16, 96, 64, STATIC);
     c5->ctype = ColliderType::WATER;
 
+    //COLLIDER AUXILIAR
+
+    PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC);
+    c6->ctype = ColliderType::UNKNOWN;
+
+    PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3, 704 + 32, 576, 64, STATIC);
+    c7->ctype = ColliderType::UNKNOWN;
+
+    PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
+    c8->ctype = ColliderType::UNKNOWN;
+
+    PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 543, 252, 5, STATIC);
+    c9->ctype = ColliderType::UNKNOWN;
+
+    PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 64, 122, 5, STATIC);
+    c10->ctype = ColliderType::UNKNOWN;
+
+    PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 384, 122, 5, STATIC);
+    c11->ctype = ColliderType::UNKNOWN;
+
     if(ret == true)
     {
         // L04: DONE 5: LOG all the data loaded iterate all tilesets and LOG everything

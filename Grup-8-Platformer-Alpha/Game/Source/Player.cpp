@@ -161,7 +161,7 @@ bool Player::Update()
 
 	if (salto == true && usalto == true)
 	{
-		if (i > 20)
+		if (i > 25)
 		{
 			salto = false;
 		}
@@ -220,7 +220,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
-			usalto = false;
+			//usalto = false;
 
 			break;
 		case ColliderType::WATER:
@@ -229,6 +229,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::UNKNOWN:
 			LOG("Collision UNKNOWN");
+			usalto = false;
 			break;
 	}
 	
