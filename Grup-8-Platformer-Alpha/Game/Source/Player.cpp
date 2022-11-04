@@ -149,17 +149,17 @@ bool Player::Update()
 	}
 
 	
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false) {
 		salto = true;
 		i = 0;
-
+		usalto = true;
 
 
 
 
 	}
 
-	if (salto == true)
+	if (salto == true && usalto == true)
 	{
 		if (i > 20)
 		{
@@ -220,6 +220,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
+			usalto = false;
 
 			break;
 		case ColliderType::WATER:

@@ -59,6 +59,7 @@ private:
 	int deathsound;
 
 	bool salto = false;
+	bool usalto = false;
 	int i;
 
 	bool derecha = true;
