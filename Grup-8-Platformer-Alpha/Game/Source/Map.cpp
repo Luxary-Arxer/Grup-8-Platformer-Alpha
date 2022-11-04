@@ -216,7 +216,7 @@ bool Map::Load()
 
     //COLLIDER AUXILIAR
 
-    PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC);
+    PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC); //Abajo
     c6->ctype = ColliderType::UNKNOWN;
 
     PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3, 704 + 32, 576, 64, STATIC);
@@ -225,13 +225,13 @@ bool Map::Load()
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
     c8->ctype = ColliderType::UNKNOWN;
 
-    PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 543, 252, 5, STATIC);
+    PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 546, 252, 5, STATIC); //Abajo
     c9->ctype = ColliderType::UNKNOWN;
 
-    PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 64, 122, 5, STATIC);
+    PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 62, 122, 5, STATIC); // Abajo
     c10->ctype = ColliderType::UNKNOWN;
 
-    PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 384, 122, 5, STATIC);
+    PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 386, 122, 5, STATIC); //Arriba
     c11->ctype = ColliderType::UNKNOWN;
 
     if(ret == true)
