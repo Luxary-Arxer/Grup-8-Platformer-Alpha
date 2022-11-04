@@ -41,6 +41,10 @@ private:
 	int pickCoinFxId;
 	int deathsound;
 
+	bool salto = false;
+	int aux;
+	int i;
+
 };
 
 #endif // __PLAYER_H__

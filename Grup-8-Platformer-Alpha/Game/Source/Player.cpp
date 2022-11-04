@@ -50,6 +50,8 @@ bool Player::Start() {
 	pickCoinFxId = app->audio->LoadFx("Assets/Audio/Fx/retro-video-game-coin-pickup-38299.ogg");
 	deathsound = app->audio->LoadFx("Assets/Audio/Fx/Death-sound-in-Minecraft.ogg");
 
+	salto = false;
+
 	return true;
 }
 
@@ -77,10 +79,28 @@ bool Player::Update()
 		vel = b2Vec2(speed, -GRAVITY_Y);
 	}
 
+	
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
 		
-		vel = b2Vec2(0, +GRAVITY_Y);
-		
+		aux = position.y;
+		salto = true;
+		i = 0;
+
+	}
+
+	if (salto == true)
+	{
+		if (i > 20)
+		{
+			salto = false;
+		}
+		vel = b2Vec2(vel.x, GRAVITY_Y);
+		/*if (aux - 200> position.y )
+		{
+			salto = false;
+		}*/
+
+		i++;
 	}
 
 	//Set the velocity of the pbody of the player
