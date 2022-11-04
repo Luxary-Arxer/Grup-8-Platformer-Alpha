@@ -82,7 +82,6 @@ bool Player::Update()
 	
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
 		
-		aux = position.y;
 		salto = true;
 		i = 0;
 
@@ -95,10 +94,6 @@ bool Player::Update()
 			salto = false;
 		}
 		vel = b2Vec2(vel.x, GRAVITY_Y);
-		/*if (aux - 200> position.y )
-		{
-			salto = false;
-		}*/
 
 		i++;
 	}

@@ -42,7 +42,6 @@ private:
 	int deathsound;
 
 	bool salto = false;
-	int aux;
 	int i;
 
 };
