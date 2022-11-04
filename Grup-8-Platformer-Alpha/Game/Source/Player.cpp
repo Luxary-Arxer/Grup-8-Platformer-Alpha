@@ -13,6 +13,10 @@
 Player::Player() : Entity(EntityType::PLAYER)
 {
 	name.Create("Player");
+
+
+
+
 }
 
 Player::~Player() {
@@ -21,9 +25,20 @@ Player::~Player() {
 
 bool Player::Awake() {
 
+	//Idle animation
+	idle.PushBack({ 0, 0, 32, 32 });
+	idle.PushBack({ 32, 0, 32, 32 });
+	idle.PushBack({ 0, 32, 32, 32 });
+	idle.PushBack({ 32, 32, 32, 32 });
+
+	idle.loop = true;
+	idle.speed = 0.08f;
+
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
 	//texturePath = "Assets/Textures/player/idle1.png";
+
+
 
 	//L02: DONE 5: Get Player parameters from XML
 	position.x = parameters.attribute("x").as_int();
@@ -37,6 +52,9 @@ bool Player::Start() {
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
+	currentAnimation = &idle;
+
+
 
 	// L07 DONE 5: Add physics to the player - initialize physics body
 	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 16, bodyType::DYNAMIC);
@@ -106,7 +124,11 @@ bool Player::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
-	app->render->DrawTexture(texture, position.x , position.y);
+	currentAnimation->Update();
+	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+
+	app->render->DrawTexture(texture, position.x , position.y, &rect);
+
 
 	return true;
 }

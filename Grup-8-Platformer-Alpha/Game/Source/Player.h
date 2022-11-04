@@ -30,6 +30,16 @@ public:
 
 public:
 
+	Animation* currentAnimation = nullptr;
+
+
+	Animation idle;
+	Animation walk;
+	Animation kneel;
+	Animation jump_up;
+	Animation jump_down;
+	Animation death;
+
 private:
 
 	//L02: DONE 1: Declare player parameters
@@ -44,6 +54,9 @@ private:
 
 	bool salto = false;
 	int i;
+
+
+
 
 };
 
