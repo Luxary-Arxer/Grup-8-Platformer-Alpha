@@ -26,13 +26,19 @@ Player::~Player() {
 bool Player::Awake() {
 
 	//Idle animation
-	idle.PushBack({ 0, 0, 32, 32 });
-	idle.PushBack({ 32, 0, 32, 32 });
-	idle.PushBack({ 0, 32, 32, 32 });
-	idle.PushBack({ 32, 32, 32, 32 });
+	idle.PushBack({ 0, 0, 64, 64 });
+	idle.PushBack({ 64, 0, 64, 64 });
+	idle.PushBack({ 0, 0, 64, 64 });
+	idle.PushBack({ 64, 0, 64, 64 });
+	idle.PushBack({ 0, 0, 64, 64 });
+	idle.PushBack({ 64, 0, 64, 64 });
+	idle.PushBack({ 0, 64, 64, 64 });
+	idle.PushBack({ 64, 64, 64, 64 });
 
 	idle.loop = true;
-	idle.speed = 0.08f;
+	idle.speed = 0.04f;
+
+
 
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
@@ -57,7 +63,7 @@ bool Player::Start() {
 
 
 	// L07 DONE 5: Add physics to the player - initialize physics body
-	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 16, bodyType::DYNAMIC);
+	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 32, bodyType::DYNAMIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this; 
@@ -127,7 +133,7 @@ bool Player::Update()
 	currentAnimation->Update();
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x , position.y, &rect);
+	app->render->DrawTexture(texture, position.x-16, position.y-16, &rect);
 
 
 	return true;
