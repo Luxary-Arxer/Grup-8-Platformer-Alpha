@@ -211,7 +211,7 @@ bool Map::Load()
     c4->ctype = ColliderType::PLATFORM;
 
     //COLLIDER WATER
-    PhysBody* c5 = app->physics->CreateRectangle(48+544, 704 + 64+32, 96, 64, STATIC);
+    PhysBody* c5 = app->physics->CreateRectangle(48+544, 704 + 64+16, 96, 64, STATIC);
     c5->ctype = ColliderType::WATER;
 
     if(ret == true)
