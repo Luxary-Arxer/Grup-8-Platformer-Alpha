@@ -34,7 +34,8 @@ public:
 
 
 	Animation idle;
-	Animation walk;
+	Animation walk_r;
+	Animation walk_l;
 	Animation kneel;
 	Animation jump_up;
 	Animation jump_down;

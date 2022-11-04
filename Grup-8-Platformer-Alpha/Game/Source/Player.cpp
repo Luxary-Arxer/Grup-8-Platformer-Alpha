@@ -34,9 +34,21 @@ bool Player::Awake() {
 	idle.PushBack({ 64, 0, 64, 64 });
 	idle.PushBack({ 0, 64, 64, 64 });
 	idle.PushBack({ 64, 64, 64, 64 });
-
 	idle.loop = true;
 	idle.speed = 0.04f;
+
+
+	//Idle animation
+	walk_r.PushBack({ 0, 192, 64, 64 });
+	walk_r.PushBack({ 64, 192, 64, 64 });
+	walk_r.PushBack({ 64*2, 192, 64, 64 });
+	walk_r.PushBack({ 64*3, 192, 64, 64 });
+	walk_r.PushBack({ 64 * 4, 192, 64, 64 });
+	walk_r.PushBack({ 64 * 5, 192, 64, 64 });
+	walk_r.PushBack({ 64 * 6, 192, 64, 64 });
+	walk_r.PushBack({ 64 * 7, 192, 64, 64 });
+	walk_r.loop = true;
+	walk_r.speed = 0.09f;
 
 
 
@@ -85,7 +97,7 @@ bool Player::Update()
 
 	// L07 DONE 5: Add physics to the player - updated player position using physics
 
-	int speed = 10; 
+	int speed = 7; 
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y); 
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
@@ -98,10 +110,12 @@ bool Player::Update()
 		
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
 		vel = b2Vec2(-speed, -GRAVITY_Y);
+		currentAnimation = &walk_r;
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
 		vel = b2Vec2(speed, -GRAVITY_Y);
+		currentAnimation = &walk_r;
 	}
 
 	
@@ -129,6 +143,15 @@ bool Player::Update()
 	//Update player position in pixels
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
+
+	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE) {
+
+		currentAnimation = &idle;
+
+	}
 
 	currentAnimation->Update();
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
