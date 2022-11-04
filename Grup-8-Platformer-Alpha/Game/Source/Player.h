@@ -33,13 +33,18 @@ public:
 	Animation* currentAnimation = nullptr;
 
 
-	Animation idle;
+	Animation idle_r;
+	Animation idle_l;
 	Animation walk_r;
 	Animation walk_l;
-	Animation kneel;
+	Animation run_r;
+	Animation run_l;
+	Animation kneel_r;
+	Animation kneel_l;
 	Animation jump_up;
 	Animation jump_down;
 	Animation death;
+
 
 private:
 
@@ -56,6 +61,7 @@ private:
 	bool salto = false;
 	int i;
 
+	bool derecha = true;
 
 
 

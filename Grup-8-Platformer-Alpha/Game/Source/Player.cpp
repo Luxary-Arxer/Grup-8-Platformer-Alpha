@@ -14,9 +14,6 @@ Player::Player() : Entity(EntityType::PLAYER)
 {
 	name.Create("Player");
 
-
-
-
 }
 
 Player::~Player() {
@@ -25,30 +22,53 @@ Player::~Player() {
 
 bool Player::Awake() {
 
-	//Idle animation
-	idle.PushBack({ 0, 0, 64, 64 });
-	idle.PushBack({ 64, 0, 64, 64 });
-	idle.PushBack({ 0, 0, 64, 64 });
-	idle.PushBack({ 64, 0, 64, 64 });
-	idle.PushBack({ 0, 0, 64, 64 });
-	idle.PushBack({ 64, 0, 64, 64 });
-	idle.PushBack({ 0, 64, 64, 64 });
-	idle.PushBack({ 64, 64, 64, 64 });
-	idle.loop = true;
-	idle.speed = 0.04f;
+	//Idle_r animation
+	idle_r.PushBack({ 0, 0, 64, 64 });
+	idle_r.PushBack({ 64, 0, 64, 64 });
+	idle_r.PushBack({ 0, 0, 64, 64 });
+	idle_r.PushBack({ 64, 0, 64, 64 });
+	idle_r.PushBack({ 0, 0, 64, 64 });
+	idle_r.PushBack({ 64, 0, 64, 64 });
+	idle_r.PushBack({ 64*2, 0, 64, 64 });
+	idle_r.PushBack({ 64*3, 0, 64, 64 });
+	idle_r.loop = true;
+	idle_r.speed = 0.04f;
 
+	//Idle_l animation
+	idle_l.PushBack({ 64*7, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 6, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 7, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 6, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 7, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 6, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 5, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 4, 0, 64, 64 });
+	idle_l.loop = true;
+	idle_l.speed = 0.04f;
 
-	//Idle animation
-	walk_r.PushBack({ 0, 192, 64, 64 });
-	walk_r.PushBack({ 64, 192, 64, 64 });
-	walk_r.PushBack({ 64*2, 192, 64, 64 });
-	walk_r.PushBack({ 64*3, 192, 64, 64 });
-	walk_r.PushBack({ 64 * 4, 192, 64, 64 });
-	walk_r.PushBack({ 64 * 5, 192, 64, 64 });
-	walk_r.PushBack({ 64 * 6, 192, 64, 64 });
-	walk_r.PushBack({ 64 * 7, 192, 64, 64 });
-	walk_r.loop = true;
-	walk_r.speed = 0.09f;
+	//Run_r animation
+	run_r.PushBack({ 64 * 0, 192, 64, 64 });
+	run_r.PushBack({ 64 * 1, 192, 64, 64 });
+	run_r.PushBack({ 64 * 2, 192, 64, 64 });
+	run_r.PushBack({ 64 * 3, 192, 64, 64 });
+	run_r.PushBack({ 64 * 4, 192, 64, 64 });
+	run_r.PushBack({ 64 * 5, 192, 64, 64 });
+	run_r.PushBack({ 64 * 6, 192, 64, 64 });
+	run_r.PushBack({ 64 * 7, 192, 64, 64 });
+	run_r.loop = true;
+	run_r.speed = 0.09f;
+
+	//Run_l animation
+	run_l.PushBack({ 64 * 7, 128, 64, 64 });
+	run_l.PushBack({ 64 * 6, 128, 64, 64 });
+	run_l.PushBack({ 64 * 5, 128, 64, 64 });
+	run_l.PushBack({ 64 * 4, 128, 64, 64 });
+	run_l.PushBack({ 64 * 3, 128, 64, 64 });
+	run_l.PushBack({ 64 * 2, 128, 64, 64 });
+	run_l.PushBack({ 64 * 1, 128, 64, 64 });
+	run_l.PushBack({ 64 * 0, 128, 64, 64 });
+	run_l.loop = true;
+	run_l.speed = 0.09f;
 
 
 
@@ -70,12 +90,12 @@ bool Player::Start() {
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
-	currentAnimation = &idle;
+	currentAnimation = &idle_r;
 
 
 
 	// L07 DONE 5: Add physics to the player - initialize physics body
-	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 32, bodyType::DYNAMIC);
+	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 30, bodyType::DYNAMIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this; 
@@ -106,23 +126,36 @@ bool Player::Update()
 	}
 	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {
 		//
+		if (derecha == true) {
+			currentAnimation = &kneel_r;
+		}
+		if (derecha == false) {
+			currentAnimation = &kneel_l;
+		}
 	}
 		
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+		position.x = position.x-7;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
-		currentAnimation = &walk_r;
+		derecha = false;
+		currentAnimation = &run_l;
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+		position.x = position.x + 7;
 		vel = b2Vec2(speed, -GRAVITY_Y);
-		currentAnimation = &walk_r;
+		derecha = true;
+		currentAnimation = &run_r;
 	}
 
 	
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
-		
 		salto = true;
 		i = 0;
+
+
+
+
 
 	}
 
@@ -144,12 +177,19 @@ bool Player::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
+
+	//comprovar si esta en idle
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE) {
+		if (derecha == true) {
+			currentAnimation = &idle_r;
+		}
+		if (derecha == false) {
+			currentAnimation = &idle_l;
+		}
 
-		currentAnimation = &idle;
 
 	}
 
@@ -180,6 +220,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
+
 			break;
 		case ColliderType::WATER:
 			LOG("Collision WATER");

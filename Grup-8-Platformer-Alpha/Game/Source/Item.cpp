@@ -54,3 +54,18 @@ bool Item::CleanUp()
 {
 	return true;
 }
+
+void Item::OnCollision(PhysBody* physA, PhysBody* physB) {
+
+	// L07 DONE 7: Detect the type of collision
+
+	switch (physB->ctype)
+	{
+
+	case ColliderType::WATER:
+		LOG("Collision WATER");
+		//void DestroyBody(b2Body * body);
+		break;
+	}
+
+}
