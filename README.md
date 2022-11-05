@@ -17,10 +17,9 @@ The goal is having a simple platformer with levels created with Tiled. There mus
 
 ## Developers
 
- - {Enric Arxer} - {Role(s)}
- - {Dev02} - {Role(s)}
- - {Dev03} - {Role(s)}
- - {Dev04} - {Role(s)}
+ - {Enric Arxer}- {Luxary-92} - {Role(s)}
+ - {Nixon Correa}- {Nixonbit3} -  - {Role(s)}
+
 
 ## License
 
