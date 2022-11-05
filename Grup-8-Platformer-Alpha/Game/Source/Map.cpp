@@ -196,7 +196,7 @@ bool Map::Load()
 
 
     // COLLIDER PLATFORM
-    PhysBody* c1 = app->physics->CreateRectangle(224 + 128, 543 + 32, 256, 64, STATIC);
+    PhysBody* c1 = app->physics->CreateRectangle(224 + 128, 543 + 32, 256, 63, STATIC);
     // L07 DONE 7: Assign collider type
     c1->ctype = ColliderType::PLATFORM;
 
@@ -229,7 +229,7 @@ bool Map::Load()
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
     c8->ctype = ColliderType::UNKNOWN;
 
-    PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 546, 252, 5, STATIC); //Abajo
+    PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 545, 252, 5, STATIC); //Arriba
     c9->ctype = ColliderType::UNKNOWN;
 
     PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 62, 122, 5, STATIC); // Abajo
