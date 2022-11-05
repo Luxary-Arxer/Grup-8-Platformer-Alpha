@@ -20,6 +20,11 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  - {Enric Arxer}- {Luxary-92} - {Role(s)}
  - {Nixon Correa}- {Nixonbit3} -  - {Role(s)}
 
+### Creator of the main character
+
+- {Penzilla}
+https://penzilla.itch.io/
+https://penzilla.itch.io/hooded-protagonist
 
 ## License
 
