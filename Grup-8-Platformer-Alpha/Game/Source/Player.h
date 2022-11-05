@@ -5,6 +5,7 @@
 #include "Point.h"
 #include "SDL/include/SDL.h"
 #include "Animation.h"
+#include <time.h>
 
 struct SDL_Texture;
 
@@ -47,8 +48,11 @@ public:
 	Animation kneel_l;
 	Animation kneelup_l;
 
-	Animation jump_up;
-	Animation jump_down;
+	Animation jump_up_r;
+	Animation jump_up_l;
+	Animation jump_down_r;
+	Animation jump_down_l;
+
 	Animation death;
 
 	Animation test;
@@ -69,7 +73,12 @@ private:
 	bool salto = false;
 	bool usalto = false;
 	bool hit = false;
+	bool caida = false;
 	int i;
+
+
+
+	
 
 	bool derecha = true;
 

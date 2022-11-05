@@ -10,6 +10,10 @@
 #include "Physics.h"
 #include "Animation.h"
 
+
+#include <windows.h>
+#include <time.h>
+
 Player::Player() : Entity(EntityType::PLAYER)
 {
 	name.Create("Player");
@@ -117,6 +121,35 @@ bool Player::Awake() {
 	death.loop = false;
 	death.speed = 0.09f;
 
+	//jump animation
+	jump_up_r.PushBack({ 64 * 0, 384, 64, 64 });
+	jump_up_r.PushBack({ 64 * 1, 384, 64, 64 });
+	jump_up_r.PushBack({ 64 * 2, 384, 64, 64 });
+	jump_up_r.PushBack({ 64 * 3, 384, 64, 64 });
+	jump_up_r.loop = false;
+	jump_up_r.speed = 0.15f;
+
+	jump_down_r.PushBack({ 64 * 4, 384, 64, 64 });
+	jump_down_r.PushBack({ 64 * 5, 384, 64, 64 });
+	jump_down_r.PushBack({ 64 * 6, 384, 64, 64 });
+	jump_down_r.PushBack({ 64 * 7, 384, 64, 64 });
+	jump_down_r.loop = true;
+	jump_down_r.speed = 0.09f;
+
+
+	jump_up_l.PushBack({ 64 * 7, 448, 64, 64 });
+	jump_up_l.PushBack({ 64 * 6, 448, 64, 64 });
+	jump_up_l.PushBack({ 64 * 5, 448, 64, 64 });
+	jump_up_l.PushBack({ 64 * 4, 448, 64, 64 });
+	jump_up_l.loop = false;
+	jump_up_l.speed = 0.15;
+
+	jump_down_l.PushBack({ 64 * 3, 448, 64, 64 });
+	jump_down_l.PushBack({ 64 * 2, 448, 64, 64 });
+	jump_down_l.PushBack({ 64 * 1, 448, 64, 64 });
+	jump_down_l.PushBack({ 64 * 0, 448, 64, 64 });
+	jump_down_l.loop = true;
+	jump_down_l.speed = 0.09f;
 
 	test.PushBack({ 64 * 6, 256, 64, 64 });
 	test.loop = true;
@@ -162,8 +195,12 @@ bool Player::Start() {
 
 bool Player::Update()
 {
+	// contador 
+
+
 
 	// L07 DONE 5: Add physics to the player - updated player position using physics
+	
 
 	int speed = 7; 
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y); 
@@ -176,6 +213,15 @@ bool Player::Update()
 			currentAnimation = &death;
 		}
 	}
+
+	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
+		if (currentAnimation != &jump_down_r)
+		{
+			jump_down_r.Reset();
+			currentAnimation = &jump_down_r;
+		}
+	}
+
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
@@ -204,27 +250,45 @@ bool Player::Update()
 		position.x = position.x-7;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
 		derecha = false;
-		currentAnimation = &run_l;
+		if (salto == false && usalto == false) {
+			currentAnimation = &run_l;
+		}
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
 		position.x = position.x + 7;
 		vel = b2Vec2(speed, -GRAVITY_Y);
 		derecha = true;
-		currentAnimation = &run_r;
-	}
-	if (app->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN) {
-		if (currentAnimation != &death)
-		{
-			death.Reset();
-			currentAnimation = &death;
+		if (salto == false && usalto == false) {
+			currentAnimation = &run_r;
 		}
+
 	}
+
 	
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false) {
 		salto = true;
 		i = 0;
 		usalto = true;
+
+
+		// Animacniones Salto Arriba
+		if (derecha == true) {
+			if (currentAnimation != &jump_up_r)
+			{
+				jump_up_r.Reset();
+				currentAnimation = &jump_up_r;
+
+			}
+		}
+		if (derecha == false) {
+			if (currentAnimation != &jump_up_l)
+			{
+				jump_up_l.Reset();
+				currentAnimation = &jump_up_l;
+
+			}
+		}
 	}
 
 	if (salto == true && usalto == true)
@@ -232,7 +296,31 @@ bool Player::Update()
 		if (i > 25)
 		{
 			salto = false;
+
+
 		}
+		if (i == 25)
+		{
+			if (derecha == true) {
+				if (currentAnimation != &jump_down_r)
+				{
+					jump_down_r.Reset();
+					currentAnimation = &jump_down_r;
+
+				}
+			}
+			if (derecha == false) {
+				if (currentAnimation != &jump_down_l)
+				{
+					jump_down_l.Reset();
+					currentAnimation = &jump_down_l;
+
+				}
+			}
+		}
+		// Animacniones Salto Abajo
+
+
 		vel = b2Vec2(vel.x, GRAVITY_Y);
 
 		i++;
@@ -245,10 +333,8 @@ bool Player::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
-
 	//comprovar si esta en idle
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP ) {
-
 
 		if (currentAnimation != &kneelup_r) {
 			if (derecha == true) {
@@ -264,20 +350,26 @@ bool Player::Update()
 				{
 					kneelup_l.Reset();
 					currentAnimation = &kneelup_l;
-
 				}
 			}
 		}
+		//if (derecha == true) {
 
+		//	currentAnimation = &idle_r;
+		//}
+		//if (derecha == false) {
+		//	currentAnimation = &idle_l;
+		//}
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE
-		&& app->input->GetKey(SDL_SCANCODE_M) == KeyState::KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_T) == KeyState::KEY_IDLE
 		&& currentAnimation != &kneelup_l
 		&& currentAnimation != &kneelup_r
+		&& salto == false
 		&& usalto == false
 		&& hit == false) {
 
