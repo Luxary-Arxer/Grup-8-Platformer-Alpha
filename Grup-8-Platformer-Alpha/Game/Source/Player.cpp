@@ -70,13 +70,61 @@ bool Player::Awake() {
 	run_l.loop = true;
 	run_l.speed = 0.09f;
 
+	//kneel_r animation
+	kneel_r.PushBack({ 64 * 0, 256, 64, 64 });
+	kneel_r.PushBack({ 64 * 1, 256, 64, 64 });
+	kneel_r.PushBack({ 64 * 2, 256, 64, 64 });
+	kneel_r.PushBack({ 64 * 3, 256, 64, 64 });
+	kneel_r.loop = false;
+	kneel_r.speed = 0.15f;
 
+	//kneelup_r animation
+	kneelup_r.PushBack({ 64 * 3, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 4, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 5, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 0, 256, 64, 64 });
+	kneelup_r.loop = false;
+	kneelup_r.speed = 0.09f;
+
+
+
+	//kneel_l animation
+	kneel_l.PushBack({ 64 * 5, 320, 64, 64 });
+	kneel_l.PushBack({ 64 * 4, 320, 64, 64 });
+	kneel_l.PushBack({ 64 * 3, 320, 64, 64 });
+	kneel_l.PushBack({ 64 * 2, 320, 64, 64 });
+	kneel_l.loop = false;
+	kneel_l.speed = 0.15f;
+
+	//kneelup_l animation
+	kneelup_l.PushBack({ 64 * 2, 320, 64, 64 });
+	kneelup_l.PushBack({ 64 * 1, 320, 64, 64 });
+	kneelup_l.PushBack({ 64 * 0, 320, 64, 64 });
+	kneelup_l.PushBack({ 64 * 5, 320, 64, 64 });
+	kneelup_l.loop = false;
+	kneelup_l.speed = 0.09f;
+
+
+	//death animation
+	death.PushBack({ 64 * 0, 576, 64, 64 });
+	death.PushBack({ 64 * 1, 576, 64, 64 });
+	death.PushBack({ 64 * 2, 576, 64, 64 });
+	death.PushBack({ 64 * 3, 576, 64, 64 });
+	death.PushBack({ 64 * 4, 576, 64, 64 });
+	death.PushBack({ 64 * 5, 576, 64, 64 });
+	death.PushBack({ 64 * 6, 576, 64, 64 });
+	death.PushBack({ 64 * 7, 576, 64, 64 });
+	death.loop = false;
+	death.speed = 0.09f;
+
+
+	test.PushBack({ 64 * 6, 256, 64, 64 });
+	test.loop = true;
+	test.speed = 0.09f;
 
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
 	//texturePath = "Assets/Textures/player/idle1.png";
-
-
 
 	//L02: DONE 5: Get Player parameters from XML
 	position.x = parameters.attribute("x").as_int();
@@ -120,19 +168,37 @@ bool Player::Update()
 	int speed = 7; 
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y); 
 
+	if (hit == true) {
+		printf("_Death_");
+		if (currentAnimation != &death)
+		{
+			death.Reset();
+			currentAnimation = &death;
+		}
+	}
+
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
 		//
 	}
 	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {
-		//
+
 		if (derecha == true) {
-			currentAnimation = &kneel_r;
+			if (currentAnimation != &kneel_r)
+			{
+				kneel_r.Reset();
+				currentAnimation = &kneel_r;
+			}
 		}
 		if (derecha == false) {
-			currentAnimation = &kneel_l;
+			if (currentAnimation != &kneel_l)
+			{
+				kneel_l.Reset();
+				currentAnimation = &kneel_l;
+			}
 		}
 	}
+
 		
 	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
 		position.x = position.x-7;
@@ -147,16 +213,18 @@ bool Player::Update()
 		derecha = true;
 		currentAnimation = &run_r;
 	}
-
+	if (app->input->GetKey(SDL_SCANCODE_M) == KEY_DOWN) {
+		if (currentAnimation != &death)
+		{
+			death.Reset();
+			currentAnimation = &death;
+		}
+	}
 	
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false) {
 		salto = true;
 		i = 0;
 		usalto = true;
-
-
-
-
 	}
 
 	if (salto == true && usalto == true)
@@ -179,10 +247,40 @@ bool Player::Update()
 
 
 	//comprovar si esta en idle
+	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP ) {
+
+
+		if (currentAnimation != &kneelup_r) {
+			if (derecha == true) {
+				if (currentAnimation != &kneelup_r)
+				{
+					kneelup_r.Reset();
+					currentAnimation = &kneelup_r;
+
+				}
+			}
+			if (derecha == false) {
+				if (currentAnimation != &kneelup_l)
+				{
+					kneelup_l.Reset();
+					currentAnimation = &kneelup_l;
+
+				}
+			}
+		}
+
+	}
+
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
-		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE) {
+		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE
+		&& app->input->GetKey(SDL_SCANCODE_M) == KeyState::KEY_IDLE
+		&& currentAnimation != &kneelup_l
+		&& currentAnimation != &kneelup_r
+		&& usalto == false
+		&& hit == false) {
+
 		if (derecha == true) {
 			currentAnimation = &idle_r;
 		}
@@ -190,11 +288,14 @@ bool Player::Update()
 			currentAnimation = &idle_l;
 		}
 
-
 	}
+
+
 
 	currentAnimation->Update();
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
+
+
 
 	app->render->DrawTexture(texture, position.x-16, position.y-16, &rect);
 
@@ -220,12 +321,14 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
+			hit = false;
 			//usalto = false;
-
 			break;
 		case ColliderType::WATER:
 			LOG("Collision WATER");
+			hit = true;
 			app->audio->PlayFx(deathsound);
+			usalto = false;
 			break;
 		case ColliderType::UNKNOWN:
 			LOG("Collision UNKNOWN");

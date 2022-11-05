@@ -64,7 +64,20 @@ void Item::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::WATER:
 		LOG("Collision WATER");
-		//void DestroyBody(b2Body * body);
+		//DestroyBody(pbody);
+		// = app->physics->CreateCircle(position.x + 16, position.y + 16, 16, bodyType::DYNAMIC);
+		break;
+	case ColliderType::PLAYER:
+		LOG("Collision PLAYER");
+
+		break;
+	case ColliderType::PLATFORM:
+		LOG("Collision PLATFORM");
+
+		break;
+
+	case ColliderType::UNKNOWN:
+		LOG("Collision UNKNOWN");
 		break;
 	}
 

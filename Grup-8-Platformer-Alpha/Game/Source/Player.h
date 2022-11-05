@@ -35,15 +35,23 @@ public:
 
 	Animation idle_r;
 	Animation idle_l;
+
 	Animation walk_r;
 	Animation walk_l;
+
 	Animation run_r;
 	Animation run_l;
+
 	Animation kneel_r;
+	Animation kneelup_r;
 	Animation kneel_l;
+	Animation kneelup_l;
+
 	Animation jump_up;
 	Animation jump_down;
 	Animation death;
+
+	Animation test;
 
 
 private:
@@ -60,6 +68,7 @@ private:
 
 	bool salto = false;
 	bool usalto = false;
+	bool hit = false;
 	int i;
 
 	bool derecha = true;

@@ -207,19 +207,23 @@ bool Map::Load()
     c3->ctype = ColliderType::PLATFORM;
 
 
-    PhysBody* c4 = app->physics->CreateRectangle(256+ 576+32*3, 704 + 32, 576, 64, STATIC);
+    PhysBody* c4 = app->physics->CreateRectangle(256+ 576+32*3+96, 704 + 32, 576, 64, STATIC);
     c4->ctype = ColliderType::PLATFORM;
 
+    //COLLIDER Limite pantalla
+
+    PhysBody* c13 = app->physics->CreateRectangle(-4, 384, 4, 768, STATIC);
+    c13->ctype = ColliderType::PLATFORM;
+
     //COLLIDER WATER
-    PhysBody* c5 = app->physics->CreateRectangle(48+544, 704 + 64+16, 96, 64, STATIC);
-    c5->ctype = ColliderType::WATER;
+    PhysBody* c12 = app->physics->CreateRectangle(544+96, 768+32, 192, 64, STATIC);
+    c12->ctype = ColliderType::WATER;
 
-    //COLLIDER AUXILIAR
-
+    //COLLIDER UNKNOWN
     PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC); //Abajo
     c6->ctype = ColliderType::UNKNOWN;
 
-    PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3, 704 + 32, 576, 64, STATIC);
+    PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3 + 96, 704 + 32, 576, 64, STATIC);
     c7->ctype = ColliderType::UNKNOWN;
 
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);

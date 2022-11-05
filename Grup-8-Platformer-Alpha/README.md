@@ -1,8 +1,8 @@
-# {Project Name}
+# {Grup-8-Platformer-Alpha}
 
 ## Description
 
-{project description}
+The goal is having a simple platformer with levels created with Tiled. There must be a main character moving around while being able to save and load the game's state.
 
 ## Key Features
 
@@ -13,11 +13,11 @@
  
 ## Controls
 
- - {ControlsScheme}
+ - {WASD + SPACE + F9}
 
 ## Developers
 
- - {Dev01} - {Role(s)}
+ - {Enric Arxer} - {Role(s)}
  - {Dev02} - {Role(s)}
  - {Dev03} - {Role(s)}
  - {Dev04} - {Role(s)}
