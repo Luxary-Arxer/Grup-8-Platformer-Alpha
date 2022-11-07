@@ -219,24 +219,24 @@ bool Map::Load()
     PhysBody* c12 = app->physics->CreateRectangle(544+96, 768+32, 192, 64, STATIC);
     c12->ctype = ColliderType::WATER;
 
-    //COLLIDER UNKNOWN
+    //COLLIDER TERRAIN
     PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC); //Abajo
-    c6->ctype = ColliderType::UNKNOWN;
+    c6->ctype = ColliderType::TERRAIN;
 
     PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3 + 96, 704 + 32, 576, 64, STATIC);
-    c7->ctype = ColliderType::UNKNOWN;
+    c7->ctype = ColliderType::TERRAIN;
 
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
-    c8->ctype = ColliderType::UNKNOWN;
+    c8->ctype = ColliderType::TERRAIN;
 
     PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 545, 252, 5, STATIC); //Arriba
-    c9->ctype = ColliderType::UNKNOWN;
+    c9->ctype = ColliderType::TERRAIN;
 
     PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 62, 122, 5, STATIC); // Abajo
-    c10->ctype = ColliderType::UNKNOWN;
+    c10->ctype = ColliderType::TERRAIN;
 
     PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 386, 122, 5, STATIC); //Arriba
-    c11->ctype = ColliderType::UNKNOWN;
+    c11->ctype = ColliderType::TERRAIN;
 
     if(ret == true)
     {

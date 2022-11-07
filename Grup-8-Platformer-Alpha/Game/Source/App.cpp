@@ -20,7 +20,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 {
 	frames = 0;
 
-	input = new Input(true);
+	input = new Input();
 	win = new Window();
 	render = new Render();
 

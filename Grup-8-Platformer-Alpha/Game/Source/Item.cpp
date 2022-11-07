@@ -76,8 +76,8 @@ void Item::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 		break;
 
-	case ColliderType::UNKNOWN:
-		LOG("Collision UNKNOWN");
+	case ColliderType::TERRAIN:
+		LOG("Collision TERRAIN");
 		break;
 	}
 

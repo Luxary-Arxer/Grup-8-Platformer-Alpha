@@ -433,8 +433,8 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			usalto2 = true;
 			posy = position.y;
 			break;
-		case ColliderType::UNKNOWN:
-			LOG("Collision UNKNOWN");
+		case ColliderType::TERRAIN:
+			LOG("Collision TERRAIN");
 			salto = false;
 			usalto = false;
 			usalto2 = true;
