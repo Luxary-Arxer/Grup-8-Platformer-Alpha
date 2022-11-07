@@ -17,6 +17,9 @@ class Textures;
 class Audio;
 class Scene;
 class EntityManager;
+class SceneLogo;
+class SceneTitle;
+class SceneEnding;
 class Map;
 //L07 DONE 2: Add Physics module
 class Physics;
