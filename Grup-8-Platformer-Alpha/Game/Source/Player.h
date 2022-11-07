@@ -72,6 +72,8 @@ private:
 
 	bool salto = false;
 	bool usalto = false;
+	bool usalto2 = false;
+	int posy = position.y;
 	bool hit = false;
 	bool caida = false;
 	int i;

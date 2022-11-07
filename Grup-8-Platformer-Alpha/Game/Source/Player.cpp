@@ -189,6 +189,7 @@ bool Player::Start() {
 	deathsound = app->audio->LoadFx("Assets/Audio/Fx/Death-sound-in-Minecraft.ogg");
 
 	salto = false;
+	posy = position.y;
 
 	return true;
 }
@@ -265,8 +266,12 @@ bool Player::Update()
 
 	}
 
-	
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false) {
+	if (position.y > posy+7)
+	{
+		usalto2 = false;
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true) {
 		salto = true;
 		i = 0;
 		usalto = true;
@@ -293,6 +298,7 @@ bool Player::Update()
 
 	if (salto == true && usalto == true)
 	{
+
 		if (i > 25)
 		{
 			salto = false;
@@ -325,6 +331,8 @@ bool Player::Update()
 
 		i++;
 	}
+
+	
 
 	//Set the velocity of the pbody of the player
 	pbody->body->SetLinearVelocity(vel);
@@ -415,19 +423,26 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			LOG("Collision PLATFORM");
 			hit = false;
 			//usalto = false;
+			posy = position.y;
 			break;
 		case ColliderType::WATER:
 			LOG("Collision WATER");
 			hit = true;
 			app->audio->PlayFx(deathsound);
 			usalto = false;
+			usalto2 = true;
+			posy = position.y;
 			break;
 		case ColliderType::UNKNOWN:
 			LOG("Collision UNKNOWN");
 			usalto = false;
+			usalto2 = true;
+			posy = position.y;
 			break;
 	}
 	
 
 
 }
+
+
