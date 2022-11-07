@@ -332,8 +332,8 @@ bool Player::Update()
 		i++;
 	}
 
-
-	if (position.x > 1024/2)
+	// La camara sigue al jugador
+	if (position.x > 1024/2 && position.x < 2048- 1024 / 2)
 	{
 		app->render->camera.x = -position.x + 1024- 1024/2;
 	}

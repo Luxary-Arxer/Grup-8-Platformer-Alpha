@@ -215,8 +215,11 @@ bool Map::Load()
     PhysBody* c13 = app->physics->CreateRectangle(-4, 384, 4, 768, STATIC);
     c13->ctype = ColliderType::TERRAIN;
 
+    PhysBody* c14 = app->physics->CreateRectangle(2048+4, 384, 4, 768, STATIC);
+    c14->ctype = ColliderType::TERRAIN;
+
     //COLLIDER WATER
-    PhysBody* c12 = app->physics->CreateRectangle(544+96, 768+32, 192, 64, STATIC);
+    PhysBody* c12 = app->physics->CreateRectangle(0+ 2048/2, 768+32, 2048, 64, STATIC);
     c12->ctype = ColliderType::WATER;
 
     //COLLIDER TERRAIN
@@ -237,6 +240,9 @@ bool Map::Load()
 
     PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 386, 122, 5, STATIC); //Arriba
     c11->ctype = ColliderType::PLATFORM;
+
+    PhysBody* c15 = app->physics->CreateRectangle(352 + 64, 386, 122, 5, STATIC); //Arriba
+    c15->ctype = ColliderType::PLATFORM;
 
     if(ret == true)
     {
