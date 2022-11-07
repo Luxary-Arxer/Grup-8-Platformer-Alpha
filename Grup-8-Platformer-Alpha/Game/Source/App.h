@@ -9,6 +9,7 @@
 #define CONFIG_FILENAME		"config.xml"
 #define SAVE_STATE_FILENAME "save_game.xml"
 
+
 // Modules
 class Window;
 class Input;
@@ -84,8 +85,8 @@ private:
 public:
 
 	// Modules
-	Window* win;
-	Input* input;
+	Window* win = nullptr;;
+	Input* input = nullptr;;
 	Render* render;
 	Textures* tex;
 	Audio* audio;

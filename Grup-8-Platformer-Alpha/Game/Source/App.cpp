@@ -20,9 +20,10 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 {
 	frames = 0;
 
-	input = new Input();
+	input = new Input(true);
 	win = new Window();
 	render = new Render();
+
 	tex = new Textures();
 	audio = new Audio();
 	//L07 DONE 2: Add Physics module
