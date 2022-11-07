@@ -332,6 +332,13 @@ bool Player::Update()
 		i++;
 	}
 
+
+	if (position.x > 1024/2)
+	{
+		app->render->camera.x = -position.x + 1024- 1024/2;
+	}
+
+
 	
 
 	//Set the velocity of the pbody of the player
