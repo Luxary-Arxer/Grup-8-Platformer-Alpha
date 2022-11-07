@@ -198,7 +198,7 @@ bool Map::Load()
     // COLLIDER PLATFORM
     PhysBody* c1 = app->physics->CreateRectangle(224 + 128, 543 + 32, 256, 63, STATIC);
     // L07 DONE 7: Assign collider type
-    c1->ctype = ColliderType::PLATFORM;
+    c1->ctype = ColliderType::TERRAIN;
 
     PhysBody* c2 = app->physics->CreateRectangle(352 + 64, 384 + 32, 128, 64, STATIC);
     c2->ctype = ColliderType::TERRAIN;
@@ -207,8 +207,8 @@ bool Map::Load()
     c3->ctype = ColliderType::TERRAIN;
 
 
-    PhysBody* c4 = app->physics->CreateRectangle(256+ 576+32*3+96, 704 + 32, 576, 64, STATIC);
-    c4->ctype = ColliderType::TERRAIN;
+    //PhysBody* c4 = app->physics->CreateRectangle(1792+192, 704 + 32, 1600, 64, STATIC);
+    //c4->ctype = ColliderType::TERRAIN;
 
     //COLLIDER Limite pantalla
 
@@ -226,7 +226,7 @@ bool Map::Load()
     PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC); //Abajo
     c6->ctype = ColliderType::PLATFORM;
 
-    PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3 + 96, 704 + 32, 576, 64, STATIC);
+    PhysBody* c7 = app->physics->CreateRectangle(1792 -256, 704 + 32, 1600, 64, STATIC);
     c7->ctype = ColliderType::PLATFORM;
 
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);

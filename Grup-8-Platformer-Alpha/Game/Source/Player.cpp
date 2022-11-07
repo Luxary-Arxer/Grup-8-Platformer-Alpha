@@ -442,6 +442,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
+			hit = false;
 			salto = false;
 			usalto = false;
 			usalto2 = true;
