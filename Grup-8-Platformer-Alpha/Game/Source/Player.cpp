@@ -266,7 +266,7 @@ bool Player::Update()
 
 	}
 
-	if (position.y > posy+7)
+	if (position.y > posy+8)
 	{
 		usalto2 = false;
 	}
@@ -435,6 +435,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::UNKNOWN:
 			LOG("Collision UNKNOWN");
+			salto = false;
 			usalto = false;
 			usalto2 = true;
 			posy = position.y;

@@ -70,13 +70,13 @@ private:
 	int pickCoinFxId;
 	int deathsound;
 
-	bool salto = false;
-	bool usalto = false;
-	bool usalto2 = false;
-	int posy = position.y;
+	bool salto = false; //false = no esta saltando / true = esta saltando
+	bool usalto = false; //Puede hacer salto (true = no puede hacer salto)
+	bool usalto2 = false;//Si esta en el aire no puede hacer salto
+	int posy = position.y;//Si la posicion cambia despues de tocar una plataforma = esta en el aire
 	bool hit = false;
 	bool caida = false;
-	int i;
+	int i;//altitud del salto (definido en la funcion)
 
 
 
