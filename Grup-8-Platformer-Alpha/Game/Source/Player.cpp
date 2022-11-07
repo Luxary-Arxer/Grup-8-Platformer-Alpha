@@ -419,8 +419,8 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			LOG("Collision ITEM");
 			//app->audio->PlayFx(pickCoinFxId);
 			break;
-		case ColliderType::PLATFORM:
-			LOG("Collision PLATFORM");
+		case ColliderType::TERRAIN:
+			LOG("Collision TERRAIN");
 			hit = false;
 			//usalto = false;
 			posy = position.y;
@@ -433,8 +433,8 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			usalto2 = true;
 			posy = position.y;
 			break;
-		case ColliderType::TERRAIN:
-			LOG("Collision TERRAIN");
+		case ColliderType::PLATFORM:
+			LOG("Collision PLATFORM");
 			salto = false;
 			usalto = false;
 			usalto2 = true;

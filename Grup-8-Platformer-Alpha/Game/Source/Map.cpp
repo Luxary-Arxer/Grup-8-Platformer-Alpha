@@ -201,19 +201,19 @@ bool Map::Load()
     c1->ctype = ColliderType::PLATFORM;
 
     PhysBody* c2 = app->physics->CreateRectangle(352 + 64, 384 + 32, 128, 64, STATIC);
-    c2->ctype = ColliderType::PLATFORM;
+    c2->ctype = ColliderType::TERRAIN;
 
     PhysBody* c3 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
-    c3->ctype = ColliderType::PLATFORM;
+    c3->ctype = ColliderType::TERRAIN;
 
 
     PhysBody* c4 = app->physics->CreateRectangle(256+ 576+32*3+96, 704 + 32, 576, 64, STATIC);
-    c4->ctype = ColliderType::PLATFORM;
+    c4->ctype = ColliderType::TERRAIN;
 
     //COLLIDER Limite pantalla
 
     PhysBody* c13 = app->physics->CreateRectangle(-4, 384, 4, 768, STATIC);
-    c13->ctype = ColliderType::PLATFORM;
+    c13->ctype = ColliderType::TERRAIN;
 
     //COLLIDER WATER
     PhysBody* c12 = app->physics->CreateRectangle(544+96, 768+32, 192, 64, STATIC);
@@ -221,22 +221,22 @@ bool Map::Load()
 
     //COLLIDER TERRAIN
     PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62, 252, 5, STATIC); //Abajo
-    c6->ctype = ColliderType::TERRAIN;
+    c6->ctype = ColliderType::PLATFORM;
 
     PhysBody* c7 = app->physics->CreateRectangle(256 + 576 + 32 * 3 + 96, 704 + 32, 576, 64, STATIC);
-    c7->ctype = ColliderType::TERRAIN;
+    c7->ctype = ColliderType::PLATFORM;
 
     PhysBody* c8 = app->physics->CreateRectangle(256, 704 + 32, 576, 64, STATIC);
-    c8->ctype = ColliderType::TERRAIN;
+    c8->ctype = ColliderType::PLATFORM;
 
     PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 545, 252, 5, STATIC); //Arriba
-    c9->ctype = ColliderType::TERRAIN;
+    c9->ctype = ColliderType::PLATFORM;
 
     PhysBody* c10 = app->physics->CreateRectangle(352 + 64, 384 + 62, 122, 5, STATIC); // Abajo
-    c10->ctype = ColliderType::TERRAIN;
+    c10->ctype = ColliderType::PLATFORM;
 
     PhysBody* c11 = app->physics->CreateRectangle(352 + 64, 386, 122, 5, STATIC); //Arriba
-    c11->ctype = ColliderType::TERRAIN;
+    c11->ctype = ColliderType::PLATFORM;
 
     if(ret == true)
     {
