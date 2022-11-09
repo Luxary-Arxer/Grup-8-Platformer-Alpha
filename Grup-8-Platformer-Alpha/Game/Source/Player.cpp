@@ -204,7 +204,7 @@ bool Player::Update()
 	
 
 	int speed = 7; 
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y); 
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3); 
 
 	if (hit == true) {
 		printf("_Death_");
@@ -266,7 +266,7 @@ bool Player::Update()
 
 	}
 
-	if (position.y > posy+8)
+	if (position.y > posy+10)
 	{
 		usalto2 = false;
 	}
@@ -275,6 +275,7 @@ bool Player::Update()
 		salto = true;
 		i = 0;
 		usalto = true;
+		j = 0;
 
 
 		// Animacniones Salto Arriba
@@ -299,7 +300,7 @@ bool Player::Update()
 	if (salto == true && usalto == true)
 	{
 
-		if (i > 25)
+		if (i > 30)
 		{
 			salto = false;
 
@@ -325,11 +326,21 @@ bool Player::Update()
 			}
 		}
 		// Animacniones Salto Abajo
+		/*
+		if (vel.x > 0)
+		{
+			vel = b2Vec2(vel.x - 2, -10.0f + j);
+		}
 
+		if (vel.x < 0)
+		{
+			vel = b2Vec2(vel.x + 2, -20.0f + j);
+		}*/
 
-		vel = b2Vec2(vel.x, GRAVITY_Y);
+		vel = b2Vec2(vel.x, -20.0f + j);
 
 		i++;
+		j += 0.8f;
 	}
 
 	// La camara sigue al jugador
