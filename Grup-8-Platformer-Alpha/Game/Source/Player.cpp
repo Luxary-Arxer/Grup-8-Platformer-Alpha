@@ -35,7 +35,7 @@ bool Player::Awake() {
 	idle_r.PushBack({ 64, 0, 64, 64 });
 	idle_r.PushBack({ 64*2, 0, 64, 64 });
 	idle_r.PushBack({ 64*3, 0, 64, 64 });
-	idle_r.loop = true;
+	idle_r.loop = false;
 	idle_r.speed = 0.04f;
 
 	//Idle_l animation
@@ -364,28 +364,26 @@ bool Player::Update()
 
 		if (currentAnimation != &kneelup_r) {
 			if (derecha == true) {
-				if (currentAnimation != &kneelup_r)
+
+				if (currentAnimation == &kneelup_r)
 				{
 					kneelup_r.Reset();
 					currentAnimation = &kneelup_r;
 
-				}
+				}		
+
 			}
 			if (derecha == false) {
-				if (currentAnimation != &kneelup_l)
+				if (currentAnimation == &kneelup_l)
 				{
 					kneelup_l.Reset();
 					currentAnimation = &kneelup_l;
 				}
+
 			}
 		}
-		//if (derecha == true) {
 
-		//	currentAnimation = &idle_r;
-		//}
-		//if (derecha == false) {
-		//	currentAnimation = &idle_l;
-		//}
+
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
@@ -405,7 +403,10 @@ bool Player::Update()
 		if (derecha == false) {
 			currentAnimation = &idle_l;
 		}
+		if (currentAnimation->HasFinished()) {
+			printf("3");
 
+		}
 	}
 
 
