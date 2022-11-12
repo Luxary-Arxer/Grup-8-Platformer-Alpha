@@ -78,6 +78,7 @@ private:
 	bool caida = false;
 	int i;//altitud del salto (definido en la funcion)
 	float j;
+	int salto2 = 0;
 
 
 	

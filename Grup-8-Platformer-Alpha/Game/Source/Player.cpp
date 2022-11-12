@@ -277,11 +277,12 @@ bool Player::Update()
 		usalto2 = false;
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true) {
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true || app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && salto2 == 1) {
 		salto = true;
 		i = 0;
 		usalto = true;
 		j = 0;
+		salto2++;
 
 
 		// Animacniones Salto Arriba
@@ -478,6 +479,7 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			salto = false;
 			usalto = false;
 			usalto2 = true;
+			salto2 = 0;
 			posy = position.y;
 			break;
 	}
