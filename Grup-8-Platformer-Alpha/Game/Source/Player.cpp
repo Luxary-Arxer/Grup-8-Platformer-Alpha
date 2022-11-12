@@ -207,13 +207,19 @@ bool Player::Update()
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3); 
 
 	if (hit == true) {
-		printf("_Death_");
+
 		if (currentAnimation != &death)
 		{
 			death.Reset();
 			currentAnimation = &death;
 		}
 	}
+	if (currentAnimation == &death) {
+		if (currentAnimation->HasFinished()) {
+			printf("_Death_");
+		}
+	}
+
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
 		if (currentAnimation != &jump_down_r)
@@ -359,7 +365,7 @@ bool Player::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
-	//comprovar si esta en idle
+	//Animacnion kneelup
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP ) {
 
 		//if (currentAnimation != &kneelup_r) {
@@ -401,7 +407,7 @@ bool Player::Update()
 		}
 	}
 
-
+	//comprovar si esta en idle
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_A) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
@@ -419,10 +425,7 @@ bool Player::Update()
 		if (derecha == false) {
 			currentAnimation = &idle_l;
 		}
-		if (currentAnimation->HasFinished()) {
-			printf("3");
 
-		}
 	}
 
 
