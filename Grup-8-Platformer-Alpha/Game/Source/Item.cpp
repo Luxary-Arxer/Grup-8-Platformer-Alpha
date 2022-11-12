@@ -62,8 +62,8 @@ void Item::OnCollision(PhysBody* physA, PhysBody* physB) {
 	switch (physB->ctype)
 	{
 
-	case ColliderType::WATER:
-		LOG("Collision WATER");
+	case ColliderType::DEATH:
+		LOG("Collision DEATH");
 		//DestroyBody(pbody);
 		// = app->physics->CreateCircle(position.x + 16, position.y + 16, 16, bodyType::DYNAMIC);
 		break;

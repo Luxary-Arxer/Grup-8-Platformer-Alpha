@@ -464,8 +464,8 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			//usalto = false;
 			posy = position.y;
 			break;
-		case ColliderType::WATER:
-			LOG("Collision WATER");
+		case ColliderType::DEATH:
+			LOG("Collision DEATH");
 			hit = true;
 			app->audio->PlayFx(deathsound);
 			salto = false;

@@ -29,6 +29,7 @@ enum class ColliderType {
 	TERRAIN,
 	PLATFORM,
 	WATER,
+	DEATH,
 	UNKNOWN
 	// ..
 };
