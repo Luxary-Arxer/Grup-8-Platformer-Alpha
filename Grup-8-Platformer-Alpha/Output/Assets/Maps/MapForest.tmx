@@ -57,12 +57,12 @@
   <image source="MapMetadata.png" width="67" height="34"/>
   <tile id="0">
    <properties>
-    <property name="Death" type="bool" value="true"/>
+    <property name="Death" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
-    <property name="Terrain" type="bool" value="true"/>
+    <property name="Terrain" type="bool" value="false"/>
    </properties>
   </tile>
  </tileset>
@@ -10880,8 +10880,7 @@
  <layer id="12" name="Collisiones" width="64" height="24" visible="0">
   <properties>
    <property name="Death" type="bool" value="false"/>
-   <property name="Draw" type="bool" value="false"/>
-   <property name="Terrain" type="bool" value="true"/>
+   <property name="Terrain" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
