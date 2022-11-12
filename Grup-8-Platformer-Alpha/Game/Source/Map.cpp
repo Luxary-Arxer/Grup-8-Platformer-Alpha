@@ -69,7 +69,6 @@ void Map::Draw()
 
                     //L06: DONE 3: Obtain the tile set using GetTilesetFromTileId
                     TileSet* tileset = GetTilesetFromTileId(gid);
-
                     SDL_Rect r = tileset->GetTileRect(gid);
                     iPoint pos = MapToWorld(x, y);
 
@@ -77,9 +76,32 @@ void Map::Draw()
                         pos.x,
                         pos.y,
                         &r);
+
+                    if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value == true) {
+
+                        PhysBody* ci = app->physics->CreateRectangle(pos.x/32, pos.y/32, 32, 32, STATIC);
+                        ci->ctype = ColliderType::PLATFORM;
+                    }
                 }
             }
         }
+        //if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value) {
+
+        //    for (int x = 0; x < mapLayerItem->data->width; x++)
+        //    {
+        //        for (int y = 0; y < mapLayerItem->data->height; y++)
+        //        {
+        //            // L05: DONE 9: Complete the draw function
+        //            int gid = mapLayerItem->data->Get(x, y);
+        //            TileSet* tileset = GetTilesetFromTileId(gid);
+        //            SDL_Rect r = tileset->GetTileRect(gid);
+        //            //L06: DONE 3: Obtain the tile set using GetTilesetFromTileId
+        //            iPoint pos = MapToWorld(x, y);
+        //            PhysBody* ci = app->physics->CreateRectangle(pos.x/2, pos.y/2, pos.x, pos.y, STATIC);
+        //            ci->ctype = ColliderType::PLATFORM;
+        //        }
+        //    }
+        //}
         mapLayerItem = mapLayerItem->next;
 
     }
