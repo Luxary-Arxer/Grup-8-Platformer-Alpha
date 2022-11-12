@@ -77,11 +77,11 @@ void Map::Draw()
                         pos.y,
                         &r);
 
-                    if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value == true) {
+                    //if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value) {
 
-                        PhysBody* ci = app->physics->CreateRectangle(pos.x/32, pos.y/32, 32, 32, STATIC);
-                        ci->ctype = ColliderType::PLATFORM;
-                    }
+                    //    PhysBody* ci = app->physics->CreateRectangle(pos.x/32, pos.y/32, 32, 32, STATIC);
+                    //    ci->ctype = ColliderType::PLATFORM;
+                    //}
                 }
             }
         }
@@ -248,10 +248,10 @@ bool Map::Load()
     PhysBody* c6 = app->physics->CreateRectangle(224 + 128, 543 + 62 -96, 252, 5, STATIC); //Abajo
     c6->ctype = ColliderType::PLATFORM;
 
-    PhysBody* c7 = app->physics->CreateRectangle(1792 -256, 704 - 96 + 32, 1600, 64, STATIC);
+    PhysBody* c7 = app->physics->CreateRectangle(1792 -256, 704-32, 1600, 128, STATIC);
     c7->ctype = ColliderType::PLATFORM;
 
-    PhysBody* c8 = app->physics->CreateRectangle(256, 704 +16 - 96 + 32, 576 - 64, 64+32, STATIC);
+    PhysBody* c8 = app->physics->CreateRectangle(256, 704-32, 576 - 64, 128, STATIC);
     c8->ctype = ColliderType::PLATFORM;
 
     PhysBody* c9 = app->physics->CreateRectangle(224 + 128, 545 -96, 252, 5, STATIC); //Arriba
