@@ -32,7 +32,7 @@ bool SceneTitle::Start()
 {
 	// Textures
 	count = 0;
-	logo = app->tex->Load("Assets/textures/test.png");
+	logo = app->tex->Load("Assets/textures/SceneTitle.png");
 	
 
 	return true;
@@ -51,14 +51,14 @@ bool SceneTitle::Update(float dt)
 	app->render->camera.y = 0;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 20);
 	}
-	if (count > 200) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
-	}
-	else {
-		count++;
-	}
+	//if (count > 200) {
+	//	app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
+	//}
+	//else {
+	//	count++;
+	//}
 
 	if (app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_UP) {
 		return false;
