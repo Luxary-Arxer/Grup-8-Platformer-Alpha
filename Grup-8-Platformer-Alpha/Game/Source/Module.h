@@ -73,6 +73,24 @@ public:
 
 	}
 
+	virtual void Enable() {
+		if (!active) {
+			active = true;
+			Start();
+		}
+	}
+
+	virtual void Disable() {
+		if (active) {
+			active = false;
+			CleanUp();
+		}
+	}
+
+	inline bool isEnabled() {
+		return active;
+	}
+
 public:
 
 	SString name;
