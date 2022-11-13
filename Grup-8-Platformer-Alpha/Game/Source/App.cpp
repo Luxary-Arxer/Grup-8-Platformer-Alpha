@@ -6,6 +6,8 @@
 #include "Audio.h"
 #include "Scene.h"
 #include "SceneLogo.h"
+#include "sceneEnding.h"
+#include "sceneTitle.h"
 #include "EntityManager.h"
 #include "Map.h"
 #include "Physics.h"
@@ -33,12 +35,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	fade = new FadeToBlack(this);
 
 	sceneLogo = new SceneLogo(this, true);
-	//sceneTitle = new SceneTitle(this, false);
+	sceneTitle = new SceneTitle(this, false);
 	scene = new Scene(this,false);
 	map = new Map(this, false);
 	//L07 DONE 2: Add Physics module
 	physics = new Physics(this, false);
-	//sceneEnding = new SceneEnding(this, false);
+	sceneEnding = new SceneEnding(this, false);
 	entityManager = new EntityManager(this, false);
 
 
@@ -51,11 +53,11 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(fade);
 		
 	AddModule(sceneLogo);
-	//AddModule(sceneTitle);
+	AddModule(sceneTitle);
 	//L07 DONE 2: Add Physics module
 	AddModule(physics);
 	AddModule(scene);
-	//AddModule(sceneEnding);
+	AddModule(sceneEnding);
 	AddModule(entityManager);
 	AddModule(map);
 

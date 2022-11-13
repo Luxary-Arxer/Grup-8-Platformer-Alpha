@@ -215,7 +215,7 @@ bool Player::Update()
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
 			printf("_Death_");
-			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneLogo, 10);
+			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
 	}
 

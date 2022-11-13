@@ -22,6 +22,8 @@
     <ClCompile Include="Source\Physics.cpp" />
     <ClCompile Include="Source\FadeToBlack.cpp" />
     <ClCompile Include="Source\SceneLogo.cpp" />
+    <ClCompile Include="Source\sceneEnding.cpp" />
+    <ClCompile Include="Source\sceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Window.h" />
@@ -68,6 +70,8 @@
     <ClInclude Include="Source\Animation.h" />
     <ClInclude Include="Source\FadeToBlack.h" />
     <ClInclude Include="Source\SceneLogo.h" />
+    <ClInclude Include="Source\sceneEnding.h" />
+    <ClInclude Include="Source\sceneTitle.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">

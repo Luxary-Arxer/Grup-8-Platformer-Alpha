@@ -4,22 +4,22 @@
 #include "Audio.h"
 #include "Render.h"
 #include "Window.h"
-#include "SceneLogo.h"
+#include "SceneTitle.h"
 #include "FadeToBlack.h"
 #include "Defs.h"
 #include "Log.h"
 
-SceneLogo::SceneLogo(App* application, bool start_enabled) : Module(application, start_enabled)
+SceneTitle::SceneTitle(App* application, bool start_enabled) : Module(application, start_enabled)
 {
-	name.Create("sceneLogo");
+	name.Create("SceneTitle");
 }
 
 // Destructor
-SceneLogo::~SceneLogo()
+SceneTitle::~SceneTitle()
 {}
 
 // Called before render is available
-bool SceneLogo::Awake()
+bool SceneTitle::Awake()
 {
 	LOG("Loading Logo Scene");
 	bool ret = true;
@@ -28,33 +28,33 @@ bool SceneLogo::Awake()
 }
 
 // Called before the first frame
-bool SceneLogo::Start()
+bool SceneTitle::Start()
 {
 	// Textures
 	count = 0;
-	logo = app->tex->Load("Assets/textures/IntroUPC.png");
+	logo = app->tex->Load("Assets/textures/test.png");
 	
 
 	return true;
 }
 
 // Called each loop iteration
-bool SceneLogo::PreUpdate()
+bool SceneTitle::PreUpdate()
 {
 	return true;
 }
 
 // Called each loop iteration
-bool SceneLogo::Update(float dt)
+bool SceneTitle::Update(float dt)
 {
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->sceneTitle, 90);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
 	}
 	if (count > 200) {
-		app->fade->StartFadeToBlack(this, (Module*)app->sceneTitle, 90);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
 	}
 	else {
 		count++;
@@ -69,7 +69,7 @@ bool SceneLogo::Update(float dt)
 }
 
 // Called each loop iteration
-bool SceneLogo::PostUpdate()
+bool SceneTitle::PostUpdate()
 {
 	bool ret = true;
 
@@ -80,9 +80,9 @@ bool SceneLogo::PostUpdate()
 }
 
 // Called before quitting
-bool SceneLogo::CleanUp()
+bool SceneTitle::CleanUp()
 {
-	LOG("SceneLogo");
+	LOG("SceneTitle");
 
 	app->tex->UnLoad(logo);
 
