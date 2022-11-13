@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<save_state>
+	<input />
+	<window />
+	<textures />
+	<audio />
+	<FadeToBlack />
+	<sceneLogo />
+	<SceneTitle />
+	<:anonymous />
+	<scene />
+	<SceneEnding />
+	<entitymanager />
+	<map />
+	<renderer>
+		<camera x="-2716" y="0" />
+		<position x="3285" y="497" />
+	</renderer>
+</save_state>
