@@ -8,6 +8,7 @@
 #include "FadeToBlack.h"
 #include "EntityManager.h"
 #include "Map.h"
+#include "Physics.h"
 #include "Player.h"
 
 #include "Defs.h"
@@ -27,6 +28,8 @@ bool Scene::Awake(pugi::xml_node& config)
 {
 	LOG("Loading Scene");
 	bool ret = true;
+
+
 
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
@@ -61,6 +64,13 @@ bool Scene::Start()
 		app->map->mapData.tilesets.Count());
 
 	app->win->SetTitle(title.GetString());
+
+	app->map->Enable();
+	app->physics->Enable();
+	app->entityManager->Enable();
+
+
+	//app->entityManager->Enable();
 
 	return true;
 }

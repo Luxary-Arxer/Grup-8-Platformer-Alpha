@@ -37,7 +37,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	scene = new Scene(this,false);
 	map = new Map(this, false);
 	//L07 DONE 2: Add Physics module
-	physics = new Physics(this, false);
+	physics = new Physics(this, true);
 	//sceneEnding = new SceneEnding(this, false);
 	entityManager = new EntityManager(this, false);
 

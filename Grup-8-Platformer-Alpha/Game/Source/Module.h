@@ -18,7 +18,8 @@ public:
 
 	void Init()
 	{
-		active = true;
+		//Delete so sceens work
+		//active = true;
 	}
 
 	// Called before render is available
