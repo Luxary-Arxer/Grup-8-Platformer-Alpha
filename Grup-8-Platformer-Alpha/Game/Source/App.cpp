@@ -122,7 +122,9 @@ bool App::Start()
 
 	while (item != NULL && ret == true)
 	{
-		ret = item->data->Start();
+		if (item->data->isEnabled() == true) {
+			ret = item->data->Start();
+		}
 		item = item->next;
 	}
 
@@ -190,17 +192,19 @@ bool App::PreUpdate()
 	bool ret = true;
 	ListItem<Module*>* item;
 	item = modules.start;
-	Module* pModule = NULL;
+	//Module* pModule = NULL;
 
 	for (item = modules.start; item != NULL && ret == true; item = item->next)
 	{
-		pModule = item->data;
+		//pModule = item->data;
 
-		if (pModule->active == false) {
-			continue;
+		//if (pModule->active == false) {
+		//	continue;
+		//}
+
+		if (item->data->isEnabled() == true) {
+			ret = item->data->PreUpdate();
 		}
-
-		ret = item->data->PreUpdate();
 	}
 
 	return ret;
@@ -212,17 +216,18 @@ bool App::DoUpdate()
 	bool ret = true;
 	ListItem<Module*>* item;
 	item = modules.start;
-	Module* pModule = NULL;
+	//Module* pModule = NULL;
 
 	for (item = modules.start; item != NULL && ret == true; item = item->next)
 	{
-		pModule = item->data;
+		//pModule = item->data;
 
-		if (pModule->active == false) {
-			continue;
+		//if (pModule->active == false) {
+		//	continue;
+		//}
+		if (item->data->isEnabled() == true) {
+			ret = item->data->Update(dt);
 		}
-
-		ret = item->data->Update(dt);
 	}
 
 	return ret;
@@ -233,17 +238,19 @@ bool App::PostUpdate()
 {
 	bool ret = true;
 	ListItem<Module*>* item;
-	Module* pModule = NULL;
+	//Module* pModule = NULL;
 
 	for (item = modules.start; item != NULL && ret == true; item = item->next)
 	{
-		pModule = item->data;
+		//pModule = item->data;
 
-		if (pModule->active == false) {
-			continue;
+		//if (pModule->active == false) {
+		//	continue;
+		//}
+
+		if (item->data->isEnabled() == true) {
+			ret = item->data->PostUpdate();
 		}
-
-		ret = item->data->PostUpdate();
 	}
 
 	return ret;
@@ -258,7 +265,9 @@ bool App::CleanUp()
 
 	while (item != NULL && ret == true)
 	{
-		ret = item->data->CleanUp();
+		if (item->data->isEnabled() == true) {
+			ret = item->data->CleanUp();
+		}
 		item = item->prev;
 	}
 

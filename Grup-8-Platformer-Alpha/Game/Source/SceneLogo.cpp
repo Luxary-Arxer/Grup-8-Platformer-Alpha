@@ -47,8 +47,11 @@ bool SceneLogo::PreUpdate()
 // Called each loop iteration
 bool SceneLogo::Update(float dt)
 {
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
+	}
 	if (count > 200) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 0);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
 	}
 	else {
 		count++;
@@ -58,11 +61,8 @@ bool SceneLogo::Update(float dt)
 		return false;
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_RETURN) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 0);
-	}
-
 	return true;
+
 }
 
 // Called each loop iteration

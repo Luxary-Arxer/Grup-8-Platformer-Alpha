@@ -39,8 +39,6 @@ private:
 
 	int count;
 
-
-
 };
 
 #endif // __SCENELOGO_H__
