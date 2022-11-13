@@ -67,8 +67,10 @@ bool Scene::Start()
 
 	app->win->SetTitle(title.GetString());
 
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
 
-
+	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 
 	return true;
 }
