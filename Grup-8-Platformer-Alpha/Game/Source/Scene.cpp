@@ -70,6 +70,8 @@ bool Scene::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
+	app->map->colisiones = false;
+
 	//player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 
 	return true;

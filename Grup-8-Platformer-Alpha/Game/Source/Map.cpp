@@ -239,11 +239,11 @@ bool Map::Load()
 
     //COLLIDER Limite pantalla
 
-   // PhysBody*collider13 = app->physics->CreateRectangle(-4, 384 -96, 4, 768, STATIC);
-   //collider13->ctype = ColliderType::TERRAIN;
+    PhysBody*collider13 = app->physics->CreateRectangle(-4, 384 -96, 4, 768, STATIC);
+   collider13->ctype = ColliderType::TERRAIN;
 
-   // PhysBody* collider14 = app->physics->CreateRectangle(2048+4, 384 -96, 4, 768, STATIC);
-   // collider14->ctype = ColliderType::TERRAIN;
+    PhysBody* collider14 = app->physics->CreateRectangle(2048+4, 384 -96, 4, 768, STATIC);
+    collider14->ctype = ColliderType::TERRAIN;
 
     //COLLIDER DEATH
     PhysBody* collider12 = app->physics->CreateRectangle(0 + 2048 / 2, 768 , 2048, 64, STATIC);

@@ -47,6 +47,9 @@ bool SceneLogo::PreUpdate()
 // Called each loop iteration
 bool SceneLogo::Update(float dt)
 {
+	app->render->camera.x = 0;
+	app->render->camera.y = 0;
+
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
 	}

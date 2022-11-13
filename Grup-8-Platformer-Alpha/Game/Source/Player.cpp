@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Render.h"
 #include "Scene.h"
+#include "FadeToBlack.h"
 #include "Log.h"
 #include "Point.h"
 #include "Physics.h"
@@ -214,6 +215,7 @@ bool Player::Update()
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
 			printf("_Death_");
+			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneLogo, 10);
 		}
 	}
 
