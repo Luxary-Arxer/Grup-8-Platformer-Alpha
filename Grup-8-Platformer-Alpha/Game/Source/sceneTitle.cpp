@@ -51,7 +51,7 @@ bool SceneTitle::Update(float dt)
 	app->render->camera.y = 0;
 
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 20);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 40);
 	}
 	//if (count > 200) {
 	//	app->fade->StartFadeToBlack(this, (Module*)app->scene, 90);
