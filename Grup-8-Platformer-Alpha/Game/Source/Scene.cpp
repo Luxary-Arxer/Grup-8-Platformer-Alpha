@@ -73,6 +73,8 @@ bool Scene::Start()
 	app->map->colisiones = false;
 
 	//player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
+	//player->position.x = 150;
+	//player->position.y = 586;
 
 	return true;
 }
