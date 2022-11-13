@@ -31,6 +31,8 @@ public:
 	bool LoadStateEntity(pugi::xml_node&);
 	bool SaveStateEntity(pugi::xml_node&);
 
+	void LoadPosition(int x,int y);
+
 
 public:
 
@@ -59,7 +61,7 @@ public:
 	Animation death;
 
 	Animation test;
-
+	
 
 private:
 
@@ -69,6 +71,7 @@ private:
 
 	// L07 DONE 5: Add physics to the player - declare a Physics body
 	PhysBody* pbody;
+
 
 	int pickCoinFxId;
 	int deathsound;

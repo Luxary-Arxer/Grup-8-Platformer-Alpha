@@ -225,7 +225,8 @@ bool Player::Update()
 			currentAnimation = &jump_down_r;
 		}
 	}
-
+	
+	
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
@@ -274,14 +275,15 @@ bool Player::Update()
 		usalto2 = false;
 	}
 
+	
+
 	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true || app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && salto2 == 1) {
 		salto = true;
 		i = 0;
 		usalto = true;
 		j = 0;
 		salto2++;
-
-
+		
 		// Animacniones Salto Arriba
 		if (derecha == true) {
 			if (currentAnimation != &jump_up_r)
@@ -481,6 +483,11 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 	}
 	
+}
+
+void Player::LoadPosition(int x,int y) {
+
+	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
 }
 
 

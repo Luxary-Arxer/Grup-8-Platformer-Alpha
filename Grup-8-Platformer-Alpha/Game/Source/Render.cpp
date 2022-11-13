@@ -236,9 +236,11 @@ bool Render::LoadState(pugi::xml_node& data)
 {
 	camera.x = data.child("camera").attribute("x").as_int();
 	camera.y = data.child("camera").attribute("y").as_int();
-	app->scene->player->position.x = data.child("position").attribute("x").as_int();
-	app->scene->player->position.y = data.child("position").attribute("y").as_int();
-
+	int x;
+	int y;
+	x = data.child("position").attribute("x").as_int();
+	y = data.child("position").attribute("y").as_int();
+	app->scene->player->LoadPosition(x,y);
 	return true;
 }
 
