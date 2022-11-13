@@ -378,7 +378,7 @@ bool Player::Update()
 		app->render->camera.x = 0;
 	}
 
-	if (position.x > 1024/2 && position.x < 2048- 1024 / 2 && cam)
+	if (position.x > 1024/2 && position.x < (2048*2)- 1024 / 2 && cam)
 	{	
 		app->render->camera.x = -position.x + 1024- 1024/2;
 	}
