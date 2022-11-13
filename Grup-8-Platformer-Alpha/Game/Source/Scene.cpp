@@ -29,8 +29,6 @@ bool Scene::Awake(pugi::xml_node& config)
 	LOG("Loading Scene");
 	bool ret = true;
 
-
-
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
 	for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
@@ -52,10 +50,14 @@ bool Scene::Start()
 	//img = app->tex->Load("Assets/Textures/test.png");
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	
+	app->map->Enable();
+	app->physics->Enable();
+	app->entityManager->Enable();
+
 	// L03: DONE: Load map
 	app->map->Load();
 
-	// L04: DONE 7: Set the window title with map/tileset info
+	//L04: DONE 7: Set the window title with map/tileset info
 	SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
 		app->map->mapData.width,
 		app->map->mapData.height,
@@ -65,12 +67,8 @@ bool Scene::Start()
 
 	app->win->SetTitle(title.GetString());
 
-	app->map->Enable();
-	app->physics->Enable();
-	app->entityManager->Enable();
 
 
-	//app->entityManager->Enable();
 
 	return true;
 }
@@ -85,6 +83,10 @@ bool Scene::PreUpdate()
 bool Scene::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
+	}
+
+	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
 	}
 
@@ -132,6 +134,13 @@ bool Scene::PostUpdate()
 bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
+
+
+	app->map->Disable();
+	app->entityManager->Disable();
+	app->physics->Disable();
+
+
 
 	return true;
 }
