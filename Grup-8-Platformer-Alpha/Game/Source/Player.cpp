@@ -272,6 +272,16 @@ bool Player::Update()
 
 	}
 
+	cam = true;
+	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
+		
+		cam = false;
+		pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
+		app->render->camera.x = 0;
+		app->render->camera.y = 0;
+
+	}
+
 	if (app->input->GetKey(SDL_SCANCODE_F10) == KEY_DOWN) {
 		godmode = !godmode;
 
@@ -363,11 +373,17 @@ bool Player::Update()
 	}
 
 	// La camara sigue al jugador
-	if (position.x > 1024/2 && position.x < 2048- 1024 / 2)
+	if (position.x <= 1024 / 2)
 	{
+		app->render->camera.x = 0;
+	}
+
+	if (position.x > 1024/2 && position.x < 2048- 1024 / 2 && cam)
+	{	
 		app->render->camera.x = -position.x + 1024- 1024/2;
 	}
 
+	
 
 	//Set the velocity of the pbody of the player
 	pbody->body->SetLinearVelocity(vel);
@@ -504,7 +520,9 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 void Player::LoadPosition(int x,int y) {
 
+	cam = false;
 	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
+	
 }
 
 

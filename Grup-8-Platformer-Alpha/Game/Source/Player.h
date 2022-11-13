@@ -62,6 +62,7 @@ public:
 
 	Animation test;
 	
+	bool cam = true;
 
 private:
 
@@ -87,7 +88,7 @@ private:
 	int salto2 = 0;
 	bool godmode = false;
 
-	
+
 
 	bool derecha = true;
 

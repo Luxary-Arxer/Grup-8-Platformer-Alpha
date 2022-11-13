@@ -92,11 +92,6 @@ bool Scene::Update(float dt)
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
-	}
-
-
 	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		app->SaveGameRequest();

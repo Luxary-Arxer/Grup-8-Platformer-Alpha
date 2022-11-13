@@ -234,6 +234,7 @@ bool Render::DrawCircle(int x, int y, int radius, Uint8 r, Uint8 g, Uint8 b, Uin
 // for now load camera's x and y
 bool Render::LoadState(pugi::xml_node& data)
 {
+	app->scene->player->cam = false;
 	camera.x = data.child("camera").attribute("x").as_int();
 	camera.y = data.child("camera").attribute("y").as_int();
 	int x;
@@ -241,6 +242,7 @@ bool Render::LoadState(pugi::xml_node& data)
 	x = data.child("position").attribute("x").as_int();
 	y = data.child("position").attribute("y").as_int();
 	app->scene->player->LoadPosition(x,y);
+	
 	return true;
 }
 
