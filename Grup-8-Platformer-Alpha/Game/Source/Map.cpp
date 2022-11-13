@@ -230,8 +230,8 @@ bool Map::Load()
    // // L07 DONE 7: Assign collider type
    // collider1->ctype = ColliderType::TERRAIN;
 
-   // PhysBody* collider2 = app->physics->CreateRectangle(352 + 64, 384 - 96+32, 128, 64, STATIC);
-   //collider2->ctype = ColliderType::TERRAIN;
+    //PhysBody* collider2 = app->physics->CreateRectangle(352 + 64, 384 - 96+32, 128, 64, STATIC);
+    //collider2->ctype = ColliderType::TERRAIN;
 
 
     //PhysBody* c4 = app->physics->CreateRectangle(1792+192, 704 -96, 1600, 64, STATIC);
@@ -253,26 +253,26 @@ bool Map::Load()
     collider16->ctype = ColliderType::WATER;
 
    // //COLLIDER TERRAIN
-   // PhysBody*collider6 = app->physics->CreateRectangle(224 + 128, 543 + 62 -96, 252, 5, STATIC); //Abajo
-   //collider6->ctype = ColliderType::PLATFORM;
+    PhysBody*collider6 = app->physics->CreateRectangle(224 + 128, 543 - 96 + 32, 260, 60,  STATIC); //Abajo
+   collider6->ctype = ColliderType::TERRAIN;
 
    // PhysBody*collider7 = app->physics->CreateRectangle(1792 -256, 704-32, 1600, 128, STATIC);
-   //collider7->ctype = ColliderType::PLATFORM;
+   //collider7->ctype = ColliderType::TERRAIN;
 
    // PhysBody*collider8 = app->physics->CreateRectangle(256, 704-32, 576 - 64, 128, STATIC);
-   //collider8->ctype = ColliderType::PLATFORM;
+   //collider8->ctype = ColliderType::TERRAIN;
 
    // PhysBody*collider9 = app->physics->CreateRectangle(224 + 128, 545 -96, 252, 5, STATIC); //Arriba
-   //collider9->ctype = ColliderType::PLATFORM;
+   //collider9->ctype = ColliderType::TERRAIN;
 
-   // PhysBody*collider10 = app->physics->CreateRectangle(352 + 64, 384 + 62 -96, 122, 5, STATIC); // Abajo
-   //collider10->ctype = ColliderType::PLATFORM;
+    PhysBody*collider10 = app->physics->CreateRectangle(352 + 64, 384 - 96 + 32, 130, 64, STATIC); // Abajo
+   collider10->ctype = ColliderType::TERRAIN;
 
    // PhysBody*collider11 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   //collider11->ctype = ColliderType::PLATFORM;
+   //collider11->ctype = ColliderType::TERRAIN;
 
    // PhysBody*collider15 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   //collider15->ctype = ColliderType::PLATFORM;
+   //collider15->ctype = ColliderType::TERRAIN;
 
     if(ret == true)
     {
