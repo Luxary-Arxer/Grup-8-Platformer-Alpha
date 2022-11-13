@@ -234,7 +234,7 @@ bool Player::Update()
 	if (app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT) {
 		//
 	}
-	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT && !hit) {
 
 		if (derecha == true) {
 			if (currentAnimation != &kneel_r)
@@ -253,7 +253,7 @@ bool Player::Update()
 	}
 
 		
-	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && !hit) {
 		position.x = position.x-7;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
 		derecha = false;
@@ -262,7 +262,7 @@ bool Player::Update()
 		}
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && !hit) {
 		position.x = position.x + 7;
 		vel = b2Vec2(speed, -GRAVITY_Y);
 		derecha = true;
@@ -300,7 +300,7 @@ bool Player::Update()
 
 	
 
-	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true || app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && salto2 == 1) {
+	if (app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && usalto == false && usalto2 == true && !hit || app->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && salto2 == 1 && !hit) {
 		salto = true;
 		i = 0;
 		usalto = true;
@@ -393,7 +393,7 @@ bool Player::Update()
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
 	//Animacnion kneelup
-	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP ) {
+	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
 
 		//if (currentAnimation != &kneelup_r) {
 
@@ -432,6 +432,11 @@ bool Player::Update()
 			}
 
 		}
+	}
+
+	if (hit)
+	{
+		vel = b2Vec2(0, -GRAVITY_Y);
 	}
 
 	//comprovar si esta en idle
@@ -499,7 +504,6 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 				hit = true;
 				app->audio->PlayFx(deathsound);
 			}
-			
 			salto = false;
 			usalto = false;
 			usalto2 = true;
