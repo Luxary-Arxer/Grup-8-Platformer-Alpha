@@ -20,17 +20,17 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 {
 	frames = 0;
 
-	input = new Input();
-	win = new Window();
-	render = new Render();
+	win = new Window(this);
+	input = new Input(this);
+	render = new Render(this);
 
-	tex = new Textures();
-	audio = new Audio();
+	tex = new Textures(this);
+	audio = new Audio(this);
 	//L07 DONE 2: Add Physics module
-	physics = new Physics();
-	scene = new Scene();
-	entityManager = new EntityManager();
-	map = new Map();
+	physics = new Physics(this);
+	scene = new Scene(this);
+	entityManager = new EntityManager(this);
+	map = new Map(this);
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp

@@ -12,7 +12,8 @@ class Module
 {
 public:
 
-	Module() : active(false)
+	App* Application;
+	Module(App* parent, bool startEnabled) : Application(parent), active(startEnabled)
 	{}
 
 	void Init()

@@ -449,6 +449,8 @@ bool Player::Update()
 
 bool Player::CleanUp()
 {
+
+	/*app->physics->world->DestroyBody(pbody);*/
 	return true;
 }
 
