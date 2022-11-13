@@ -86,8 +86,8 @@ private:
 public:
 
 	// Modules
-	Window* win = nullptr;;
-	Input* input = nullptr;;
+	Window* win;
+	Input* input;
 	Render* render;
 	Textures* tex;
 	Audio* audio;
