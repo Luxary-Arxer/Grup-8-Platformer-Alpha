@@ -70,7 +70,7 @@ bool Scene::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
-	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
+	//player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 
 	return true;
 }
@@ -91,6 +91,7 @@ bool Scene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
 	}
+
 
 	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)

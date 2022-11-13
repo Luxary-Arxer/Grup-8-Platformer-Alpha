@@ -1,9 +1,9 @@
-
 #include "App.h"
 #include "Render.h"
 #include "Textures.h"
 #include "Map.h"
 #include "Physics.h"
+#include "EntityManager.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -79,6 +79,7 @@ void Map::Draw()
                 }
             }
         }
+
         //if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value) {
 
         //    for (int x = 0; x < mapLayerItem->data->width; x++)

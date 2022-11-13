@@ -10878,10 +10878,6 @@
   </data>
  </layer>
  <layer id="12" name="Collisiones" width="64" height="24" visible="0">
-  <properties>
-   <property name="Death" type="bool" value="false"/>
-   <property name="Terrain" type="bool" value="false"/>
-  </properties>
   <data>
    <tile/>
    <tile/>

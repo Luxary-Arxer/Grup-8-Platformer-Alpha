@@ -196,14 +196,6 @@ bool Player::Start() {
 
 bool Player::Update()
 {
-	//// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
-	//if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
-	//	printf("You have prest F5");
-	//	app->SaveGameRequest();
-
-	//if (app->input->GetKey(SDL_SCANCODE_F6) == KEY_DOWN)
-	//	printf("You have prest F6");
-	//	app->LoadGameRequest();
 
 	// L07 DONE 5: Add physics to the player - updated player position using physics
 	
@@ -362,8 +354,6 @@ bool Player::Update()
 	}
 
 
-	
-
 	//Set the velocity of the pbody of the player
 	pbody->body->SetLinearVelocity(vel);
 
@@ -450,7 +440,7 @@ bool Player::Update()
 bool Player::CleanUp()
 {
 
-	/*app->physics->world->DestroyBody(pbody);*/
+
 	return true;
 }
 
@@ -493,25 +483,4 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 	
 }
 
-// //L03: DONE 6: Implement a method to load the state
-// //for now load camera's x and y
-//bool Player::LoadStateEntity(pugi::xml_node& data)
-//{
-//	position.x = data.child("position").attribute("x").as_int();
-//	position.y = data.child("position").attribute("y").as_int();
-//
-//	return true;
-//}
-//
-//// L03: DONE 8: Create a method to save the state of the renderer
-//// using append_child and append_attribute
-//bool Player::SaveStateEntity(pugi::xml_node& data)
-//{
-//	pugi::xml_node cam = data.append_child("position");
-//
-//	cam.append_attribute("x") = position.x;
-//	cam.append_attribute("y") = position.y;
-//
-//	return true;
-//}
 
