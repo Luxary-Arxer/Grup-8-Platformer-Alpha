@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="64" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="34">
+ <properties>
+  <property name="Collisiones" type="int" value="1"/>
+ </properties>
  <tileset firstgid="1" name="tmw_desert_spacing" tilewidth="32" tileheight="32" spacing="1" margin="1" tilecount="48" columns="8">
   <image source="tmw_desert_spacing.png" width="265" height="199"/>
   <wangsets>
@@ -57,12 +60,12 @@
   <image source="MapMetadata.png" width="67" height="34"/>
   <tile id="0">
    <properties>
-    <property name="Death" type="bool" value="false"/>
+    <property name="Collisiones" type="int" value="2"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
-    <property name="Terrain" type="bool" value="false"/>
+    <property name="Collisiones" type="int" value="1"/>
    </properties>
   </tile>
  </tileset>
@@ -10877,7 +10880,10 @@
    <tile/>
   </data>
  </layer>
- <layer id="12" name="Collisiones" width="64" height="24" visible="0">
+ <layer id="12" name="Collisiones_1" width="64" height="24">
+  <properties>
+   <property name="Collisiones" type="int" value="1"/>
+  </properties>
   <data>
    <tile/>
    <tile/>

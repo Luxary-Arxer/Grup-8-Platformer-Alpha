@@ -79,24 +79,34 @@ void Map::Draw()
                 }
             }
         }
+        if (mapLayerItem->data->properties.GetProperty("Collisiones") != NULL && colisiones == false) { // Colliders
 
-        //if (mapLayerItem->data->properties.GetProperty("Terrain") != NULL && mapLayerItem->data->properties.GetProperty("Terrain")->value) {
+            for (int x = 0; x < mapLayerItem->data->width; x++)
+            {
+                for (int y = 0; y < mapLayerItem->data->height; y++)
+                {
+                    // Complete the draw function
+                    int gid = mapLayerItem->data->Get(x, y);
 
-        //    for (int x = 0; x < mapLayerItem->data->width; x++)
-        //    {
-        //        for (int y = 0; y < mapLayerItem->data->height; y++)
-        //        {
-        //            // L05: DONE 9: Complete the draw function
-        //            int gid = mapLayerItem->data->Get(x, y);
-        //            TileSet* tileset = GetTilesetFromTileId(gid);
-        //            SDL_Rect r = tileset->GetTileRect(gid);
-        //            //L06: DONE 3: Obtain the tile set using GetTilesetFromTileId
-        //            iPoint pos = MapToWorld(x, y);
-        //            PhysBody* ci = app->physics->CreateRectangle(pos.x/2, pos.y/2, pos.x, pos.y, STATIC);
-        //            ci->ctype = ColliderType::PLATFORM;
-        //        }
-        //    }
-        //}
+                    if (gid > 0) {
+                        TileSet* tileset = GetTilesetFromTileId(gid);
+
+                        SDL_Rect r = tileset->GetTileRect(gid);
+                        iPoint pos = MapToWorld(x, y);
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
+                            PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            ci->ctype = ColliderType::PLATFORM;
+                        }
+                        //if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
+                        //    PhysBody * ci = app->physics->CreateRectangle(pos.x +16, pos.x + 16, 32, 32, STATIC);
+                        //    ci->ctype = ColliderType::PLATFORM;
+                        //}
+
+                    }
+                }
+            }
+            colisiones = true;
+        }
         mapLayerItem = mapLayerItem->next;
 
     }
@@ -216,12 +226,12 @@ bool Map::Load()
 
 
     // COLLIDER PLATFORM352 + 64
-    PhysBody* collider1 = app->physics->CreateRectangle(224 + 128, 543 - 96+32, 256, 63, STATIC);
-    // L07 DONE 7: Assign collider type
-    collider1->ctype = ColliderType::TERRAIN;
+   // PhysBody* collider1 = app->physics->CreateRectangle(224 + 128, 543 - 96+32, 256, 63, STATIC);
+   // // L07 DONE 7: Assign collider type
+   // collider1->ctype = ColliderType::TERRAIN;
 
-    PhysBody* collider2 = app->physics->CreateRectangle(352 + 64, 384 - 96+32, 128, 64, STATIC);
-   collider2->ctype = ColliderType::TERRAIN;
+   // PhysBody* collider2 = app->physics->CreateRectangle(352 + 64, 384 - 96+32, 128, 64, STATIC);
+   //collider2->ctype = ColliderType::TERRAIN;
 
 
     //PhysBody* c4 = app->physics->CreateRectangle(1792+192, 704 -96, 1600, 64, STATIC);
@@ -229,11 +239,11 @@ bool Map::Load()
 
     //COLLIDER Limite pantalla
 
-    PhysBody*collider13 = app->physics->CreateRectangle(-4, 384 -96, 4, 768, STATIC);
-   collider13->ctype = ColliderType::TERRAIN;
+   // PhysBody*collider13 = app->physics->CreateRectangle(-4, 384 -96, 4, 768, STATIC);
+   //collider13->ctype = ColliderType::TERRAIN;
 
-    PhysBody* collider14 = app->physics->CreateRectangle(2048+4, 384 -96, 4, 768, STATIC);
-    collider14->ctype = ColliderType::TERRAIN;
+   // PhysBody* collider14 = app->physics->CreateRectangle(2048+4, 384 -96, 4, 768, STATIC);
+   // collider14->ctype = ColliderType::TERRAIN;
 
     //COLLIDER DEATH
     PhysBody* collider12 = app->physics->CreateRectangle(0 + 2048 / 2, 768 , 2048, 64, STATIC);
@@ -242,27 +252,27 @@ bool Map::Load()
     PhysBody* collider16 = app->physics->CreateRectangleSensor(0 + 2048 / 2, 76864, 2048, 64, STATIC);
     collider16->ctype = ColliderType::WATER;
 
-    //COLLIDER TERRAIN
-    PhysBody*collider6 = app->physics->CreateRectangle(224 + 128, 543 + 62 -96, 252, 5, STATIC); //Abajo
-   collider6->ctype = ColliderType::PLATFORM;
+   // //COLLIDER TERRAIN
+   // PhysBody*collider6 = app->physics->CreateRectangle(224 + 128, 543 + 62 -96, 252, 5, STATIC); //Abajo
+   //collider6->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider7 = app->physics->CreateRectangle(1792 -256, 704-32, 1600, 128, STATIC);
-   collider7->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider7 = app->physics->CreateRectangle(1792 -256, 704-32, 1600, 128, STATIC);
+   //collider7->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider8 = app->physics->CreateRectangle(256, 704-32, 576 - 64, 128, STATIC);
-   collider8->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider8 = app->physics->CreateRectangle(256, 704-32, 576 - 64, 128, STATIC);
+   //collider8->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider9 = app->physics->CreateRectangle(224 + 128, 545 -96, 252, 5, STATIC); //Arriba
-   collider9->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider9 = app->physics->CreateRectangle(224 + 128, 545 -96, 252, 5, STATIC); //Arriba
+   //collider9->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider10 = app->physics->CreateRectangle(352 + 64, 384 + 62 -96, 122, 5, STATIC); // Abajo
-   collider10->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider10 = app->physics->CreateRectangle(352 + 64, 384 + 62 -96, 122, 5, STATIC); // Abajo
+   //collider10->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider11 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   collider11->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider11 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
+   //collider11->ctype = ColliderType::PLATFORM;
 
-    PhysBody*collider15 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   collider15->ctype = ColliderType::PLATFORM;
+   // PhysBody*collider15 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
+   //collider15->ctype = ColliderType::PLATFORM;
 
     if(ret == true)
     {
