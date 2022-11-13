@@ -272,6 +272,17 @@ bool Player::Update()
 
 	}
 
+	if (app->input->GetKey(SDL_SCANCODE_Q) == KEY_DOWN) {
+		godmode = !godmode;
+
+	}
+	if (godmode)
+	{
+		usalto2 = true;
+		salto2 = 1;
+		posy = position.y;
+	}
+
 	if (position.y > posy+10)
 	{
 		usalto2 = false;
@@ -467,8 +478,12 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::DEATH:
 			LOG("Collision DEATH");
-			hit = true;
-			app->audio->PlayFx(deathsound);
+			if (!godmode)
+			{
+				hit = true;
+				app->audio->PlayFx(deathsound);
+			}
+			
 			salto = false;
 			usalto = false;
 			usalto2 = true;
