@@ -5,6 +5,7 @@
 #include "Textures.h"
 #include "Audio.h"
 #include "Scene.h"
+#include "SceneLogo.h"
 #include "EntityManager.h"
 #include "Map.h"
 #include "Physics.h"
@@ -15,6 +16,8 @@
 
 #include <iostream>
 #include <sstream>
+using namespace std;
+
 
 // Constructor
 App::App(int argc, char* args[]) : argc(argc), args(args)
@@ -24,15 +27,19 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	win = new Window(this);
 	input = new Input(this);
 	render = new Render(this);
-
 	tex = new Textures(this);
 	audio = new Audio(this);
 	fade = new FadeToBlack(this);
+
+	sceneLogo = new SceneLogo(this, true);
+	//sceneTitle = new SceneTitle(this, false);
 	//L07 DONE 2: Add Physics module
-	physics = new Physics(this);
-	scene = new Scene(this);
-	entityManager = new EntityManager(this);
-	map = new Map(this);
+	scene = new Scene(this,false);
+	map = new Map(this, false);
+	physics = new Physics(this, false);
+	//sceneEnding = new SceneEnding(this, false);
+	entityManager = new EntityManager(this, false);
+
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -40,9 +47,14 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(win);
 	AddModule(tex);
 	AddModule(audio);
+	AddModule(fade);
+
+	AddModule(sceneLogo);
+	//AddModule(sceneTitle);
 	//L07 DONE 2: Add Physics module
 	AddModule(physics);
 	AddModule(scene);
+	//AddModule(sceneEnding);
 	AddModule(entityManager);
 	AddModule(map);
 

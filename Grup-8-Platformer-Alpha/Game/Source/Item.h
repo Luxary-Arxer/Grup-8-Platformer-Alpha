@@ -12,6 +12,7 @@ class Item : public Entity
 public:
 
 	Item();
+
 	virtual ~Item();
 
 	bool Awake();

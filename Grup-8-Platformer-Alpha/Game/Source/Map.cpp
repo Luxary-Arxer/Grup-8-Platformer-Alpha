@@ -11,7 +11,7 @@
 #include <math.h>
 #include "SDL_image/include/SDL_image.h"
 
-Map::Map(App* application, bool start_enabled) : Module(application, start_enabled)
+Map::Map(App* application, bool start_enabled) : Module(application, start_enabled), mapLoaded(false)
 {
     name.Create("map");
 }
@@ -34,8 +34,7 @@ bool Map::Awake(pugi::xml_node& config)
 
 void Map::Draw()
 {
-    if(mapLoaded == false)
-        return;
+    if(mapLoaded == false) return;
 
     /*
     // L04: DONE 6: Iterate all tilesets and draw all their 
