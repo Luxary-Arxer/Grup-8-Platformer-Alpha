@@ -8,6 +8,7 @@
 #include "EntityManager.h"
 #include "Map.h"
 #include "Physics.h"
+#include "FadeToBlack.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -26,6 +27,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 
 	tex = new Textures(this);
 	audio = new Audio(this);
+	fade = new FadeToBlack(this);
 	//L07 DONE 2: Add Physics module
 	physics = new Physics(this);
 	scene = new Scene(this);
