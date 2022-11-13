@@ -4,21 +4,30 @@
 
 The goal is having a simple platformer with levels created with Tiled. There must be a main character moving around while being able to save and load the game's state.
 
-## Key Features
-
- - {Feature01}
- - {Feature02}
- - {Feature03}
- - {Feature04}
- 
 ## Controls
 
- - {WASD + SPACE + F9}
+### DEBUG Keys
+
+ - F1 Start from the first/second leve(Doesn't load the player)
+ - F3 Start from the beginning of the current level.
+ - F5 Save the current stat of the game.
+ - F6 Load the previous state of the game.
+ - F9 View colliders.
+ - F10 GOD Mode.
+
+### Movement
+
+ - A -> Move left
+ - D -> Move right
+ - S -> Sit Animation
+ - SPACE ->Jump
+ - 2 times SPACE -> Double jump
+
 
 ## Developers
 
- - {Enric Arxer}- {Luxary-92} - {Role(s)}
- - {Nixon Correa}- {Nixonbit3} -  - {Role(s)}
+ - {Enric Arxer}- {https://github.com/Luxary-92}
+ - {Nixon Correa}- {https://github.com/Nixonbit3}
 
 ### Creator of the main character
 
