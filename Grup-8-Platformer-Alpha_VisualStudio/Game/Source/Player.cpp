@@ -392,10 +392,16 @@ bool Player::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
+
+	if (hit)
+	{
+		vel = b2Vec2(0, -GRAVITY_Y);
+	}
+
 	//Animacnion kneelup
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
 
-		//if (currentAnimation != &kneelup_r) {
+		if (currentAnimation != &kneelup_r) {
 
 			if (derecha == true) {
 
@@ -406,8 +412,6 @@ bool Player::Update()
 
 
 				}
-
-
 			}
 			if (derecha == false) {
 				if (currentAnimation != &kneelup_l)
@@ -416,13 +420,10 @@ bool Player::Update()
 					currentAnimation = &kneelup_l;
 
 				}
-
 			}
-
-		//}
-
+		}
 	}
-	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l) {
+	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l && !hit) {
 		if (currentAnimation->HasFinished()) {
 			if (derecha == true) {
 				currentAnimation = &idle_r;
@@ -434,10 +435,7 @@ bool Player::Update()
 		}
 	}
 
-	if (hit)
-	{
-		vel = b2Vec2(0, -GRAVITY_Y);
-	}
+
 
 	//comprovar si esta en idle
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
