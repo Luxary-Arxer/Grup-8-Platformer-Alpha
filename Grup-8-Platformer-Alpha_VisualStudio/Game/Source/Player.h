@@ -64,6 +64,8 @@ public:
 	
 	bool cam = true;
 
+
+
 private:
 
 	//L02: DONE 1: Declare player parameters
@@ -76,6 +78,8 @@ private:
 
 	int pickCoinFxId;
 	int deathsound;
+	int speed = 7;
+
 
 	bool salto = false; //false = no esta saltando / true = esta saltando
 	bool usalto = false; //Puede hacer salto (true = no puede hacer salto)

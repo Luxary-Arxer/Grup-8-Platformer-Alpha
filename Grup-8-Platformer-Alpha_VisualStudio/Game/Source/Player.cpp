@@ -170,6 +170,9 @@ bool Player::Awake() {
 
 bool Player::Start() {
 
+	int speed = 7;
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+
 	//initilize textures
 	texture = app->tex->Load(texturePath);
 	currentAnimation = &idle_r;
@@ -200,9 +203,9 @@ bool Player::Update()
 
 	// L07 DONE 5: Add physics to the player - updated player position using physics
 	
-
-	int speed = 7; 
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3); 
+	
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+	 
 
 	if (hit == true) {
 

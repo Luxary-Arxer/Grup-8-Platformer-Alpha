@@ -49,10 +49,12 @@ bool Scene::Start()
 {
 	//img = app->tex->Load("Assets/Textures/test.png");
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
-	
-	app->map->Enable();
+
 	app->physics->Enable();
 	app->entityManager->Enable();
+	app->map->Enable();
+
+
 
 	// L03: DONE: Load map
 	app->map->Load();
@@ -71,6 +73,9 @@ bool Scene::Start()
 	app->render->camera.y = 0;
 
 	app->map->colisiones = false;
+
+
+	//player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 
 
 	return true;
@@ -138,8 +143,6 @@ bool Scene::CleanUp()
 	app->map->Disable();
 	app->entityManager->Disable();
 	app->physics->Disable();
-
-
 
 	return true;
 }
