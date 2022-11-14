@@ -40,7 +40,10 @@ bool Physics::Start()
 
 	// Set this module as a listener for contacts
 	world->SetContactListener(this);
-	debug = !debug;
+	if (debug = true) {
+		debug = !debug;
+	}
+	
 
 	return true;
 }
