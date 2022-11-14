@@ -37,11 +37,12 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	sceneLogo = new SceneLogo(this, true);
 	sceneTitle = new SceneTitle(this, false);
 	scene = new Scene(this,false);
+	entityManager = new EntityManager(this, false);
 	map = new Map(this, false);
 	//L07 DONE 2: Add Physics module
 	physics = new Physics(this, false);
 	sceneEnding = new SceneEnding(this, false);
-	entityManager = new EntityManager(this, false);
+
 
 
 	// Ordered for awake / Start / Update

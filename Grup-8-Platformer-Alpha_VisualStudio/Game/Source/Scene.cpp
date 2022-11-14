@@ -50,11 +50,13 @@ bool Scene::Start()
 	//img = app->tex->Load("Assets/Textures/test.png");
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 
+	LOG("Start Scene");
+
 	app->physics->Enable();
+
 	app->entityManager->Enable();
+
 	app->map->Enable();
-
-
 
 	// L03: DONE: Load map
 	app->map->Load();
@@ -74,9 +76,7 @@ bool Scene::Start()
 
 	app->map->colisiones = false;
 
-
-	//player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
-
+	bool ret = true;
 
 	return true;
 }
@@ -91,7 +91,7 @@ bool Scene::PreUpdate()
 bool Scene::Update(float dt)
 {
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
-		app->fade->StartFadeToBlack(this, (Module*)app->scene, 10);
+		app->fade->StartFadeToBlack(this, (Module*)app->scene, 40);
 	}
 
 	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
@@ -139,10 +139,11 @@ bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
 
-
-	app->map->Disable();
-	app->entityManager->Disable();
 	app->physics->Disable();
+	app->entityManager->Disable();
+	app->map->Disable();
+
+
 
 	return true;
 }

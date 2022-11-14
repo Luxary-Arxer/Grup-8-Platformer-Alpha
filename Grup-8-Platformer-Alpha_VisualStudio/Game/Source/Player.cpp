@@ -18,6 +18,7 @@
 Player::Player() : Entity(EntityType::PLAYER)
 {
 	name.Create("Player");
+	LOG("Create Player");
 
 }
 
@@ -217,7 +218,7 @@ bool Player::Update()
 	}
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
-			printf("_Death_");
+			//printf("_Death_");
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
 	}
@@ -477,6 +478,7 @@ bool Player::Update()
 bool Player::CleanUp()
 {
 
+	LOG("Destroy Player");
 
 	return true;
 }
