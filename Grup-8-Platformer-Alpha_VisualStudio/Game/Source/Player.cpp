@@ -193,6 +193,9 @@ bool Player::Start() {
 	pickCoinFxId = app->audio->LoadFx("Assets/Audio/Fx/retro-video-game-coin-pickup-38299.ogg");
 	deathsound = app->audio->LoadFx("Assets/Audio/Fx/Death-sound-in-Minecraft.ogg");
 
+	position.x = parameters.attribute("x").as_int();
+	position.y = parameters.attribute("y").as_int();
+
 	salto = false;
 	posy = position.y;
 
@@ -219,7 +222,9 @@ bool Player::Update()
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
 			//printf("_Death_");
+			//pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
+
 		}
 	}
 
@@ -276,15 +281,7 @@ bool Player::Update()
 
 	}
 
-	cam = true;
-	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
 
-		cam = false;
-		pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
-		app->render->camera.x = 0;
-		app->render->camera.y = 0;
-
-	}
 
 	cam = true;
 	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {

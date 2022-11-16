@@ -54,9 +54,10 @@ bool Scene::Start()
 
 	if (FirstScene != true) {
 		app->entityManager->AddEntity(player);
+		player->position.x = 150;
+		player->position.y = 586;
 	}
 	
-
 	app->physics->Enable();
 
 	app->entityManager->Enable();
