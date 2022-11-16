@@ -212,7 +212,7 @@ bool Player::Update()
 	 
 
 	if (hit == true) {
-
+		
 		if (currentAnimation != &death)
 		{
 			death.Reset();
@@ -224,16 +224,15 @@ bool Player::Update()
 			//printf("_Death_");
 			//pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
-
 		}
 	}
 
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
-		if (currentAnimation != &jump_down_r)
+		if (currentAnimation != &death)
 		{
-			jump_down_r.Reset();
-			currentAnimation = &jump_down_r;
+			death.Reset();
+			currentAnimation = &death;
 		}
 	}
 	
@@ -432,7 +431,7 @@ bool Player::Update()
 			}
 		}
 	}
-	if (currentAnimation == &kneelup_r && !hit || currentAnimation == &kneelup_l && !hit) {
+	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l ) {
 		if (currentAnimation->HasFinished()) {
 			if (derecha == true) {
 				currentAnimation = &idle_r;
