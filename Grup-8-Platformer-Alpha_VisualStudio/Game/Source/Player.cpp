@@ -412,29 +412,27 @@ bool Player::Update()
 	//Animacnion kneelup
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
 
-		if (currentAnimation != &kneelup_r) {
+		if (derecha == true) {
 
-			if (derecha == true) {
-
-				if (currentAnimation != &kneelup_r)
-				{
-					kneelup_r.Reset();
-					currentAnimation = &kneelup_r;
+			if (currentAnimation != &kneelup_r)
+			{
+				kneelup_r.Reset();
+				currentAnimation = &kneelup_r;
 
 
-				}
 			}
-			if (derecha == false) {
-				if (currentAnimation != &kneelup_l)
-				{
-					kneelup_l.Reset();
-					currentAnimation = &kneelup_l;
+		}
+		if (derecha == false) {
+			if (currentAnimation != &kneelup_l)
+			{
+				kneelup_l.Reset();
+				currentAnimation = &kneelup_l;
 
-				}
+		
 			}
 		}
 	}
-	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l && !hit) {
+	if (currentAnimation == &kneelup_r && !hit || currentAnimation == &kneelup_l && !hit) {
 		if (currentAnimation->HasFinished()) {
 			if (derecha == true) {
 				currentAnimation = &idle_r;

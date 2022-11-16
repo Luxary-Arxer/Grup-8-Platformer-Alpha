@@ -94,7 +94,7 @@ void Map::Draw()
                         SDL_Rect r = tileset->GetTileRect(gid);
                         iPoint pos = MapToWorld(x, y);
                         if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
-                            PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 30, 32, STATIC);
+                            PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
                             ci->ctype = ColliderType::PLATFORM;
                         }
                         //if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
