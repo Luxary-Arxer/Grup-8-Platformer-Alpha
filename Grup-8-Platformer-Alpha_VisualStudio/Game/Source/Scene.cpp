@@ -46,13 +46,16 @@ bool Scene::Awake(pugi::xml_node& config)
 }
 
 // Called before the first frame
-bool Scene::Start(pugi::xml_node& config)
+bool Scene::Start()
 {
 	//img = app->tex->Load("Assets/Textures/test.png");
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	LOG("Start Scene");
 
-	app->entityManager->AddEntity(player);
+	if (FirstScene != true) {
+		app->entityManager->AddEntity(player);
+	}
+	
 
 	app->physics->Enable();
 
@@ -151,7 +154,7 @@ bool Scene::CleanUp()
 	app->entityManager->Disable();
 	app->map->Disable();
 
-
+	FirstScene = false;
 
 	return true;
 }

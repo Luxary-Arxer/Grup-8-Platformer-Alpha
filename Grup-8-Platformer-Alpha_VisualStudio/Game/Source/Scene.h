@@ -20,7 +20,7 @@ public:
 	bool Awake(pugi::xml_node& config);
 
 	// Called before the first frame
-	bool Start(pugi::xml_node& config);
+	bool Start();
 
 	// Called before all Updates
 	bool PreUpdate();
@@ -38,6 +38,8 @@ public:
 
 	//L02: DONE 3: Declare a Player attribute 
 	Player* player;
+
+	bool FirstScene = true;
 
 private:
 	SDL_Texture* img;

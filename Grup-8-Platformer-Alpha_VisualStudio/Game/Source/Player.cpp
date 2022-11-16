@@ -277,6 +277,16 @@ bool Player::Update()
 	}
 
 	cam = true;
+	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
+
+		cam = false;
+		pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
+		app->render->camera.x = 0;
+		app->render->camera.y = 0;
+
+	}
+
+	cam = true;
 	if (app->input->GetKey(SDL_SCANCODE_F3) == KEY_DOWN) {
 		
 		cam = false;
