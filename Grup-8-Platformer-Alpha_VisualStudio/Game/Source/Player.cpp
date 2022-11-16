@@ -229,11 +229,14 @@ bool Player::Update()
 
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
-		if (currentAnimation != &death)
-		{
-			death.Reset();
-			currentAnimation = &death;
-		}
+		
+		currentAnimation = &kneelup_r;
+		printf("kneelup_r");
+		//if (currentAnimation != &death)
+		//{
+		//	death.Reset();
+		//	currentAnimation = &death;
+		//}
 	}
 	
 	

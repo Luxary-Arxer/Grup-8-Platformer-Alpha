@@ -10,6 +10,7 @@
 #include "Map.h"
 #include "Physics.h"
 #include "Player.h"
+#include "Animation.h"
 
 #include "Defs.h"
 #include "Log.h"
