@@ -225,18 +225,17 @@ bool Player::Update()
 			//pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
-	}
 
+	}
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
 		
-		currentAnimation = &kneelup_r;
-		printf("kneelup_r");
-		//if (currentAnimation != &death)
-		//{
-		//	death.Reset();
-		//	currentAnimation = &death;
-		//}
+		if (currentAnimation != &kneelup_r)
+		{
+			kneelup_r.Reset();
+			currentAnimation = &kneelup_r;
+		}
+
 	}
 	
 	
@@ -261,6 +260,8 @@ bool Player::Update()
 				currentAnimation = &kneel_l;
 			}
 		}
+		kneelup_r.Reset();
+		kneelup_l.Reset();
 	}
 
 		
@@ -412,39 +413,44 @@ bool Player::Update()
 	}
 
 	//Animacnion kneelup
+
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
+
+		kneelup_r.Reset();
+		kneelup_l.Reset();
 
 		if (derecha == true) {
 
-			if (currentAnimation != &kneelup_r)
-			{
-				kneelup_r.Reset();
-				currentAnimation = &kneelup_r;
+			printf("_1_");
+			currentAnimation = &kneelup_r;
 
-
-			}
 		}
 		if (derecha == false) {
-			if (currentAnimation != &kneelup_l)
-			{
-				kneelup_l.Reset();
-				currentAnimation = &kneelup_l;
 
-		
-			}
 		}
 	}
-	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l ) {
+	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l) {
+		kneelup_r.Reset();
+		kneelup_l.Reset();
+		printf("_current_");
 		if (currentAnimation->HasFinished()) {
+			kneelup_r.Reset();
+			kneelup_l.Reset();
+			printf("_HasFinished_");
 			if (derecha == true) {
+
 				currentAnimation = &idle_r;
 			}
 			if (derecha == false) {
+
 				currentAnimation = &idle_l;
 			}
-
+			kneelup_r.Reset();
+			kneelup_l.Reset();
 		}
+
 	}
+
 
 
 
