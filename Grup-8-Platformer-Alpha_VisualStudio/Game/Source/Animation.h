@@ -38,6 +38,11 @@ public:
 		return !loop && loopCount > 0;
 	}
 
+	bool Loop1()
+	{
+		return loop && loopCount == 1;
+	}
+
 	void Update()
 	{
 		currentFrame += speed;

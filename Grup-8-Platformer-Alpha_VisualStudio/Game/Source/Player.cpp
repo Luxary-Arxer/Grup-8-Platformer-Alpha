@@ -84,16 +84,6 @@ bool Player::Awake() {
 	kneel_r.loop = false;
 	kneel_r.speed = 0.15f;
 
-	//kneelup_r animation
-	kneelup_r.PushBack({ 64 * 3, 256, 64, 64 });
-	kneelup_r.PushBack({ 64 * 4, 256, 64, 64 });
-	kneelup_r.PushBack({ 64 * 5, 256, 64, 64 });
-	kneelup_r.PushBack({ 64 * 0, 256, 64, 64 });
-	kneelup_r.loop = false;
-	kneelup_r.speed = 0.09f;
-
-
-
 	//kneel_l animation
 	kneel_l.PushBack({ 64 * 5, 320, 64, 64 });
 	kneel_l.PushBack({ 64 * 4, 320, 64, 64 });
@@ -102,12 +92,21 @@ bool Player::Awake() {
 	kneel_l.loop = false;
 	kneel_l.speed = 0.15f;
 
+	//     UP
+	//kneelup_r animation
+	kneelup_r.PushBack({ 64 * 3, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 4, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 5, 256, 64, 64 });
+	kneelup_r.PushBack({ 64 * 0, 256, 64, 64 });
+	kneelup_r.loop = true;
+	kneelup_r.speed = 0.09f;
+
 	//kneelup_l animation
 	kneelup_l.PushBack({ 64 * 2, 320, 64, 64 });
 	kneelup_l.PushBack({ 64 * 1, 320, 64, 64 });
 	kneelup_l.PushBack({ 64 * 0, 320, 64, 64 });
 	kneelup_l.PushBack({ 64 * 5, 320, 64, 64 });
-	kneelup_l.loop = false;
+	kneelup_l.loop = true;
 	kneelup_l.speed = 0.09f;
 
 
@@ -413,36 +412,27 @@ bool Player::Update()
 	//Animacnion kneelup
 
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
-		
+
 		if (derecha == true) {
-			printf("_11111111111111_");
+			printf("_Animation_");
 			kneelup_r.Reset();
 			currentAnimation = &kneelup_r;
 		}
 		if (derecha == false) {
-			printf("_11111111111111_");
+			printf("_Animation_");
 			kneelup_l.Reset();
 			currentAnimation = &kneelup_l;
 		}
-		kneelup_r.Reset();
-		kneelup_l.Reset();
 	}
-	//if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l) {
-	//	printf("_current_");
-	//	if (currentAnimation->HasFinished() == true) {
-	//		printf("_HasFinished_");
-	//		if (derecha == true) {
-	//			currentAnimation = &idle_r;
-	//		}
-	//		if (derecha == false) {
-
-	//			currentAnimation = &idle_l;
-	//		}
-	//	}
-	//}
-
-
-
+	if (currentAnimation->HasFinished() && (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l)) {
+		printf("_HasFinished_");
+		if (derecha == true) {
+			currentAnimation = &idle_r;
+		}
+		if (derecha == false) {
+			currentAnimation = &idle_l;
+		}
+	}
 
 	//comprovar si esta en idle
 	if (app->input->GetKey(SDL_SCANCODE_W) == KeyState::KEY_IDLE
