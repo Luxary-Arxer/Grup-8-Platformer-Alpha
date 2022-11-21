@@ -260,8 +260,6 @@ bool Player::Update()
 				currentAnimation = &kneel_l;
 			}
 		}
-		kneelup_r.Reset();
-		kneelup_l.Reset();
 	}
 
 		
@@ -415,41 +413,33 @@ bool Player::Update()
 	//Animacnion kneelup
 
 	if (app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_UP && !hit) {
-
-		kneelup_r.Reset();
-		kneelup_l.Reset();
-
+		
 		if (derecha == true) {
-
-			printf("_1_");
+			printf("_11111111111111_");
+			kneelup_r.Reset();
 			currentAnimation = &kneelup_r;
-
 		}
 		if (derecha == false) {
-
+			printf("_11111111111111_");
+			kneelup_l.Reset();
+			currentAnimation = &kneelup_l;
 		}
-	}
-	if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l) {
 		kneelup_r.Reset();
 		kneelup_l.Reset();
-		printf("_current_");
-		if (currentAnimation->HasFinished()) {
-			kneelup_r.Reset();
-			kneelup_l.Reset();
-			printf("_HasFinished_");
-			if (derecha == true) {
-
-				currentAnimation = &idle_r;
-			}
-			if (derecha == false) {
-
-				currentAnimation = &idle_l;
-			}
-			kneelup_r.Reset();
-			kneelup_l.Reset();
-		}
-
 	}
+	//if (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l) {
+	//	printf("_current_");
+	//	if (currentAnimation->HasFinished() == true) {
+	//		printf("_HasFinished_");
+	//		if (derecha == true) {
+	//			currentAnimation = &idle_r;
+	//		}
+	//		if (derecha == false) {
+
+	//			currentAnimation = &idle_l;
+	//		}
+	//	}
+	//}
 
 
 
