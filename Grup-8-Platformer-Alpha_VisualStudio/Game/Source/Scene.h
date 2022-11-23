@@ -40,6 +40,7 @@ public:
 	Player* player;
 
 	bool FirstScene = true;
+	bool ShowPathfinding = true;
 
 private:
 	SDL_Texture* img;
