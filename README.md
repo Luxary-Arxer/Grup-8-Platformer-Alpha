@@ -10,10 +10,9 @@ The goal is having a simple platformer with levels created with Tiled. There mus
 
  - F1 Start from the first/second leve(Doesn't load the player)
  - F3 Start from the beginning of the current level.
- - F4 Hide and Show Pathfinding tools.
  - F5 Save the current stat of the game.
  - F6 Load the previous state of the game.
- - F9 View colliders.
+ - F9 View colliders/ Hide and Show Pathfinding tools..
  - F10 GOD Mode.
 
 ### Movement

@@ -125,7 +125,7 @@ bool Scene::Update(float dt)
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 40);
 	}
 
-	if (app->input->GetKey(SDL_SCANCODE_F4) == KEY_DOWN)
+	if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		ShowPathfinding = !ShowPathfinding;
 	
 
