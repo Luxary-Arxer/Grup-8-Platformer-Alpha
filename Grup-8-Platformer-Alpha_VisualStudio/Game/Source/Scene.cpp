@@ -96,11 +96,11 @@ bool Scene::Start()
 	app->render->camera.x = 0;
 	app->render->camera.y = 0;
 
+	// Texture to show path origin 
+	originTex = app->tex->Load("Assets/Maps/x.png");
 
 	// Texture to highligh mouse position 
 	mouseTileTex = app->tex->Load("Assets/Maps/path.png");
-	// Texture to show path origin 
-	originTex = app->tex->Load("Assets/Maps/x.png");
 
 
 	app->map->colisiones = false;
@@ -147,13 +147,35 @@ bool Scene::Update(float dt)
 	// L08: DONE 3: Test World to map method
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
-	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth / 2,
-											mouseY - app->render->camera.y - app->map->mapData.tileHeight / 2);
+	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/2+14,
+											mouseY - app->render->camera.y - app->map->mapData.tileHeight/2 + 14);
+
+	app->map->Draw();
+
+	//Convert again the tile coordinates to world coordinates to render the texture of the tile
+	iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
+	app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
+
+	//Test compute path function
+	if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+	{
+		if (originSelected == true)
+		{
+			app->pathfinding->CreatePath(origin, mouseTile);
+			originSelected = false;
+		}
+		else
+		{
+			origin = mouseTile;
+			originSelected = true;
+			app->pathfinding->ClearLastPath();
+		}
+	}
 
 	//app->render->DrawTexture(img, 380, 100); // Placeholder not needed any more
 
 	// Draw map
-	app->map->Draw();
+
 
 	// L12: Get the latest calculated path and draw
 	const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
@@ -166,6 +188,8 @@ bool Scene::Update(float dt)
 	// L12: Debug pathfinding
 	iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
 	app->render->DrawTexture(originTex, originScreen.x, originScreen.y);
+
+
 
 	return true;
 }
