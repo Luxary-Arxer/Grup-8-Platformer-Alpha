@@ -11,6 +11,7 @@
 #include "Physics.h"
 #include "Player.h"
 #include "Animation.h"
+#include "PathFinding.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -59,6 +60,8 @@ bool Scene::Start()
 		player->position.y = 586;
 	}
 	
+	app->pathfinding->Enable();
+
 	app->physics->Enable();
 
 	app->entityManager->Enable();
@@ -66,7 +69,19 @@ bool Scene::Start()
 	app->map->Enable();
 
 	// L03: DONE: Load map
-	app->map->Load();
+	bool retLoad = app->map->Load();
+
+	// L12 Create walkability map
+	if (retLoad) {
+		int w, h;
+		uchar* data = NULL;
+
+		bool retWalkMap = app->map->CreateWalkabilityMap(w, h, &data);
+		if (retWalkMap) app->pathfinding->SetMap(w, h, data);
+
+		RELEASE_ARRAY(data);
+
+	}
 
 	//L04: DONE 7: Set the window title with map/tileset info
 	SString title("Map:%dx%d Tiles:%dx%d Tilesets:%d",
@@ -124,12 +139,28 @@ bool Scene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x -= 7;
 
-
+	// L08: DONE 3: Test World to map method
+	int mouseX, mouseY;
+	app->input->GetMousePosition(mouseX, mouseY);
+	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth / 2,
+											mouseY - app->render->camera.y - app->map->mapData.tileHeight / 2);
 
 	//app->render->DrawTexture(img, 380, 100); // Placeholder not needed any more
 
 	// Draw map
 	app->map->Draw();
+
+	// L12: Get the latest calculated path and draw
+	const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
+	for (uint i = 0; i < path->Count(); ++i)
+	{
+		iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
+		app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
+	}
+
+	// L12: Debug pathfinding
+	iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
+	app->render->DrawTexture(originTex, originScreen.x, originScreen.y);
 
 	return true;
 }
@@ -152,6 +183,7 @@ bool Scene::CleanUp()
 
 	app->entityManager->DestroyEntity(player);
 
+	app->pathfinding->Disable();
 	app->physics->Disable();
 	app->entityManager->Disable();
 	app->map->Disable();

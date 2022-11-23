@@ -60,11 +60,10 @@
  <tileset firstgid="410" name="Objects" tilewidth="32" tileheight="32" tilecount="140" columns="14">
   <image source="Objects 32x32.png" width="448" height="320"/>
  </tileset>
- <group id="17" name="Fondo"/>
- <group id="18" name="Cerca"/>
  <layer id="6" name="Cielo" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile gid="163"/>
@@ -3144,6 +3143,7 @@
  <layer id="14" name="Nuves" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -6223,6 +6223,7 @@
  <layer id="13" name="Montañas" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -9302,6 +9303,7 @@
  <layer id="7" name="Tierr fondo" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -12381,6 +12383,7 @@
  <layer id="15" name="Fondo Plataformas" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -15460,6 +15463,7 @@
  <layer id="8" name="Objetos" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -18539,6 +18543,7 @@
  <layer id="5" name="Agua" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -21618,6 +21623,7 @@
  <layer id="1" name="Plataformas" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -24697,6 +24703,7 @@
  <layer id="16" name="Objetos 2" width="128" height="24">
   <properties>
    <property name="Draw" type="bool" value="true"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -27776,6 +27783,7 @@
  <layer id="12" name="Collisiones_1" width="128" height="24" visible="0">
   <properties>
    <property name="Collisiones" type="int" value="1"/>
+   <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>

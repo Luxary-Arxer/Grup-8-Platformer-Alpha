@@ -32,6 +32,50 @@ bool Map::Awake(pugi::xml_node& config)
     return ret;
 }
 
+// L12: Create walkability map for pathfinding
+bool Map::CreateWalkabilityMap(int& width, int& height, uchar** buffer) const
+{
+    bool ret = false;
+    ListItem<MapLayer*>* item;
+    item = mapData.maplayers.start;
+
+    for (item = mapData.maplayers.start; item != NULL; item = item->next)
+    {
+        MapLayer* layer = item->data;
+
+        if (!layer->properties.GetProperty("Navigation")->value)
+            continue;
+
+        uchar* map = new uchar[layer->width * layer->height];
+        memset(map, 1, layer->width * layer->height);
+
+        for (int y = 0; y < mapData.height; ++y)
+        {
+            for (int x = 0; x < mapData.width; ++x)
+            {
+                int i = (y * layer->width) + x;
+
+                int tileId = layer->Get(x, y);
+                TileSet* tileset = (tileId > 0) ? GetTilesetFromTileId(tileId) : NULL;
+
+                if (tileset != NULL)
+                {
+                    map[i] = (tileId - tileset->firstgid) > 0 ? 0 : 1;
+                }
+            }
+        }
+
+        *buffer = map;
+        width = mapData.width;
+        height = mapData.height;
+        ret = true;
+
+        break;
+    }
+
+    return ret;
+}
+
 void Map::Draw()
 {
     if(mapLoaded == false) return;
@@ -117,8 +161,43 @@ iPoint Map::MapToWorld(int x, int y) const
 {
     iPoint ret;
 
-    ret.x = x * mapData.tileWidth;
-    ret.y = y * mapData.tileHeight;
+    // L08: DONE 1: Add isometric map to world coordinates
+    if (mapData.type == MAPTYPE_ORTHOGONAL)
+    {
+        ret.x = x * mapData.tileWidth;
+        ret.y = y * mapData.tileHeight;
+    }
+    else if (mapData.type == MAPTYPE_ISOMETRIC)
+    {
+        ret.x = (x - y) * (mapData.tileWidth / 2);
+        ret.y = (x + y) * (mapData.tileHeight / 2);
+    }
+
+    return ret;
+}
+
+// L08: DONE 3: Add method WorldToMap to obtain  map coordinates from screen coordinates
+iPoint Map::WorldToMap(int x, int y)
+{
+    iPoint ret(0, 0);
+
+    if (mapData.type == MAPTYPE_ORTHOGONAL)
+    {
+        ret.x = x / mapData.tileWidth;
+        ret.y = y / mapData.tileHeight;
+    }
+    else if (mapData.type == MAPTYPE_ISOMETRIC)
+    {
+        float halfWidth = mapData.tileWidth * 0.5f;
+        float halfHeight = mapData.tileHeight * 0.5f;
+        ret.x = int((x / halfWidth + y / halfHeight) / 2);
+        ret.y = int((y / halfHeight - x / halfWidth) / 2);
+    }
+    else
+    {
+        LOG("Unknown map type");
+        ret.x = x; ret.y = y;
+    }
 
     return ret;
 }
@@ -221,21 +300,6 @@ bool Map::Load()
         ret = LoadAllLayers(mapFileXML.child("map"));
     }
     
-    // L07 DONE 3: Create colliders
-    // Later you can create a function here to load and create the colliders from the map
-
-
-    // COLLIDER PLATFORM352 + 64
-   // PhysBody* collider1 = app->physics->CreateRectangle(224 + 128, 543 - 96+32, 256, 63, STATIC);
-   // // L07 DONE 7: Assign collider type
-   // collider1->ctype = ColliderType::TERRAIN;
-
-    //PhysBody* collider2 = app->physics->CreateRectangle(352 + 64, 384 - 96+32, 128, 64, STATIC);
-    //collider2->ctype = ColliderType::TERRAIN;
-
-
-    //PhysBody* c4 = app->physics->CreateRectangle(1792+192, 704 -96, 1600, 64, STATIC);
-    //c4->ctype = ColliderType::TERRAIN;
 
     //COLLIDER Limite pantalla
 
@@ -252,27 +316,7 @@ bool Map::Load()
     PhysBody* collider16 = app->physics->CreateRectangleSensor(0 + 2048 / 2, 76864, 2048, 64, STATIC);
     collider16->ctype = ColliderType::WATER;
 
-   // //COLLIDER TERRAIN
-   // PhysBody*collider6 = app->physics->CreateRectangle(224 + 128, 543 - 96 + 32, 260, 60,  STATIC); //Abajo
-   //collider6->ctype = ColliderType::TERRAIN;
 
-   // PhysBody*collider7 = app->physics->CreateRectangle(1792 -256, 704-32, 1600, 128, STATIC);
-   //collider7->ctype = ColliderType::TERRAIN;
-
-   // PhysBody*collider8 = app->physics->CreateRectangle(256, 704-32, 576 - 64, 128, STATIC);
-   //collider8->ctype = ColliderType::TERRAIN;
-
-   // PhysBody*collider9 = app->physics->CreateRectangle(224 + 128, 545 -96, 252, 5, STATIC); //Arriba
-   //collider9->ctype = ColliderType::TERRAIN;
-
-   // PhysBody*collider10 = app->physics->CreateRectangle(352 + 64, 384 - 96 + 32, 130, 64, STATIC); // Abajo
-   //collider10->ctype = ColliderType::TERRAIN;
-
-   // PhysBody*collider11 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   //collider11->ctype = ColliderType::TERRAIN;
-
-   // PhysBody*collider15 = app->physics->CreateRectangle(352 + 64, 386 -96, 122, 5, STATIC); //Arriba
-   //collider15->ctype = ColliderType::TERRAIN;
 
     if(ret == true)
     {
@@ -330,6 +374,17 @@ bool Map::LoadMap(pugi::xml_node mapFile)
         mapData.width = map.attribute("width").as_int();
         mapData.tileHeight = map.attribute("tileheight").as_int();
         mapData.tileWidth = map.attribute("tilewidth").as_int();
+
+        // L08: DONE 2: Read the prientation of the map
+        mapData.type = MAPTYPE_UNKNOWN;
+        if (strcmp(map.attribute("orientation").as_string(), "isometric") == 0)
+        {
+            mapData.type = MAPTYPE_ISOMETRIC;
+        }
+        if (strcmp(map.attribute("orientation").as_string(), "orthogonal") == 0)
+        {
+            mapData.type = MAPTYPE_ORTHOGONAL;
+        }
     }
 
     return ret;
