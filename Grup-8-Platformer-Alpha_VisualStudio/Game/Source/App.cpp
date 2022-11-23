@@ -12,6 +12,7 @@
 #include "Map.h"
 #include "Physics.h"
 #include "FadeToBlack.h"
+#include "Pathfinding.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -41,6 +42,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	map = new Map(this, false);
 	//L07 DONE 2: Add Physics module
 	physics = new Physics(this, false);
+	pathfinding = new PathFinding(this, false);
 	sceneEnding = new SceneEnding(this, false);
 
 
@@ -57,6 +59,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(sceneTitle);
 	//L07 DONE 2: Add Physics module
 	AddModule(physics);
+	AddModule(pathfinding);
 	AddModule(scene);
 	AddModule(sceneEnding);
 	AddModule(entityManager);
