@@ -97,6 +97,11 @@ bool Scene::Start()
 	app->render->camera.y = 0;
 
 
+	// Texture to highligh mouse position 
+	mouseTileTex = app->tex->Load("Assets/Maps/path.png");
+	// Texture to show path origin 
+	originTex = app->tex->Load("Assets/Maps/x.png");
+
 
 	app->map->colisiones = false;
 
