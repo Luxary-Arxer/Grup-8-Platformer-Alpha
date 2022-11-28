@@ -47,9 +47,6 @@ bool Scene::Awake(pugi::xml_node& config)
 		enemy->parameters = enemyNode;
 	}
 
-
-
-
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
@@ -67,12 +64,23 @@ bool Scene::Start()
 
 	ShowPathfinding = false;
 
+
+
+	//for (pugi::xml_node enemyNode = config.child("enemy"); enemyNode; enemyNode = enemyNode.next_sibling("enemy"))
+	//{
+
+	//	Enemy* enemy = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//	enemy->parameters = enemyNode;
+	//}
+
 	if (FirstScene != true) {
 		app->entityManager->AddEntity(player);
 		player->position.x = 150;
 		player->position.y = 586;
 	}
 	
+
+
 	app->pathfinding->Enable();
 
 	app->physics->Enable();
@@ -164,7 +172,7 @@ bool Scene::Update(float dt)
 	// L08: DONE 3: Test World to map method
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
-	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/2+14,
+	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/ 2 + 14,
 											mouseY - app->render->camera.y - app->map->mapData.tileHeight/2 + 14);
 	// Draw map
 	app->map->Draw();

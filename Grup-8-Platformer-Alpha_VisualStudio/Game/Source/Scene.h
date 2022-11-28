@@ -40,6 +40,10 @@ public:
 	//L02: DONE 3: Declare a Player attribute 
 	Player* player;
 
+	Enemy* enemy;
+
+	pugi::xml_node config;
+
 	bool FirstScene = true;
 	bool ShowPathfinding = false;
 

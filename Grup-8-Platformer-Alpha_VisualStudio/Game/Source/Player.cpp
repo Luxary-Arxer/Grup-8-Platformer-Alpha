@@ -455,15 +455,10 @@ bool Player::Update()
 
 	}
 
-
-
 	currentAnimation->Update();
 	SDL_Rect rect = currentAnimation->GetCurrentFrame();
 
-
-
 	app->render->DrawTexture(texture, position.x-16, position.y-16, &rect);
-
 
 	return true;
 }
@@ -504,6 +499,9 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			usalto = false;
 			usalto2 = true;
 			posy = position.y;
+		case ColliderType::ENEMY:
+			LOG("Collision DEATH");
+
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
