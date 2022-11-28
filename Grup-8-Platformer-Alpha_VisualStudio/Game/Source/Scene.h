@@ -42,8 +42,6 @@ public:
 
 	Enemy* enemy;
 
-	pugi::xml_node config;
-
 	bool FirstScene = true;
 	bool ShowPathfinding = false;
 

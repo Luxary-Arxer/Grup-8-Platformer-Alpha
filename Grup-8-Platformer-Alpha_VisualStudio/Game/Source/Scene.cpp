@@ -64,15 +64,6 @@ bool Scene::Start()
 
 	ShowPathfinding = false;
 
-
-
-	//for (pugi::xml_node enemyNode = config.child("enemy"); enemyNode; enemyNode = enemyNode.next_sibling("enemy"))
-	//{
-
-	//	Enemy* enemy = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	//	enemy->parameters = enemyNode;
-	//}
-
 	if (FirstScene != true) {
 		app->entityManager->AddEntity(player);
 		player->position.x = 150;
