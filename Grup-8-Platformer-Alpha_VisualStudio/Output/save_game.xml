@@ -8,12 +8,13 @@
 	<sceneLogo />
 	<SceneTitle />
 	<:anonymous />
+	<pathfinding />
 	<scene />
 	<SceneEnding />
 	<entitymanager />
 	<map />
 	<renderer>
-		<camera x="-2504" y="119" />
-		<position x="3017" y="129" />
+		<camera x="-454" y="0" />
+		<position x="966" y="561" />
 	</renderer>
 </save_state>
