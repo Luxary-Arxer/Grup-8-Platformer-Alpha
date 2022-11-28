@@ -14,7 +14,7 @@
 	<entitymanager />
 	<map />
 	<renderer>
-		<camera x="-454" y="0" />
-		<position x="966" y="561" />
+		<camera x="0" y="0" />
+		<position x="453" y="420" />
 	</renderer>
 </save_state>
