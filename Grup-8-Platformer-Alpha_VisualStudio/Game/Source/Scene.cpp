@@ -54,6 +54,8 @@ bool Scene::Start()
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	LOG("Start Scene");
 
+	ShowPathfinding = false;
+
 	if (FirstScene != true) {
 		app->entityManager->AddEntity(player);
 		player->position.x = 150;
