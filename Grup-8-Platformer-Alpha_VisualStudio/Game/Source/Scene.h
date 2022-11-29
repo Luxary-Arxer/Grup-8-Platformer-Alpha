@@ -40,7 +40,8 @@ public:
 	//L02: DONE 3: Declare a Player attribute 
 	Player* player;
 
-	Enemy* enemy;
+	Enemy* enemy1;
+	Enemy* enemy2;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = false;

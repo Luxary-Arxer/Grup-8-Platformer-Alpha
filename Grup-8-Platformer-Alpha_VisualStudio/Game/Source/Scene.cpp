@@ -40,12 +40,19 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	}
 
-	for (pugi::xml_node enemyNode = config.child("enemy"); enemyNode; enemyNode = enemyNode.next_sibling("enemy"))
-	{
+	//for (pugi::xml_node enemyNode = config.child("enemy"); enemyNode; enemyNode = enemyNode.next_sibling("enemy"))
+	//{
 
-		Enemy* enemy = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-		enemy->parameters = enemyNode;
-	}
+	//	Enemy* enemy = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//	enemy->parameters = enemyNode;
+	//}
+
+	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy1->parameters = config.child("enemy");
+
+
+	enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy2->parameters = config.child("enemy2");
 
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
@@ -62,12 +69,19 @@ bool Scene::Start()
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	LOG("Start Scene");
 
+
 	ShowPathfinding = false;
 
 	if (FirstScene != true) {
 		app->entityManager->AddEntity(player);
 		player->position.x = 150;
 		player->position.y = 586;
+		app->entityManager->AddEntity(enemy1);
+		enemy1->position.x = 256;
+		enemy1->position.y = 547;
+		app->entityManager->AddEntity(enemy2);
+		enemy2->position.x = 416;
+		enemy2->position.y = 547;
 	}
 	
 
@@ -232,6 +246,8 @@ bool Scene::CleanUp()
 	LOG("Freeing scene");
 
 	app->entityManager->DestroyEntity(player);
+	app->entityManager->DestroyEntity(enemy1);
+	app->entityManager->DestroyEntity(enemy2);
 
 	app->pathfinding->Disable();
 	app->physics->Disable();
