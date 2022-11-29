@@ -484,7 +484,6 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::TERRAIN:
 			LOG("Collision TERRAIN");
-			hit = false;
 			//usalto = false;
 			posy = position.y;
 			break;

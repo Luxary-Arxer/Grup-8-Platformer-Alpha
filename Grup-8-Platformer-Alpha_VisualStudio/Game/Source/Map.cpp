@@ -143,7 +143,7 @@ void Map::Draw()
                         }
                         //if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
                         //    PhysBody * ci = app->physics->CreateRectangle(pos.x +16, pos.x + 16, 32, 32, STATIC);
-                        //    ci->ctype = ColliderType::PLATFORM;
+                        //    ci->ctype = ColliderType::DEATH;
                         //}
 
                     }
