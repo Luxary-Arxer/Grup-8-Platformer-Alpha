@@ -80,8 +80,8 @@ bool Scene::Start()
 		enemy1->position.x = 256;
 		enemy1->position.y = 547;
 		app->entityManager->AddEntity(enemy2);
-		//enemy2->position.x = 416;
-		//enemy2->position.y = 547;
+		enemy2->position.x = 416;
+		enemy2->position.y = 547;
 	}
 	
 
