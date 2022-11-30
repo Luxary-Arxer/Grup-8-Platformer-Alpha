@@ -60,6 +60,9 @@ public:
 
 	Animation death;
 
+	Animation atac_r;
+	Animation atac_l;
+
 	Animation test;
 	
 	bool cam = true;

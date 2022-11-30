@@ -156,6 +156,30 @@ bool Player::Awake() {
 	test.loop = true;
 	test.speed = 0.09f;
 
+
+	//death animation
+	atac_r.PushBack({ 64 * 0, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 1, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 2, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 3, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 4, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 5, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 6, 640, 64, 64 });
+	atac_r.PushBack({ 64 * 7, 640, 64, 64 });
+	atac_r.loop = false;
+	atac_r.speed = 0.09f;
+
+	atac_l.PushBack({ 64 * 0, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 1, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 2, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 3, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 4, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 5, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 6, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 7, 640, 64, 64 });
+	atac_l.loop = false;
+	atac_l.speed = 0.09f;
+
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
 	//texturePath = "Assets/Textures/player/idle1.png";
@@ -232,10 +256,10 @@ bool Player::Update()
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
 		
-		if (currentAnimation != &kneelup_r)
+		if (currentAnimation != &atac_r)
 		{
-			kneelup_r.Reset();
-			currentAnimation = &kneelup_r;
+			atac_r.Reset();
+			currentAnimation = &atac_r;
 		}
 
 	}
@@ -269,7 +293,7 @@ bool Player::Update()
 		position.x = position.x-7;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
 		derecha = false;
-		if (salto == false && usalto == false) {
+		if (salto == false && usalto == false && currentAnimation != &atac_r && currentAnimation != &atac_l) {
 			currentAnimation = &run_l;
 		}
 	}
@@ -278,7 +302,7 @@ bool Player::Update()
 		position.x = position.x + 7;
 		vel = b2Vec2(speed, -GRAVITY_Y);
 		derecha = true;
-		if (salto == false && usalto == false) {
+		if (salto == false && usalto == false && currentAnimation != &atac_r && currentAnimation != &atac_l) {
 			currentAnimation = &run_r;
 		}
 
@@ -445,6 +469,8 @@ bool Player::Update()
 		&& app->input->GetKey(SDL_SCANCODE_T) == KeyState::KEY_IDLE
 		&& currentAnimation != &kneelup_l
 		&& currentAnimation != &kneelup_r
+		&& currentAnimation != &atac_r
+		&& currentAnimation != &atac_l
 		&& salto == false
 		&& usalto == false
 		&& hit == false) {
