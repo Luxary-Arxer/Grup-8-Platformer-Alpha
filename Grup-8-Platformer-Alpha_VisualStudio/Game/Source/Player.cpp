@@ -214,7 +214,7 @@ bool Player::Update()
 		
 		if (currentAnimation != &death)
 		{
-			death.Reset();
+			
 			currentAnimation = &death;
 		}
 	}
@@ -225,6 +225,9 @@ bool Player::Update()
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
 
+	}
+	if (hit == false) {
+		death.Reset();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {

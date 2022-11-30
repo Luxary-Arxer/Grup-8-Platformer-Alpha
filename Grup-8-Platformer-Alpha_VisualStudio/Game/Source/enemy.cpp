@@ -32,6 +32,17 @@ bool Enemy::Awake() {
 	idle_r.loop = true;
 	idle_r.speed = 0.1f;
 
+	idle_l.PushBack({ 129 * 7, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 6, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 5, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 4, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 3, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 2, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 1, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 0, 0, 129, 129 });
+	idle_l.loop = true;
+	idle_l.speed = 0.1f;
+
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
 	texturePath = parameters.attribute("texturepath").as_string();
