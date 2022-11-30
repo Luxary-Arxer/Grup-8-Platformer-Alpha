@@ -235,53 +235,36 @@ bool Player::Update()
 	 
 
 	if (hit == true) {	
+
 		if (currentAnimation != &death)
 		{
 			death.Reset();
 			currentAnimation = &death;
 		}
-		hit = false;
+
 	}
 	if (currentAnimation == &death) {
-		if (currentAnimation->HasFinished()) {
 
+		if (currentAnimation->HasFinished()) {
+			hit = false;
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
+
 	}
 	if (hit == false) {
 		death.Reset();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
-		if (currentAnimation != &atac_r)
-		{
+
 			atac_r.Reset();
 			currentAnimation = &atac_r;
-		}
-
 	}
 	//if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
-	//	if (currentAnimation != &atac_l)
-	//	{
+
 	//		atac_l.Reset();
 	//		currentAnimation = &atac_l;
-	//	}
 	//}
-	if (currentAnimation->HasFinished() && (currentAnimation == &atac_r || currentAnimation == &atac_l)) {
-
-		printf("_HasFinished_");
-		if (derecha == true) {
-			currentAnimation = &idle_r;
-			printf("_Reset_");
-			atac_r.Reset();
-		}
-		if (derecha == false) {
-			currentAnimation = &idle_l;
-			printf("_Reset_");
-			atac_r.Reset();
-		}
-
-	}
 	
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
@@ -489,10 +472,7 @@ bool Player::Update()
 		&& app->input->GetKey(SDL_SCANCODE_S) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_D) == KeyState::KEY_IDLE
 		&& app->input->GetKey(SDL_SCANCODE_T) == KeyState::KEY_IDLE
-		&& currentAnimation != &kneelup_l
-		&& currentAnimation != &kneelup_r
-		&& currentAnimation != &atac_r
-		&& currentAnimation != &atac_l
+		&& (currentAnimation != &kneelup_l && currentAnimation != &kneelup_r && currentAnimation != &atac_r && currentAnimation != &atac_l)
 		&& salto == false
 		&& usalto == false
 		&& hit == false) {

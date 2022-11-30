@@ -38,9 +38,9 @@ public:
 		return !loop && loopCount > 0;
 	}
 
-	bool Loop1()
+	bool Loop1(int i)
 	{
-		return loop && loopCount == 1;
+		return loop && loopCount == i;
 	}
 
 	void Update()
