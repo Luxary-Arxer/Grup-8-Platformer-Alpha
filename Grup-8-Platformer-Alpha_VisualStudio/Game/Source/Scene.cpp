@@ -40,13 +40,6 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	}
 
-	//for (pugi::xml_node enemyNode = config.child("enemy"); enemyNode; enemyNode = enemyNode.next_sibling("enemy"))
-	//{
-
-	//	Enemy* enemy = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	//	enemy->parameters = enemyNode;
-	//}
-
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy1->parameters = config.child("enemy");
 
@@ -57,7 +50,6 @@ bool Scene::Awake(pugi::xml_node& config)
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
-
 
 	return ret;
 }

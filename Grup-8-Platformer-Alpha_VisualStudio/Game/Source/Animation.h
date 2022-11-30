@@ -35,13 +35,9 @@ public:
 	
 	bool HasFinished()
 	{
-		return !loop && loopCount > 0;
+		return loop==false && loopCount > 0;
 	}
 
-	bool Loop1(int i)
-	{
-		return loop && loopCount == i;
-	}
 
 	void Update()
 	{

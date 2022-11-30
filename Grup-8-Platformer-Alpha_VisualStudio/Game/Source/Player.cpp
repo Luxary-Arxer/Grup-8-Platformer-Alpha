@@ -241,30 +241,29 @@ bool Player::Update()
 			death.Reset();
 			currentAnimation = &death;
 		}
-
 	}
 	if (currentAnimation == &death) {
-
 		if (currentAnimation->HasFinished()) {
+			death.Reset();
 			hit = false;
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
 
 	}
-	if (hit == false) {
-		death.Reset();
-	}
+
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
-
+		if (currentAnimation != &atac_r) {
 			atac_r.Reset();
 			currentAnimation = &atac_r;
+		}
 	}
-	//if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
-
-	//		atac_l.Reset();
-	//		currentAnimation = &atac_l;
-	//}
+	if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
+		if (currentAnimation != &atac_l) {
+			atac_l.Reset();
+			currentAnimation = &atac_l;
+		}
+	}
 	
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
@@ -294,7 +293,7 @@ bool Player::Update()
 		position.x = position.x-7;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
 		derecha = false;
-		if (salto == false && usalto == false && currentAnimation != &atac_r && currentAnimation != &atac_l) {
+		if (salto == false && usalto == false /*&& currentAnimation != &atac_r && currentAnimation != &atac_l*/) {
 			currentAnimation = &run_l;
 		}
 	}
@@ -303,7 +302,7 @@ bool Player::Update()
 		position.x = position.x + 7;
 		vel = b2Vec2(speed, -GRAVITY_Y);
 		derecha = true;
-		if (salto == false && usalto == false && currentAnimation != &atac_r && currentAnimation != &atac_l) {
+		if (salto == false && usalto == false /*&& currentAnimation != &atac_r && currentAnimation != &atac_l*/) {
 			currentAnimation = &run_r;
 		}
 
@@ -458,12 +457,7 @@ bool Player::Update()
 	}
 	if (currentAnimation->HasFinished() && (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l)) {
 		printf("_HasFinished_");
-		if (derecha == true) {
-			currentAnimation = &idle_r;
-		}
-		if (derecha == false) {
-			currentAnimation = &idle_l;
-		}
+		currentAnimation = &idle_r;
 	}
 
 	//comprovar si esta en idle
