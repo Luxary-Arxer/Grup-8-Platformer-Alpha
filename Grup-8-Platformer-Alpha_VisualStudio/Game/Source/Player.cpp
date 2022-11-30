@@ -98,7 +98,7 @@ bool Player::Awake() {
 	kneelup_r.PushBack({ 64 * 4, 256, 64, 64 });
 	kneelup_r.PushBack({ 64 * 5, 256, 64, 64 });
 	kneelup_r.PushBack({ 64 * 0, 256, 64, 64 });
-	kneelup_r.loop = true;
+	kneelup_r.loop = false;
 	kneelup_r.speed = 0.09f;
 
 	//kneelup_l animation
@@ -106,7 +106,7 @@ bool Player::Awake() {
 	kneelup_l.PushBack({ 64 * 1, 320, 64, 64 });
 	kneelup_l.PushBack({ 64 * 0, 320, 64, 64 });
 	kneelup_l.PushBack({ 64 * 5, 320, 64, 64 });
-	kneelup_l.loop = true;
+	kneelup_l.loop = false;
 	kneelup_l.speed = 0.09f;
 
 
@@ -169,14 +169,14 @@ bool Player::Awake() {
 	atac_r.loop = false;
 	atac_r.speed = 0.09f;
 
-	atac_l.PushBack({ 64 * 0, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 1, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 2, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 3, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 4, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 5, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 7, 704, 64, 64 });
 	atac_l.PushBack({ 64 * 6, 704, 64, 64 });
-	atac_l.PushBack({ 64 * 7, 640, 64, 64 });
+	atac_l.PushBack({ 64 * 5, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 4, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 3, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 2, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 1, 704, 64, 64 });
+	atac_l.PushBack({ 64 * 0, 704, 64, 64 });
 	atac_l.loop = false;
 	atac_l.speed = 0.09f;
 
@@ -241,11 +241,15 @@ bool Player::Update()
 			
 			currentAnimation = &death;
 		}
+		//if (currentAnimation->HasFinished() && currentAnimation == &death) {
+		//	death.Reset();
+		//}
 	}
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
 			//printf("_Death_");
 			//pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
+			hit = false;
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
 
@@ -261,9 +265,32 @@ bool Player::Update()
 			atac_r.Reset();
 			currentAnimation = &atac_r;
 		}
+		if (currentAnimation->HasFinished() && currentAnimation == &atac_r) {
+			atac_r.Reset();
+		}
 
 	}
-	
+	if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
+
+		if (currentAnimation != &atac_l)
+		{
+			atac_l.Reset();
+			currentAnimation = &atac_l;
+		}
+		if (currentAnimation->HasFinished() && currentAnimation == &atac_l) {
+			atac_l.Reset();
+		}
+
+	}
+	if (currentAnimation->HasFinished() && (currentAnimation == &atac_r || currentAnimation == &atac_l)) {
+		printf("_HasFinished_");
+		if (derecha == true) {
+			currentAnimation = &idle_r;
+		}
+		if (derecha == false) {
+			currentAnimation = &idle_l;
+		}
+	}
 	
 
 	//L02: DONE 4: modify the position of the player using arrow keys and render the texture
@@ -450,6 +477,10 @@ bool Player::Update()
 			kneelup_l.Reset();
 			currentAnimation = &kneelup_l;
 		}
+		if (currentAnimation->HasFinished() && (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l)) {
+			kneelup_l.Reset();
+			kneelup_r.Reset();
+		}
 	}
 	if (currentAnimation->HasFinished() && (currentAnimation == &kneelup_r || currentAnimation == &kneelup_l)) {
 		printf("_HasFinished_");
@@ -533,7 +564,6 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			break;
 		case ColliderType::PLATFORM:
 			LOG("Collision PLATFORM");
-			hit = false;
 			salto = false;
 			usalto = false;
 			usalto2 = true;
