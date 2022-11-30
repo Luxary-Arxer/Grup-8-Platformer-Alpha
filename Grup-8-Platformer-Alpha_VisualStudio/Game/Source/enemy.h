@@ -28,6 +28,15 @@ public:
 
 public:
 
+	Animation* EnemyAnimation = nullptr;
+
+	Animation idle_r;
+	Animation idle_l;
+
+	Animation run_r;
+	Animation run_l;
+
+
 	bool isPicked = false;
 
 private:

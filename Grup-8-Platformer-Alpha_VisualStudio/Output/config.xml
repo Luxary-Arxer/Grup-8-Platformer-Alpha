@@ -31,8 +31,8 @@
     <item x="200" y="682" texturepath="Assets/Textures/goldCoin.png"/>
     <item x="500" y="682" texturepath="Assets/Textures/goldCoin.png"/-->
 
-	<enemy x="256" y="547" texturepath="Assets/Textures/player1.png"/>
-	<enemy2 x="416" y="547" texturepath="Assets/Textures/player1.png"/>
+	<enemy x="256" y="547" texturepath="Assets/Enemies/enemy_1.png"/>
+	<enemy2 x="416" y="547" texturepath="Assets/Enemies/enemy_1.png"/>
 
   </scene>
 
