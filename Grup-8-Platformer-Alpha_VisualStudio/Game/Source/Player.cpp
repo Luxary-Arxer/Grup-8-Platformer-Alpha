@@ -234,62 +234,53 @@ bool Player::Update()
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 	 
 
-	if (hit == true) {
-		
+	if (hit == true) {	
 		if (currentAnimation != &death)
 		{
-			
+			death.Reset();
 			currentAnimation = &death;
 		}
-		//if (currentAnimation->HasFinished() && currentAnimation == &death) {
-		//	death.Reset();
-		//}
+		hit = false;
 	}
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
-			//printf("_Death_");
-			//pbody->body->SetTransform({ PIXEL_TO_METERS(150),PIXEL_TO_METERS(586) }, 0);
-			hit = false;
+
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
-
 	}
 	if (hit == false) {
 		death.Reset();
 	}
 
 	if (app->input->GetKey(SDL_SCANCODE_T) == KEY_DOWN) {
-		
 		if (currentAnimation != &atac_r)
 		{
 			atac_r.Reset();
 			currentAnimation = &atac_r;
 		}
-		if (currentAnimation->HasFinished() && currentAnimation == &atac_r) {
-			atac_r.Reset();
-		}
 
 	}
-	if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
-
-		if (currentAnimation != &atac_l)
-		{
-			atac_l.Reset();
-			currentAnimation = &atac_l;
-		}
-		if (currentAnimation->HasFinished() && currentAnimation == &atac_l) {
-			atac_l.Reset();
-		}
-
-	}
+	//if (app->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN) {
+	//	if (currentAnimation != &atac_l)
+	//	{
+	//		atac_l.Reset();
+	//		currentAnimation = &atac_l;
+	//	}
+	//}
 	if (currentAnimation->HasFinished() && (currentAnimation == &atac_r || currentAnimation == &atac_l)) {
+
 		printf("_HasFinished_");
 		if (derecha == true) {
 			currentAnimation = &idle_r;
+			printf("_Reset_");
+			atac_r.Reset();
 		}
 		if (derecha == false) {
 			currentAnimation = &idle_l;
+			printf("_Reset_");
+			atac_r.Reset();
 		}
+
 	}
 	
 
