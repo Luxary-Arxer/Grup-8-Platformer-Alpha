@@ -43,6 +43,7 @@ struct Properties
 	{
 		SString name;
 		bool value;
+		int num;
 	};
 
 	~Properties()

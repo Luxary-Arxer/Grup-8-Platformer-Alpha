@@ -136,17 +136,17 @@ void Map::Draw()
                         TileSet* tileset = GetTilesetFromTileId(gid);
                         SDL_Rect r = tileset->GetTileRect(gid);
                         iPoint pos = MapToWorld(x, y);
-                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
-                            PhysBody* c2 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            c2->ctype = ColliderType::DEATH;
-                        }
-                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 0) {
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
                             PhysBody* c0 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
                             c0->ctype = ColliderType::PLATFORM;
                         }
-                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
                             PhysBody* c1 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
                             c1->ctype = ColliderType::LIMIT;
+                        }
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 3) {
+                            PhysBody* cd = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            cd->ctype = ColliderType::PLATFORM;
                         }
 
                     }
@@ -480,6 +480,7 @@ bool Map::LoadProperties(pugi::xml_node& node, Properties& properties)
         Properties::Property* p = new Properties::Property();
         p->name = propertieNode.attribute("name").as_string();
         p->value = propertieNode.attribute("value").as_bool(); // (!!) I'm assuming that all values are bool !!
+        p->num = propertieNode.attribute("num").as_int();
 
         properties.list.Add(p);
     }
