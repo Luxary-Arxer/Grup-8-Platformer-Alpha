@@ -134,17 +134,21 @@ void Map::Draw()
 
                     if (gid > 0) {
                         TileSet* tileset = GetTilesetFromTileId(gid);
-
                         SDL_Rect r = tileset->GetTileRect(gid);
                         iPoint pos = MapToWorld(x, y);
-                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
-                            PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            ci->ctype = ColliderType::PLATFORM;
-                        }
                         if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
-                            PhysBody* cj = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            cj->ctype = ColliderType::LIMIT;
+                            PhysBody* c2 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            c2->ctype = ColliderType::DEATH;
                         }
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 0) {
+                            PhysBody* c0 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            c0->ctype = ColliderType::PLATFORM;
+                        }
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 1) {
+                            PhysBody* c1 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            c1->ctype = ColliderType::LIMIT;
+                        }
+
                     }
                 }
             }

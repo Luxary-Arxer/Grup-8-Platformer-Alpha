@@ -535,6 +535,14 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			salto2 = 0;
 			posy = position.y;
 			break;
+		case ColliderType::LIMIT:
+			LOG("Collision PLATFORM");
+			salto = false;
+			usalto = false;
+			usalto2 = true;
+			salto2 = 0;
+			posy = position.y;
+			break;
 	}
 	
 }
