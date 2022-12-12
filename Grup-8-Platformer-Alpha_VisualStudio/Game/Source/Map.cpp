@@ -141,6 +141,10 @@ void Map::Draw()
                             PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
                             ci->ctype = ColliderType::PLATFORM;
                         }
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
+                            PhysBody* ci = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            ci->ctype = ColliderType::DEATH;
+                        }
                         //if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
                         //    PhysBody * ci = app->physics->CreateRectangle(pos.x +16, pos.x + 16, 32, 32, STATIC);
                         //    ci->ctype = ColliderType::DEATH;
@@ -149,11 +153,11 @@ void Map::Draw()
                     }
                 }
             }
-            colisiones = true;
         }
         mapLayerItem = mapLayerItem->next;
 
     }
+    colisiones = true;
 }
 
 // L05: DONE 8: Create a method that translates x,y coordinates from map positions to world positions

@@ -28,6 +28,7 @@ enum class ColliderType {
 	ITEM,
 	TERRAIN,
 	PLATFORM,
+	LIMIT,
 	WATER,
 	DEATH,
 	ENEMY,
