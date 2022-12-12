@@ -42,8 +42,8 @@ struct Properties
 	struct Property
 	{
 		SString name;
-		bool value;
-		int num;
+		SString type;
+		int value;
 	};
 
 	~Properties()

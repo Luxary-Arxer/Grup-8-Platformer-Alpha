@@ -313,8 +313,8 @@ bool Map::Load()
     collider14->ctype = ColliderType::TERRAIN;
 
     //COLLIDER DEATH
-    PhysBody* collider12 = app->physics->CreateRectangle((0 + 2048 / 2)*2, 768 , 2048*2, 64, STATIC);
-    collider12->ctype = ColliderType::DEATH;
+    //PhysBody* collider12 = app->physics->CreateRectangle((0 + 2048 / 2)*2, 768 , 2048*2, 64, STATIC);
+    //collider12->ctype = ColliderType::DEATH;
 
     //PhysBody* collider16 = app->physics->CreateRectangleSensor(0 + 2048 / 2, 76864, 2048, 64, STATIC);
     //collider16->ctype = ColliderType::WATER;
@@ -479,8 +479,13 @@ bool Map::LoadProperties(pugi::xml_node& node, Properties& properties)
     {
         Properties::Property* p = new Properties::Property();
         p->name = propertieNode.attribute("name").as_string();
-        p->value = propertieNode.attribute("value").as_bool(); // (!!) I'm assuming that all values are bool !!
-        p->num = propertieNode.attribute("num").as_int();
+        p->type = propertieNode.attribute("type").as_string();
+        if (p->type == "bool") {
+            p->value = propertieNode.attribute("value").as_bool(); // (!!) I'm assuming that all values are bool !!
+        }
+        if (p->type == "int") {
+            p->value = propertieNode.attribute("value").as_int();
+        }
 
         properties.list.Add(p);
     }
