@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="27" nextobjectid="46">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="28" nextobjectid="46">
  <properties>
   <property name="Collisiones" type="int" value="1"/>
  </properties>
@@ -27157,13 +27157,13 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="748"/>
+   <tile gid="749"/>
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile gid="470"/>
-   <tile/>
+   <tile gid="906"/>
+   <tile gid="907"/>
    <tile/>
    <tile/>
    <tile/>
@@ -27285,13 +27285,13 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="788"/>
+   <tile gid="789"/>
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="946"/>
+   <tile gid="947"/>
    <tile/>
    <tile/>
    <tile/>
@@ -27413,13 +27413,13 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="828"/>
+   <tile gid="829"/>
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="986"/>
+   <tile gid="987"/>
    <tile/>
    <tile/>
    <tile/>
@@ -27541,8 +27541,8 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="868"/>
+   <tile gid="869"/>
    <tile/>
    <tile/>
    <tile/>

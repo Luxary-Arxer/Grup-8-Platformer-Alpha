@@ -146,7 +146,7 @@ void Map::Draw()
                         }
                         if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 3) {
                             PhysBody* cd = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            cd->ctype = ColliderType::PLATFORM;
+                            cd->ctype = ColliderType::DEATH;
                         }
 
                     }
@@ -479,7 +479,7 @@ bool Map::LoadProperties(pugi::xml_node& node, Properties& properties)
     {
         Properties::Property* p = new Properties::Property();
         p->name = propertieNode.attribute("name").as_string();
-        p->value = propertieNode.attribute("value").as_bool(); // (!!) I'm assuming that all values are bool !!
+        p->value = propertieNode.attribute("value").as_int(); // (!!) I'm assuming that all values are bool !!
         p->num = propertieNode.attribute("num").as_int();
 
         properties.list.Add(p);
