@@ -44,8 +44,12 @@ private:
 	SDL_Texture* texture;
 	const char* texturePath;
 
+	int speed = 1;
+
 	//DONE 4: Add a physics to an item
 	PhysBody* pbody;
+
+	bool derecha = true;
 };
 
 #endif // __ITEM_H__

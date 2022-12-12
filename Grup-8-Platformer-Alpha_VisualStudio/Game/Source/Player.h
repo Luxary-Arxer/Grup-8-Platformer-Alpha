@@ -29,7 +29,7 @@ public:
 	void OnCollision(PhysBody* physA, PhysBody* physB);
 
 	bool LoadStateEntity(pugi::xml_node&);
-	bool SaveStateEntity(pugi::xml_node&);
+	bool SavelStateEntity(pugi::xml_node&);
 
 	void LoadPosition(int x,int y);
 

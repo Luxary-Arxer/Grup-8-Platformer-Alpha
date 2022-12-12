@@ -32,14 +32,14 @@ bool Enemy::Awake() {
 	idle_r.loop = true;
 	idle_r.speed = 0.1f;
 
-	idle_l.PushBack({ 129 * 7, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 6, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 5, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 4, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 3, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 2, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 1, 0, 129, 129 });
-	idle_l.PushBack({ 129 * 0, 0, 129, 129 });
+	idle_l.PushBack({ 129 * 7, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 6, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 5, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 4, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 3, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 2, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 1, 129, 129, 129 });
+	idle_l.PushBack({ 129 * 0, 129, 129, 129 });
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
@@ -52,13 +52,19 @@ bool Enemy::Awake() {
 
 bool Enemy::Start() {
 
+	int speed = 1;
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+
 	//initilize textures
 	texture = app->tex->Load(texturePath);
 	EnemyAnimation = &idle_r;
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
 	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 32, bodyType::DYNAMIC);
+
+	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
+
 	// L07 DONE 7: Assign collider type
 	pbody->ctype = ColliderType::ENEMY;
 	
@@ -68,10 +74,37 @@ bool Enemy::Start() {
 bool Enemy::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+
+
+	if (derecha == true) {
+		position.x = position.x + 1;
+		vel = b2Vec2(speed, -GRAVITY_Y);
+		EnemyAnimation = &idle_r;
+
+	}
+	if (derecha == false) {
+		position.x = position.x - 1;
+		vel = b2Vec2(-speed, -GRAVITY_Y);
+		EnemyAnimation = &idle_l;
+	}
+
+
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+		position.x = position.x + 7;
+		vel = b2Vec2(speed, -GRAVITY_Y);
+	}
+	if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT) {
+		position.x = position.x + 7;
+		vel = b2Vec2(speed, -GRAVITY_Y);
+	}
+
+	//Set the velocity of the pbody of the player
+	pbody->body->SetLinearVelocity(vel);
+
+	//Update player position in pixels
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
-
-	EnemyAnimation = &idle_r;
 
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
@@ -102,9 +135,9 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 		LOG("Collision PLAYER");
 
 		break;
-	case ColliderType::PLATFORM:
+	case ColliderType::LIMIT:
 		LOG("Collision PLATFORM");
-
+		derecha = !derecha;
 		break;
 
 	case ColliderType::TERRAIN:

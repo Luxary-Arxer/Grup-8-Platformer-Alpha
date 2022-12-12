@@ -41,11 +41,17 @@ bool Scene::Awake(pugi::xml_node& config)
 	}
 
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy1->parameters = config.child("enemy");
+	enemy1->parameters = config.child("enemy1");
 
 
 	enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy2->parameters = config.child("enemy2");
+
+	enemy3 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy3->parameters = config.child("enemy3");
+
+	enemy4 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy4->parameters = config.child("enemy4");
 
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
@@ -65,15 +71,24 @@ bool Scene::Start()
 	ShowPathfinding = false;
 
 	if (FirstScene != true) {
+		//Player
 		app->entityManager->AddEntity(player);
-		player->position.x = 150;
+		player->position.x = 256;
 		player->position.y = 586;
+
+		//Enemies
 		app->entityManager->AddEntity(enemy1);
-		enemy1->position.x = 256;
-		enemy1->position.y = 547;
+		enemy1->position.x = 416;
+		enemy1->position.y = 547; 
 		app->entityManager->AddEntity(enemy2);
-		enemy2->position.x = 416;
-		enemy2->position.y = 547;
+		enemy2->position.x = 928;
+		enemy2->position.y = 512;
+		app->entityManager->AddEntity(enemy3);
+		enemy3->position.x = 1728;
+		enemy3->position.y = 256;
+		app->entityManager->AddEntity(enemy4);
+		enemy4->position.x = 2496;
+		enemy4->position.y = 544;
 	}
 	
 
