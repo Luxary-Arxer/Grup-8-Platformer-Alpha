@@ -43,6 +43,28 @@ bool Enemy::Awake() {
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
+	run_r.PushBack({ 129 * 7, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 6, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 5, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 4, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 3, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 2, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 1, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 0, 129 * 2, 129, 129 });
+	run_r.loop = true;
+	run_r.speed = 0.1f;
+
+	run_l.PushBack({ 129 * 7, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 6, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 5, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 4, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 3, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 2, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 1, 129 * 3, 129, 129 });
+	run_l.PushBack({ 129 * 0, 129 * 3, 129, 129 });
+	run_l.loop = true;
+	run_l.speed = 0.1f;
+
 
 	death.PushBack({ 0, 129 * 7, 129, 129 });
 	death.PushBack({ 129 * 1, 129 * 7, 129, 129 });
@@ -92,13 +114,13 @@ bool Enemy::Update()
 	if (derecha == true && !hit) {
 		position.x = position.x + 1;
 		vel = b2Vec2(speed, -GRAVITY_Y);
-		EnemyAnimation = &idle_r;
+		EnemyAnimation = &run_r;
 
 	}
 	if (derecha == false && !hit) {
 		position.x = position.x - 1;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
-		EnemyAnimation = &idle_l;
+		EnemyAnimation = &run_l;
 	}
 
 
