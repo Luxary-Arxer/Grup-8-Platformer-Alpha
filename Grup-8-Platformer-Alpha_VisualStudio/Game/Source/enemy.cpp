@@ -43,6 +43,18 @@ bool Enemy::Awake() {
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
+
+	death.PushBack({ 0, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 1, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 2, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 3, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 4, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 5, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 6, 129 * 7, 129, 129 });
+	death.PushBack({ 129 * 7, 129 * 7, 129, 129 });
+	death.loop = false;
+	death.speed = 0.1f;
+
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
 	texturePath = parameters.attribute("texturepath").as_string();
@@ -77,13 +89,13 @@ bool Enemy::Update()
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
 
-	if (derecha == true) {
+	if (derecha == true && !hit) {
 		position.x = position.x + 1;
 		vel = b2Vec2(speed, -GRAVITY_Y);
 		EnemyAnimation = &idle_r;
 
 	}
-	if (derecha == false) {
+	if (derecha == false && !hit) {
 		position.x = position.x - 1;
 		vel = b2Vec2(-speed, -GRAVITY_Y);
 		EnemyAnimation = &idle_l;
@@ -91,13 +103,13 @@ bool Enemy::Update()
 
 
 	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
-		position.x = position.x + 7;
-		vel = b2Vec2(speed, -GRAVITY_Y);
+		hit = true;
+		if (EnemyAnimation != &death) {
+			death.Reset();
+			EnemyAnimation = &death;
+		}
 	}
-	if (app->input->GetKey(SDL_SCANCODE_L) == KEY_REPEAT) {
-		position.x = position.x + 7;
-		vel = b2Vec2(speed, -GRAVITY_Y);
-	}
+
 
 	//Set the velocity of the pbody of the player
 	pbody->body->SetLinearVelocity(vel);

@@ -36,6 +36,8 @@ public:
 	Animation run_r;
 	Animation run_l;
 
+	Animation death;
+
 
 	bool isPicked = false;
 
@@ -50,6 +52,7 @@ private:
 	PhysBody* pbody;
 
 	bool derecha = true;
+	bool hit = false;
 };
 
 #endif // __ITEM_H__
