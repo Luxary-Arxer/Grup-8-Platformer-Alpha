@@ -53,6 +53,7 @@ private:
 
 	bool derecha = true;
 	bool hit = false;
+	bool load = false;
 };
 
 #endif // __ITEM_H__

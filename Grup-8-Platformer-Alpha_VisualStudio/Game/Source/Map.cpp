@@ -142,11 +142,15 @@ void Map::Draw()
                         }
                         if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 2) {
                             PhysBody* c1 = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            c1->ctype = ColliderType::LIMIT;
+                            c1->ctype = ColliderType::DEATH;
                         }
                         if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 3) {
                             PhysBody* cd = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
-                            cd->ctype = ColliderType::DEATH;
+                            cd->ctype = ColliderType::LIMIT_L;
+                        }
+                        if (mapLayerItem->data->properties.GetProperty("Collisiones")->value == 4) {
+                            PhysBody* cd = app->physics->CreateRectangle(pos.x + 16, pos.y + 16, 32, 32, STATIC);
+                            cd->ctype = ColliderType::LIMIT_R;
                         }
 
                     }

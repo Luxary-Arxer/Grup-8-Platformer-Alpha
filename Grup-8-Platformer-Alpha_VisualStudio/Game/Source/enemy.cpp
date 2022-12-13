@@ -94,13 +94,15 @@ bool Enemy::Start() {
 	EnemyAnimation = &idle_r;
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 32, bodyType::DYNAMIC);
+	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 30, bodyType::DYNAMIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
 
 	// L07 DONE 7: Assign collider type
 	pbody->ctype = ColliderType::ENEMY;
+
+	hit = false;
 	
 	return true;
 }
@@ -109,6 +111,7 @@ bool Enemy::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+
 
 
 	if (derecha == true && !hit) {
@@ -126,6 +129,8 @@ bool Enemy::Update()
 
 	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
 		hit = true;
+	}
+	if (hit == true) {
 		if (EnemyAnimation != &death) {
 			death.Reset();
 			EnemyAnimation = &death;
@@ -133,7 +138,7 @@ bool Enemy::Update()
 	}
 
 
-	//Set the velocity of the pbody of the player
+	//Set the velocity of the pbody of the enemy
 	pbody->body->SetLinearVelocity(vel);
 
 	//Update player position in pixels
@@ -143,13 +148,15 @@ bool Enemy::Update()
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x-60, position.y-50, & rect);
+	app->render->DrawTexture(texture, position.x-60, position.y-52, & rect);
 
 	return true;
 }
 
 bool Enemy::CleanUp()
 {
+
+
 	return true;
 }
 
@@ -162,6 +169,7 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::DEATH:
 		LOG("Collision DEATH");
+		hit = true;
 		//DestroyBody(pbody);
 		// = app->physics->CreateCircle(position.x + 16, position.y + 16, 16, bodyType::DYNAMIC);
 		break;
@@ -169,9 +177,14 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 		LOG("Collision PLAYER");
 
 		break;
-	case ColliderType::LIMIT:
+	case ColliderType::LIMIT_L:
 		LOG("Collision PLATFORM");
-		derecha = !derecha;
+		derecha = true;
+		break;
+
+	case ColliderType::LIMIT_R:
+		LOG("Collision PLATFORM");
+		derecha = false;
 		break;
 
 	case ColliderType::TERRAIN:

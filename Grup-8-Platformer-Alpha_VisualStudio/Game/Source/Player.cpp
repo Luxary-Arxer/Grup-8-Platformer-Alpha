@@ -157,7 +157,7 @@ bool Player::Awake() {
 	test.speed = 0.09f;
 
 
-	//death animation
+	//ATAC animation
 	atac_r.PushBack({ 64 * 0, 640, 64, 64 });
 	atac_r.PushBack({ 64 * 1, 640, 64, 64 });
 	atac_r.PushBack({ 64 * 2, 640, 64, 64 });
@@ -167,7 +167,7 @@ bool Player::Awake() {
 	atac_r.PushBack({ 64 * 6, 640, 64, 64 });
 	atac_r.PushBack({ 64 * 7, 640, 64, 64 });
 	atac_r.loop = false;
-	atac_r.speed = 0.09f;
+	atac_r.speed = 0.1f;
 
 	atac_l.PushBack({ 64 * 7, 704, 64, 64 });
 	atac_l.PushBack({ 64 * 6, 704, 64, 64 });
@@ -178,7 +178,7 @@ bool Player::Awake() {
 	atac_l.PushBack({ 64 * 1, 704, 64, 64 });
 	atac_l.PushBack({ 64 * 0, 704, 64, 64 });
 	atac_l.loop = false;
-	atac_l.speed = 0.09f;
+	atac_l.speed = 0.1f;
 
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
@@ -236,15 +236,13 @@ bool Player::Update()
 
 	if (hit == true) {	
 
-		if (currentAnimation != &death)
-		{
+		if (currentAnimation != &death) {
 			death.Reset();
 			currentAnimation = &death;
 		}
 	}
 	if (currentAnimation == &death) {
 		if (currentAnimation->HasFinished()) {
-			death.Reset();
 			hit = false;
 			app->fade->StartFadeToBlack((Module*)app->scene, (Module*)app->sceneEnding, 10);
 		}
@@ -535,7 +533,15 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			salto2 = 0;
 			posy = position.y;
 			break;
-		case ColliderType::LIMIT:
+		case ColliderType::LIMIT_R:
+			LOG("Collision PLATFORM");
+			salto = false;
+			usalto = false;
+			usalto2 = true;
+			salto2 = 0;
+			posy = position.y;
+			break;
+		case ColliderType::LIMIT_L:
 			LOG("Collision PLATFORM");
 			salto = false;
 			usalto = false;
