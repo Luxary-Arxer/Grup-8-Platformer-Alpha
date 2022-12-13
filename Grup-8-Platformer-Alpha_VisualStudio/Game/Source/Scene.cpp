@@ -43,17 +43,17 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy1->parameters = config.child("enemy1");
 
-	enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy2->parameters = config.child("enemy2");
+	//enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy2->parameters = config.child("enemy2");
 
-	enemy3 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy3->parameters = config.child("enemy3");
+	//enemy3 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy3->parameters = config.child("enemy3");
 
-	enemy4 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy4->parameters = config.child("enemy4");
+	//enemy4 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy4->parameters = config.child("enemy4");
 
-	enemy5 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy5->parameters = config.child("enemy5");
+	//enemy5 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy5->parameters = config.child("enemy5");
 
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
@@ -83,18 +83,18 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy1);
 		enemy1->position.x = 416;
 		enemy1->position.y = 547; 
-		app->entityManager->AddEntity(enemy2);
-		enemy2->position.x = 928;
-		enemy2->position.y = 512;
-		app->entityManager->AddEntity(enemy3);
-		enemy3->position.x = 1728;
-		enemy3->position.y = 256;
-		app->entityManager->AddEntity(enemy4);
-		enemy4->position.x = 2496;
-		enemy4->position.y = 544;
-		app->entityManager->AddEntity(enemy5);
-		enemy5->position.x = 4000;
-		enemy5->position.y = 512;
+		//app->entityManager->AddEntity(enemy2);
+		//enemy2->position.x = 928;
+		//enemy2->position.y = 512;
+		//app->entityManager->AddEntity(enemy3);
+		//enemy3->position.x = 1728;
+		//enemy3->position.y = 256;
+		//app->entityManager->AddEntity(enemy4);
+		//enemy4->position.x = 2496;
+		//enemy4->position.y = 544;
+		//app->entityManager->AddEntity(enemy5);
+		//enemy5->position.x = 4000;
+		//enemy5->position.y = 512;
 	}
 	
 	app->pathfinding->Enable();
