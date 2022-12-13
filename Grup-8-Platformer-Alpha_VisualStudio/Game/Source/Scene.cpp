@@ -151,6 +151,9 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
+
+
+
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 40);
 	}
@@ -183,12 +186,11 @@ bool Scene::Update(float dt)
 	app->input->GetMousePosition(mouseX, mouseY);
 	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/ 2 + 14,
 											mouseY - app->render->camera.y - app->map->mapData.tileHeight/2 + 14);
+
+
+
 	// Draw map
 	app->map->Draw();
-
-
-
-
 
 	// L12: Get the latest calculated path and draw
 	if (ShowPathfinding) {
@@ -240,6 +242,8 @@ bool Scene::PostUpdate()
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
+
+	app->map->Draw_Top();
 
 	return ret;
 }

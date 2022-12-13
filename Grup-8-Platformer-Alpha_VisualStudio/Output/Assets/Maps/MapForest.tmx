@@ -27778,7 +27778,7 @@
  </layer>
  <layer id="5" name="Agua_1" width="128" height="24">
   <properties>
-   <property name="Draw" type="bool" value="true"/>
+   <property name="Draw" type="bool" value="false"/>
    <property name="Navigation" type="bool" value="false"/>
    <property name="Top" type="bool" value="true"/>
   </properties>

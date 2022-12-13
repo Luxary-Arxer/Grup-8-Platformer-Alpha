@@ -173,7 +173,7 @@ void Map::Draw_Top()
     while (mapLayerItem != NULL) {
 
         //L06: DONE 7: use GetProperty method to ask each layer if your “Draw” property is true.
-        if (mapLayerItem->data->properties.GetProperty("Top") != NULL && mapLayerItem->data->properties.GetProperty("Tip")->value) {
+        if (mapLayerItem->data->properties.GetProperty("Top") != NULL && mapLayerItem->data->properties.GetProperty("Top")->value) {
 
             for (int x = 0; x < mapLayerItem->data->width; x++)
             {
