@@ -43178,7 +43178,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="25" name="Navigation_tierra" width="128" height="24">
+ <layer id="25" name="Navigation_tierra" width="128" height="24" visible="0">
   <properties>
    <property name="Navigation" type="bool" value="false"/>
   </properties>
