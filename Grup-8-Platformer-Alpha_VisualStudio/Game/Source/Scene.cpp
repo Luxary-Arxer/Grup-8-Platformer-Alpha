@@ -52,6 +52,9 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemy4 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy4->parameters = config.child("enemy4");
 
+	enemy5 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy5->parameters = config.child("enemy5");
+
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
@@ -88,6 +91,9 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy4);
 		enemy4->position.x = 2496;
 		enemy4->position.y = 544;
+		app->entityManager->AddEntity(enemy5);
+		enemy5->position.x = 4000;
+		enemy5->position.y = 512;
 	}
 	
 	app->pathfinding->Enable();
@@ -152,8 +158,6 @@ bool Scene::PreUpdate()
 bool Scene::Update(float dt)
 {
 
-
-
 	if (app->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN) {
 		app->fade->StartFadeToBlack(this, (Module*)app->scene, 40);
 	}
@@ -161,7 +165,6 @@ bool Scene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		ShowPathfinding = !ShowPathfinding;
 	
-
 	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
 	if (app->input->GetKey(SDL_SCANCODE_F5) == KEY_DOWN)
 		app->SaveGameRequest();
@@ -186,8 +189,6 @@ bool Scene::Update(float dt)
 	app->input->GetMousePosition(mouseX, mouseY);
 	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/ 2 + 14,
 											mouseY - app->render->camera.y - app->map->mapData.tileHeight/2 + 14);
-
-
 
 	// Draw map
 	app->map->Draw();

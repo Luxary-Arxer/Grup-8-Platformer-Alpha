@@ -44,6 +44,7 @@ public:
 	Enemy* enemy2;
 	Enemy* enemy3;
 	Enemy* enemy4;
+	Enemy* enemy5;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = false;

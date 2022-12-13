@@ -43,14 +43,14 @@ bool Enemy::Awake() {
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
-	run_r.PushBack({ 129 * 7, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 6, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 5, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 4, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 3, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 2, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 1, 129 * 2, 129, 129 });
 	run_r.PushBack({ 129 * 0, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 1, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 2, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 3, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 4, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 5, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 6, 129 * 2, 129, 129 });
+	run_r.PushBack({ 129 * 7, 129 * 2, 129, 129 });
 	run_r.loop = true;
 	run_r.speed = 0.1f;
 
@@ -148,7 +148,7 @@ bool Enemy::Update()
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x-60, position.y-52, & rect);
+	app->render->DrawTexture(texture, position.x-60, position.y-53, & rect);
 
 	return true;
 }
