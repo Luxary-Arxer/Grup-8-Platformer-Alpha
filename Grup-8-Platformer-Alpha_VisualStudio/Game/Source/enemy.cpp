@@ -169,9 +169,7 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::DEATH:
 		LOG("Collision DEATH");
-		hit = true;
-		//DestroyBody(pbody);
-		// = app->physics->CreateCircle(position.x + 16, position.y + 16, 16, bodyType::DYNAMIC);
+		/*hit = true;*/
 		break;
 	case ColliderType::PLAYER:
 		LOG("Collision PLAYER");
