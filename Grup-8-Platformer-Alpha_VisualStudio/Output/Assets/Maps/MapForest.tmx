@@ -9296,7 +9296,7 @@
    <tile gid="4764"/>
   </data>
  </layer>
- <layer id="15" name="Fondo Plataformas" width="128" height="24">
+ <layer id="15" name="Fondo Plataformas" width="128" height="24" visible="0">
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -9992,6 +9992,11 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="471"/>
+   <tile gid="472"/>
+   <tile gid="473"/>
+   <tile gid="474"/>
+   <tile gid="475"/>
    <tile/>
    <tile/>
    <tile/>
@@ -10115,6 +10120,15 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="485"/>
+   <tile gid="486"/>
+   <tile gid="487"/>
+   <tile gid="488"/>
+   <tile gid="489"/>
+   <tile gid="415"/>
+   <tile gid="416"/>
+   <tile gid="417"/>
+   <tile gid="418"/>
    <tile/>
    <tile/>
    <tile/>
@@ -10234,6 +10248,15 @@
    <tile/>
    <tile/>
    <tile/>
+   <tile gid="499"/>
+   <tile gid="500"/>
+   <tile gid="501"/>
+   <tile gid="502"/>
+   <tile gid="503"/>
+   <tile gid="429"/>
+   <tile gid="430"/>
+   <tile gid="431"/>
+   <tile gid="432"/>
    <tile/>
    <tile/>
    <tile/>
@@ -10353,39 +10376,16 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="513"/>
+   <tile gid="514"/>
+   <tile gid="515"/>
+   <tile gid="516"/>
+   <tile gid="517"/>
+   <tile gid="443"/>
+   <tile gid="444"/>
+   <tile gid="445"/>
+   <tile gid="446"/>
+   <tile gid="503"/>
    <tile/>
    <tile/>
    <tile/>
@@ -10505,14 +10505,14 @@
    <tile/>
    <tile/>
    <tile gid="426"/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="528"/>
+   <tile gid="529"/>
    <tile gid="426"/>
-   <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="426"/>
+   <tile gid="457"/>
+   <tile gid="458"/>
+   <tile gid="459"/>
+   <tile gid="460"/>
    <tile/>
    <tile/>
    <tile/>
@@ -11135,7 +11135,7 @@
    <tile gid="410"/>
    <tile gid="411"/>
    <tile gid="412"/>
-   <tile gid="440"/>
+   <tile gid="426"/>
    <tile/>
    <tile/>
    <tile/>
@@ -11504,10 +11504,10 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
+   <tile gid="426"/>
    <tile gid="536"/>
    <tile gid="537"/>
-   <tile/>
+   <tile gid="426"/>
    <tile gid="514"/>
    <tile gid="515"/>
    <tile gid="516"/>
@@ -11599,8 +11599,8 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="426"/>
+   <tile gid="427"/>
    <tile gid="1564"/>
    <tile gid="1563"/>
    <tile gid="1564"/>
@@ -11677,13 +11677,13 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="426"/>
+   <tile gid="427"/>
    <tile gid="457"/>
    <tile gid="458"/>
    <tile gid="459"/>
    <tile gid="460"/>
-   <tile gid="461"/>
+   <tile gid="426"/>
    <tile/>
    <tile/>
    <tile/>
@@ -12033,9 +12033,9 @@
    <tile gid="526"/>
    <tile/>
    <tile/>
+   <tile gid="426"/>
    <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="426"/>
    <tile/>
    <tile/>
    <tile/>
@@ -12376,7 +12376,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="8" name="Objetos" width="128" height="24">
+ <layer id="8" name="Objetos" width="128" height="24" visible="0">
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -15456,7 +15456,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="23" name="Agua_2" width="128" height="24">
+ <layer id="23" name="Agua_2" width="128" height="24" visible="0">
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -18536,7 +18536,7 @@
    <tile gid="117"/>
   </data>
  </layer>
- <layer id="1" name="Plataformas" width="128" height="24">
+ <layer id="1" name="Plataformas" width="128" height="24" visible="0">
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -21616,7 +21616,7 @@
    <tile gid="64"/>
   </data>
  </layer>
- <layer id="16" name="Objetos 2" width="128" height="24">
+ <layer id="16" name="Objetos 2" width="128" height="24" visible="0">
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -27779,6 +27779,7 @@
  </layer>
  <layer id="33" name="Encima_Entidades" width="128" height="24">
   <properties>
+   <property name="Draw" type="bool" value="false"/>
    <property name="Navigation" type="bool" value="false"/>
    <property name="Top" type="bool" value="true"/>
   </properties>
@@ -30212,9 +30213,9 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
-   <tile/>
-   <tile/>
+   <tile gid="52"/>
+   <tile gid="52"/>
+   <tile gid="52"/>
    <tile/>
    <tile/>
    <tile/>

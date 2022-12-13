@@ -5,6 +5,7 @@
 #include "App.h"
 #include "Textures.h"
 #include "Scene.h"
+#include "Map.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -123,6 +124,8 @@ void EntityManager::AddEntity(Entity* entity)
 
 bool EntityManager::Update(float dt)
 {
+
+
 	bool ret = true;
 	ListItem<Entity*>* item;
 	Entity* pEntity = NULL;
@@ -134,6 +137,8 @@ bool EntityManager::Update(float dt)
 		if (pEntity->active == false) continue;
 		ret = item->data->Update();
 	}
+
+
 
 	return ret;
 }

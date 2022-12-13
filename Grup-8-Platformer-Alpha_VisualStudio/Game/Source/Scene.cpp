@@ -69,8 +69,9 @@ bool Scene::Start()
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	LOG("Start Scene");
 
-
 	ShowPathfinding = false;
+
+	app->map->Enable();
 
 	if (FirstScene != true) {
 		//Player
@@ -101,8 +102,6 @@ bool Scene::Start()
 	app->physics->Enable();
 
 	app->entityManager->Enable();
-
-	app->map->Enable();
 
 	// L03: DONE: Load map
 	bool retLoad = app->map->Load();
@@ -184,14 +183,18 @@ bool Scene::Update(float dt)
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		app->render->camera.x -= 7;
 
+
+
 	// L08: DONE 3: Test World to map method
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
 	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth/ 2 + 14,
 											mouseY - app->render->camera.y - app->map->mapData.tileHeight/2 + 14);
 
+
 	// Draw map
 	app->map->Draw();
+
 
 	// L12: Get the latest calculated path and draw
 	if (ShowPathfinding) {
@@ -239,13 +242,13 @@ bool Scene::Update(float dt)
 // Called each loop iteration
 bool Scene::PostUpdate()
 {
+
 	bool ret = true;
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
 
 	app->map->Draw_Top();
-
 	return ret;
 }
 
