@@ -48,7 +48,6 @@ public:
 
 	bool FirstScene = true;
 	bool ShowPathfinding = false;
-	bool ShowTop_Map = true;
 
 private:
 	SDL_Texture* img;
