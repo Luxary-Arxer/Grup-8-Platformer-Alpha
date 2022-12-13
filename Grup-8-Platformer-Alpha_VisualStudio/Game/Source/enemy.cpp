@@ -113,6 +113,8 @@ bool Enemy::Update()
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
 
+	//MOVERSE DE LADO A LADO SIN PATHFINDING
+
 
 	if (derecha == true && !hit) {
 		position.x = position.x + 1;
@@ -148,7 +150,7 @@ bool Enemy::Update()
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x-60, position.y-53, & rect);
+	app->render->DrawTexture(texture, position.x-60, position.y-54, & rect);
 
 	return true;
 }
