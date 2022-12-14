@@ -90,7 +90,7 @@ bool Enemy::Awake() {
 bool Enemy::Start() {
 
 	int speed = 1;
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+	b2Vec2 vel = b2Vec2(0, /*-GRAVITY_Y + 3*/0);
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
@@ -113,7 +113,7 @@ bool Enemy::Start() {
 bool Enemy::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+	b2Vec2 vel = b2Vec2(0, /*-GRAVITY_Y + 3*/0);
 
 
 	//MOVERSE DE LADO A LADO SIN PATHFINDING
