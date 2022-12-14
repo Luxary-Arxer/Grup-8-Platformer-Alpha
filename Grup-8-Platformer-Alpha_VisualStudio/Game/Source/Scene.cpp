@@ -69,7 +69,7 @@ bool Scene::Start()
 	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	LOG("Start Scene");
 
-	ShowPathfinding = false;
+	ShowPathfinding = true;
 
 	app->map->Enable();
 

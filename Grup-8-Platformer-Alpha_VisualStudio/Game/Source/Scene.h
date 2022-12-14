@@ -47,7 +47,7 @@ public:
 	Enemy* enemy5;
 
 	bool FirstScene = true;
-	bool ShowPathfinding = false;
+	bool ShowPathfinding = NULL;
 
 private:
 	SDL_Texture* img;

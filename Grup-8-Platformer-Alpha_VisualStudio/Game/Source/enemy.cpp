@@ -108,49 +108,12 @@ bool Enemy::Start() {
 	hit = false;
 	
 	return true;
-}
 
-bool Enemy::Update()
-{
-	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
-
-
-	//MOVERSE DE LADO A LADO SIN PATHFINDING
-
-
-	if (derecha == true && !hit) {
-		position.x = position.x + 1;
-		vel = b2Vec2(speed, -GRAVITY_Y);
-		EnemyAnimation = &run_r;
-
-	}
-	if (derecha == false && !hit) {
-		position.x = position.x - 1;
-		vel = b2Vec2(-speed, -GRAVITY_Y);
-		EnemyAnimation = &run_l;
-	}
-
-
-	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
-		hit = true;
-	}
-	if (hit == true) {
-		if (EnemyAnimation != &death) {
-			death.Reset();
-			EnemyAnimation = &death;
-		}
-	}
-
-
-
-	//-------------------------------------
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
 	mouseX = app->scene->player->position.x;
 	mouseY = app->scene->player->position.y;
-	iPoint mouseTile = app->map->WorldToMap(mouseX - app->render->camera.x - app->map->mapData.tileWidth / 2 + 14,
-		mouseY - app->render->camera.y - app->map->mapData.tileHeight / 2 + 14);
+	iPoint mouseTile = app->map->WorldToMap(mouseX, mouseY);
 
 	if (true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
@@ -162,7 +125,7 @@ bool Enemy::Update()
 		{
 			if (originSelected == true)
 			{
-				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x) + 3;
+				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x) + 4;
 				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y) + 6;
 				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
 				app->pathfinding->CreatePath(origin, mouseTile);
@@ -186,7 +149,43 @@ bool Enemy::Update()
 			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
 		}
 	}
-		//--------------------
+}
+
+bool Enemy::Update()
+{
+	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+
+
+	//MOVERSE DE LADO A LADO SIN PATHFINDING
+
+
+	//if (derecha == true && !hit) {
+	//	position.x = position.x + 1;
+	//	vel = b2Vec2(speed, -GRAVITY_Y);
+	//	EnemyAnimation = &run_r;
+
+	//}
+	//if (derecha == false && !hit) {
+	//	position.x = position.x - 1;
+	//	vel = b2Vec2(-speed, -GRAVITY_Y);
+	//	EnemyAnimation = &run_l;
+	//}
+
+
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+		hit = true;
+	}
+	if (hit == true) {
+		if (EnemyAnimation != &death) {
+			death.Reset();
+			EnemyAnimation = &death;
+		}
+	}
+
+	//-------------------------------------
+
+
 
 	//Set the velocity of the pbody of the enemy
 	pbody->body->SetLinearVelocity(vel);
