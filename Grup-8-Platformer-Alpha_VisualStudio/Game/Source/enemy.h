@@ -54,6 +54,13 @@ private:
 	bool derecha = true;
 	bool hit = false;
 	bool load = false;
+
+
+	SDL_Texture* mouseTileTex = nullptr;
+	SDL_Texture* originTex = nullptr;
+	// L12: Debug pathfing
+	iPoint origin;
+	bool originSelected = false;
 };
 
 #endif // __ITEM_H__
