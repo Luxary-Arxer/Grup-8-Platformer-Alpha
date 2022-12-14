@@ -90,7 +90,7 @@ bool Enemy::Awake() {
 bool Enemy::Start() {
 
 	int speed = 1;
-	b2Vec2 vel = b2Vec2(0, /*-GRAVITY_Y + 3*/0);
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
@@ -113,7 +113,7 @@ bool Enemy::Start() {
 bool Enemy::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
-	b2Vec2 vel = b2Vec2(0, /*-GRAVITY_Y + 3*/0);
+	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
 
 	//MOVERSE DE LADO A LADO SIN PATHFINDING
@@ -146,11 +146,9 @@ bool Enemy::Update()
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
 	mouseX = app->scene->player->position.x;
-	mouseY = app->scene->player->position.y;
+	mouseY = (app->scene->player->position.y+32);
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
-	int test;
-	test = mouseX - position.x;
-	printf("%d_", (test));
+
 	if (true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
@@ -162,7 +160,7 @@ bool Enemy::Update()
 			if (originSelected == true)
 			{
 				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x)+4;
-				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y)+6;
+				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y)+7;
 				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
 				app->pathfinding->CreatePath(origin, mouseTile);
 				originSelected = false;
@@ -218,7 +216,7 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::DEATH:
 		LOG("Collision DEATH");
-		/*hit = true;*/
+		hit = true;
 		break;
 	case ColliderType::PLAYER:
 		LOG("Collision PLAYER");
