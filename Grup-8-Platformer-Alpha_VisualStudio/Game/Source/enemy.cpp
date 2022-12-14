@@ -108,47 +108,6 @@ bool Enemy::Start() {
 	hit = false;
 	
 	return true;
-
-	int mouseX, mouseY;
-	app->input->GetMousePosition(mouseX, mouseY);
-	mouseX = app->scene->player->position.x;
-	mouseY = app->scene->player->position.y;
-	iPoint mouseTile = app->map->WorldToMap(mouseX, mouseY);
-
-	if (true) {
-		//Convert again the tile coordinates to world coordinates to render the texture of the tile
-		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
-		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
-
-		//Test compute path function
-		if (true)
-		{
-			if (originSelected == true)
-			{
-				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x) + 4;
-				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y) + 6;
-				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
-				app->pathfinding->CreatePath(origin, mouseTile);
-				originSelected = false;
-			}
-			else
-			{
-				origin = mouseTile;
-				originSelected = true;
-				app->pathfinding->ClearLastPath();
-			}
-		}
-
-		//app->render->DrawTexture(img, 380, 100); // Placeholder not needed any more
-
-		const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
-
-		for (uint i = 0; i < path->Count(); ++i)
-		{
-			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
-			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
-		}
-	}
 }
 
 bool Enemy::Update()
@@ -184,7 +143,46 @@ bool Enemy::Update()
 	}
 
 	//-------------------------------------
+	int mouseX, mouseY;
+	app->input->GetMousePosition(mouseX, mouseY);
+	mouseX = app->scene->player->position.x;
+	mouseY = app->scene->player->position.y;
+	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
+	int test;
+	test = mouseX - position.x;
+	printf("%d_", (test));
+	if (true) {
+		//Convert again the tile coordinates to world coordinates to render the texture of the tile
+		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
+		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 
+		//Test compute path function
+		if (true)
+		{
+			if (originSelected == true)
+			{
+				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x)+4;
+				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y)+6;
+				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
+				app->pathfinding->CreatePath(origin, mouseTile);
+				originSelected = false;
+			}
+			else
+			{
+				origin = mouseTile;
+				originSelected = true;
+				app->pathfinding->ClearLastPath();
+			}
+		}
+
+		const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
+
+		for (uint i = 0; i < path->Count(); ++i)
+		{
+			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
+			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
+		}
+	}
 
 
 	//Set the velocity of the pbody of the enemy
@@ -208,6 +206,8 @@ bool Enemy::CleanUp()
 
 	return true;
 }
+
+
 
 void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 

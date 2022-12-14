@@ -4,6 +4,7 @@
 #include "Entity.h"
 #include "Point.h"
 #include "SDL/include/SDL.h"
+#include "SDL/include/SDL_rect.h"
 #include "Animation.h"
 
 struct SDL_Texture;
@@ -24,6 +25,8 @@ public:
 
 	bool CleanUp();
 
+	void BotUpdate();
+
 	void OnCollision(PhysBody* physA, PhysBody* physB);
 
 public:
@@ -37,6 +40,20 @@ public:
 	Animation run_l;
 
 	Animation death;
+
+
+
+	enum BotState
+	{
+		None = 0,
+		MoveTo,
+
+	}currentStep = BotState::None;
+
+	void ChangeState(BotState newState)
+	{
+		currentStep = newState;
+	}
 
 
 	bool isPicked = false;

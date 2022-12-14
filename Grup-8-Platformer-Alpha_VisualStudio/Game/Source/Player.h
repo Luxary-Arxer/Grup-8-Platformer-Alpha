@@ -25,6 +25,8 @@ public:
 
 	bool CleanUp();
 
+
+
 	// L07 DONE 6: Define OnCollision function for the player. Check the virtual function on Entity class
 	void OnCollision(PhysBody* physA, PhysBody* physB);
 
