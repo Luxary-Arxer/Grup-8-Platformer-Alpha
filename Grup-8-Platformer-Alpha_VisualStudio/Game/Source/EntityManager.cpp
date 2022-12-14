@@ -137,7 +137,7 @@ bool EntityManager::Update(float dt)
 		if (pEntity->active == false) continue;
 		ret = item->data->Update();
 	}
-
+	app->map->Draw_Top();
 
 
 	return ret;

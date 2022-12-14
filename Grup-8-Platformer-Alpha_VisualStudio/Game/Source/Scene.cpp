@@ -163,7 +163,7 @@ bool Scene::Update(float dt)
 
 	if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		ShowPathfinding = !ShowPathfinding;
-		ShowTop_Map = !ShowTop_Map;
+
 		
 	
 	// L03: DONE 3: Request App to Load / Save when pressing the keys F5 (save) / F6 (load)
@@ -249,8 +249,6 @@ bool Scene::PostUpdate()
 
 	if(app->input->GetKey(SDL_SCANCODE_ESCAPE) == KEY_DOWN)
 		ret = false;
-
-	app->map->Draw_Top();
 	return ret;
 }
 
