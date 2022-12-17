@@ -10,8 +10,11 @@
 #define PIXELS_PER_METER 50.0f // if touched change METER_PER_PIXEL too
 #define METER_PER_PIXEL 0.02f // this is 1 / PIXELS_PER_METER !
 
+
 #define METERS_TO_PIXELS(m) ((int) floor(PIXELS_PER_METER * m))
 #define PIXEL_TO_METERS(p)  ((float) METER_PER_PIXEL * p)
+
+
 
 #define DEGTORAD 0.0174532925199432957f
 #define RADTODEG 57.295779513082320876f
