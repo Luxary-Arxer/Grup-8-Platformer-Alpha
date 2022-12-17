@@ -174,7 +174,7 @@ bool Enemy::Update()
 
 
 
-	if (true) {
+	if (hit == false) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
 		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
@@ -214,9 +214,9 @@ bool Enemy::Update()
 	//Update player position in pixels
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
-	printf("%d_", position.x);
+
 	origin.x = (position.x + 4)/32;
-	origin.y = (position.y + 7) / 32;
+	origin.y = (position.y + 6)/32;
 
 
 	EnemyAnimation->Update();
