@@ -109,6 +109,7 @@ bool Enemy::Start() {
 
 	hit = false;
 	
+
 	return true;
 }
 
@@ -133,6 +134,18 @@ bool Enemy::Update()
 	//	EnemyAnimation = &run_l;
 	//}
 
+	//if ((app->scene->player->position.x) - position.x > 0 && !hit && !stop) {
+	//	position.x = position.x + 1;
+	//	vel = b2Vec2(speed, -GRAVITY_Y);
+	//	EnemyAnimation = &run_r;
+
+	//}
+	//if ((app->scene->player->position.x) - position.x < 0 && !hit && !stop) {
+	//	position.x = position.x - 1;
+	//	vel = b2Vec2(-speed, -GRAVITY_Y);
+	//	EnemyAnimation = &run_l;
+	//}
+
 
 	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
 		hit = true;
@@ -151,9 +164,7 @@ bool Enemy::Update()
 	mouseY = (app->scene->player->position.y+32);
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
 
-	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
-		pathmade = !pathmade;
-	}
+
 
 	if (true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
@@ -161,12 +172,13 @@ bool Enemy::Update()
 		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 
 		//Test compute path function
-		if (pathmade)
+		if (true)
 		{
 			if (originSelected == true)
 			{
 				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x)+4;
 				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y)+7;
+
 				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
 				app->pathfinding->CreatePath(origin, mouseTile);
 				originSelected = false;
@@ -185,6 +197,9 @@ bool Enemy::Update()
 		{
 			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
 			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
+			position.x = pos.x;
+			vel = b2Vec2(speed, -GRAVITY_Y);
+
 		}
 	}
 

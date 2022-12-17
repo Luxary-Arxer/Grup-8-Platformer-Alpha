@@ -43,8 +43,8 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy1->parameters = config.child("enemy1");
 
-	enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy2->parameters = config.child("enemy2");
+	//enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy2->parameters = config.child("enemy2");
 
 	//enemy3 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	//enemy3->parameters = config.child("enemy3");
@@ -83,9 +83,9 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy1);
 		enemy1->position.x = 416;
 		enemy1->position.y = 547; 
-		app->entityManager->AddEntity(enemy2);
-		enemy2->position.x = 928;
-		enemy2->position.y = 512;
+		//app->entityManager->AddEntity(enemy2);
+		//enemy2->position.x = 928;
+		//enemy2->position.y = 512;
 		//app->entityManager->AddEntity(enemy3);
 		//enemy3->position.x = 1728;
 		//enemy3->position.y = 256;
@@ -199,39 +199,40 @@ bool Scene::Update(float dt)
 
 
 	// L12: Get the latest calculated path and draw
-	if (ShowPathfinding) {
-		//Convert again the tile coordinates to world coordinates to render the texture of the tile
-		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
-		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 
-		//Test compute path function
-		if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
-		{
-			if (originSelected == true)
-			{
-				app->pathfinding->CreatePath(origin, mouseTile);
-				originSelected = false;
-			}
-			else
-			{
-				origin = mouseTile;
-				originSelected = true;
-				app->pathfinding->ClearLastPath();
-			}
-		}
 
-		const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
+	//if (ShowPathfinding) {
+	//	//Convert again the tile coordinates to world coordinates to render the texture of the tile
+	//	iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
+	//	app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 
-		for (uint i = 0; i < path->Count(); ++i)
-		{
-			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
-			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
-		}
+	//	//Test compute path function
+	//	if (app->input->GetMouseButtonDown(SDL_BUTTON_LEFT) == KEY_DOWN)
+	//	{
+	//		if (originSelected == true)
+	//		{
+	//			app->pathfinding->CreatePath(origin, mouseTile);
+	//			originSelected = false;
+	//		}
+	//		else
+	//		{
+	//			origin = mouseTile;
+	//			originSelected = true;
+	//			app->pathfinding->ClearLastPath();
+	//		}
+	//	}
+	//	const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
 
-		// L12: Debug pathfinding
-		iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
-		app->render->DrawTexture(originTex, originScreen.x, originScreen.y);
-	}
+	//	for (uint i = 0; i < path->Count(); ++i)
+	//	{
+	//		iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
+	//		app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
+	//	}
+
+	//	// L12: Debug pathfinding
+	//	iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
+	//	app->render->DrawTexture(originTex, originScreen.x, originScreen.y);
+	//}
 
 
 

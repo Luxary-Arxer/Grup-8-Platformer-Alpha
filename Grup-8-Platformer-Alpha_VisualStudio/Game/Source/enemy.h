@@ -58,7 +58,6 @@ public:
 
 	bool isPicked = false;
 
-	bool pathmade = true;
 
 private:
 
@@ -73,10 +72,12 @@ private:
 	bool derecha = true;
 	bool hit = false;
 	bool load = false;
+	bool stop = false;
 
 
 	SDL_Texture* mouseTileTex = nullptr;
 	SDL_Texture* originTex = nullptr;
+
 	// L12: Debug pathfing
 	iPoint origin;
 	bool originSelected = false;
