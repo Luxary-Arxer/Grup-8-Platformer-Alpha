@@ -97,6 +97,9 @@ bool Enemy::Start() {
 	EnemyAnimation = &idle_r;
 
 	mouseTileTex = app->tex->Load("Assets/Maps/path_enemigos tierra.png");
+
+	// Texture to show path origin 
+	originTex = app->tex->Load("Assets/Maps/x.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
 	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 30, bodyType::DYNAMIC);
@@ -197,10 +200,10 @@ bool Enemy::Update()
 		{
 			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
 			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
-
-
-
 		}
+			// L12: Debug pathfinding
+		iPoint originScreen = app->map->MapToWorld(origin.x, origin.y);
+		app->render->DrawTexture(originTex, origin.x, origin.y);
 	}
 
 
