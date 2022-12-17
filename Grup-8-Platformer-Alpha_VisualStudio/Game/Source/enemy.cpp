@@ -161,20 +161,23 @@ bool Enemy::Update()
 			EnemyAnimation = &death;
 		}
 	}
+	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544
+		&& app->scene->player->position.x > 1024 / 2 && app->scene->player->position.x < (2048 * 2) - 1024 / 2) {
+		rango_jugador = true;
+	}
+	else{
+		rango_jugador = false;
+	}
+	printf("_%d_", app->scene->player->position.x - position.x);
 
 	//-------------------------------------
-
-
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
 	mouseX = app->scene->player->position.x;
 	mouseY = (app->scene->player->position.y+32);
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
 
-
-
-
-	if (hit == false) {
+	if (hit == false && rango_jugador == true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
 		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);

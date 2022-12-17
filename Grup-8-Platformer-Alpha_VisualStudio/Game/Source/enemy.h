@@ -73,6 +73,7 @@ private:
 	bool hit = false;
 	bool load = false;
 	bool stop = false;
+	bool rango_jugador = false;
 
 
 	SDL_Texture* mouseTileTex = nullptr;
