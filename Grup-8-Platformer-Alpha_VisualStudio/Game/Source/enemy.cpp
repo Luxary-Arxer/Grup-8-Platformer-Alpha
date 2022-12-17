@@ -95,6 +95,8 @@ bool Enemy::Start() {
 	//initilize textures
 	texture = app->tex->Load(texturePath);
 	EnemyAnimation = &idle_r;
+
+	mouseTileTex = app->tex->Load("Assets/Maps/path_enemigos tierra.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
 	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 30, bodyType::DYNAMIC);
@@ -149,13 +151,17 @@ bool Enemy::Update()
 	mouseY = (app->scene->player->position.y+32);
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
 
+	if (app->input->GetKey(SDL_SCANCODE_P) == KEY_DOWN) {
+		pathmade = !pathmade;
+	}
+
 	if (true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
 		app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 
 		//Test compute path function
-		if (true)
+		if (pathmade)
 		{
 			if (originSelected == true)
 			{

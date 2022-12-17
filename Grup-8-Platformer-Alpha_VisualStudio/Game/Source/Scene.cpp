@@ -220,8 +220,6 @@ bool Scene::Update(float dt)
 			}
 		}
 
-		//app->render->DrawTexture(img, 380, 100); // Placeholder not needed any more
-
 		const DynArray<iPoint>* path = app->pathfinding->GetLastPath();
 
 		for (uint i = 0; i < path->Count(); ++i)

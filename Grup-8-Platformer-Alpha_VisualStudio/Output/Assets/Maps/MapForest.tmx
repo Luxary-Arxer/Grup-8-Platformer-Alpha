@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="37" nextobjectid="46">
+<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="37" nextobjectid="46">
  <properties>
   <property name="Collisiones" type="int" value="1"/>
  </properties>
@@ -60,6 +60,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile gid="1670"/>
@@ -3140,6 +3141,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile gid="1713"/>
@@ -6220,6 +6222,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile gid="1756"/>
@@ -9300,6 +9303,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -12380,6 +12384,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -15460,6 +15465,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -18540,6 +18546,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -21620,6 +21627,7 @@
   <properties>
    <property name="Draw" type="bool" value="true"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -24700,6 +24708,7 @@
   <properties>
    <property name="Draw" type="bool" value="false"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
    <property name="Top" type="bool" value="true"/>
   </properties>
   <data>
@@ -27781,6 +27790,7 @@
   <properties>
    <property name="Draw" type="bool" value="false"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
    <property name="Top" type="bool" value="true"/>
   </properties>
   <data>
@@ -30862,6 +30872,7 @@
   <properties>
    <property name="Collisiones" type="int" value="1"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -33942,6 +33953,7 @@
   <properties>
    <property name="Collisiones" type="int" value="2"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -37022,6 +37034,7 @@
   <properties>
    <property name="Collisiones" type="int" value="4"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -40102,6 +40115,7 @@
   <properties>
    <property name="Collisiones" type="int" value="3"/>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -43181,6 +43195,7 @@
  <layer id="25" name="Navigation_tierra" width="128" height="24" visible="0">
   <properties>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="true"/>
   </properties>
   <data>
    <tile gid="50"/>
@@ -46260,6 +46275,7 @@
  <layer id="36" name="Navigation_Aire" width="128" height="24" visible="0">
   <properties>
    <property name="Navigation" type="bool" value="false"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>
@@ -49339,6 +49355,7 @@
  <layer id="20" name="Navigation" width="128" height="24">
   <properties>
    <property name="Navigation" type="bool" value="true"/>
+   <property name="Navigation_tierra" type="bool" value="false"/>
   </properties>
   <data>
    <tile/>

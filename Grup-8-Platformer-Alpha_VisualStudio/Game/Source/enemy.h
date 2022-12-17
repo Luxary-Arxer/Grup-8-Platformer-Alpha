@@ -58,6 +58,8 @@ public:
 
 	bool isPicked = false;
 
+	bool pathmade = true;
+
 private:
 
 	SDL_Texture* texture;
