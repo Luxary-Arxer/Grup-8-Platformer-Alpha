@@ -165,7 +165,7 @@ bool Enemy::Update()
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
 
 
-
+	printf("_%d_", position.x);
 	if (true) {
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
@@ -176,8 +176,8 @@ bool Enemy::Update()
 		{
 			if (originSelected == true)
 			{
-				origin.x = PIXEL_TO_METERS(app->scene->enemy1->position.x)+4;
-				origin.y = PIXEL_TO_METERS(app->scene->enemy1->position.y)+7;
+				origin.x = PIXEL_TO_METERS(position.x)+4;
+				origin.y = PIXEL_TO_METERS(position.y)+7;
 
 				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
 				app->pathfinding->CreatePath(origin, mouseTile);
@@ -197,8 +197,8 @@ bool Enemy::Update()
 		{
 			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
 			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
-			position.x = pos.x;
-			vel = b2Vec2(speed, -GRAVITY_Y);
+
+
 
 		}
 	}
