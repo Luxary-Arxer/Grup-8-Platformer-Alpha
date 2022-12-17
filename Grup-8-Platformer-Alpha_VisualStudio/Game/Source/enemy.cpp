@@ -167,7 +167,6 @@ bool Enemy::Update()
 	else{
 		rango_jugador = false;
 	}
-	printf("_%d_", app->scene->player->position.x - position.x);
 
 	//-------------------------------------
 	int mouseX, mouseY;
