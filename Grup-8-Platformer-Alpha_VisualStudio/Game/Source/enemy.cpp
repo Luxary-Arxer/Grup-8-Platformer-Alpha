@@ -161,8 +161,7 @@ bool Enemy::Update()
 			EnemyAnimation = &death;
 		}
 	}
-	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544
-		&& app->scene->player->position.x > 1024 / 2 && app->scene->player->position.x < (2048 * 2) - 1024 / 2) {
+	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;
 	}
 	else{
