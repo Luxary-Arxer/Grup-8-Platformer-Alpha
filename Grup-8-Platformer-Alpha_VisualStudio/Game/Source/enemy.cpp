@@ -163,14 +163,15 @@ bool Enemy::Update()
 	}
 
 	//-------------------------------------
+
+
 	int mouseX, mouseY;
 	app->input->GetMousePosition(mouseX, mouseY);
 	mouseX = app->scene->player->position.x;
 	mouseY = (app->scene->player->position.y+32);
 	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
 
-	origin.x = (position.x + 4);
-	origin.y = PIXEL_TO_METERS(position.y + 7);
+
 
 
 	if (true) {
@@ -213,6 +214,10 @@ bool Enemy::Update()
 	//Update player position in pixels
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
+	printf("%d_", position.x);
+	origin.x = (position.x + 4)/32;
+	origin.y = (position.y + 7) / 32;
+
 
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();

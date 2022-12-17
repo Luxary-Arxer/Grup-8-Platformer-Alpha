@@ -43,8 +43,8 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy1->parameters = config.child("enemy1");
 
-	enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
-	enemy2->parameters = config.child("enemy2");
+	//enemy2 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	//enemy2->parameters = config.child("enemy2");
 
 	//enemy3 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	//enemy3->parameters = config.child("enemy3");
@@ -83,9 +83,9 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy1);
 		enemy1->position.x = 416;
 		enemy1->position.y = 547; 
-		app->entityManager->AddEntity(enemy2);
-		enemy2->position.x = 928;
-		enemy2->position.y = 512;
+		//app->entityManager->AddEntity(enemy2);
+		//enemy2->position.x = 928;
+		//enemy2->position.y = 512;
 		//app->entityManager->AddEntity(enemy3);
 		//enemy3->position.x = 1728;
 		//enemy3->position.y = 256;
