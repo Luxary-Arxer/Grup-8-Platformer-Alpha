@@ -204,9 +204,31 @@ bool Enemy::Update()
 		{
 			iPoint pos = app->map->MapToWorld(path->At(i)->x, path->At(i)->y);
 			app->render->DrawTexture(mouseTileTex, pos.x, pos.y);
+
+			if (i+1 < path->Count())
+			{
+				if (path->At(0)->x > path->At(1)->x)
+				{
+					position.x = position.x - 1;
+					vel = b2Vec2(-speed, -GRAVITY_Y);
+					EnemyAnimation = &run_l;
+				}
+				if (path->At(0)->x < path->At(1)->x)
+				{
+					position.x = position.x + 1;
+					vel = b2Vec2(speed, -GRAVITY_Y);
+					EnemyAnimation = &run_r;
+				}
+
+			}
+
 		}
 
+
+
+
 	}
+
 
 
 	//Set the velocity of the pbody of the enemy
