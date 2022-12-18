@@ -36,11 +36,11 @@ The goal is having a simple platformer with levels created with Tiled. There mus
 
 ### Creator of the enemies
 
-- Walking enemy
+#### Walking enemy
 - {FoozleCC} - https://foozlecc.itch.io/critters-enemy-pack-2
 - https://twitter.com/FoozleCC
 
-- Flying enemy
+#### Flying enemy
 - {Cheshire} - https://jeevo.itch.io/insect-enemies
 - https://twitter.com/lovelytoaster
 
