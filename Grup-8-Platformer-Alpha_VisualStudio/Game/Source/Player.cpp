@@ -366,10 +366,8 @@ bool Player::Update()
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) 
 	{
 
-		if (currentAnimation != &atac_r) {
-			atac_r.Reset();
-			currentAnimation = &atac_r;
-		}
+		atac_r.Reset();
+		currentAnimation = &atac_r;
 		//if (delete_bala)
 		//{
 		//	bala->body->SetActive(false);
