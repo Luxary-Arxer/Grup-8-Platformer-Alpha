@@ -98,7 +98,10 @@ private:
 	bool godmode = false;
 
 	bool delete_bala = false;
-
+	PhysBody* bala;
+	int i10 = 1;
+	int i10_aux = 0;
+	PhysBody* bala_aux [10];
 
 	bool derecha = true;
 

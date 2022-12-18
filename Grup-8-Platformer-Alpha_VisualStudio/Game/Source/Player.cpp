@@ -365,46 +365,84 @@ bool Player::Update()
 
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) 
 	{
-		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 30, 16, DYNAMIC);
-		bala->ctype = ColliderType::BALA;
-		b2Vec2 v = b2Vec2(1000, 0);
-		bala->body->ApplyForceToCenter(v, true);
 
-		delete_bala = !delete_bala;
-		if (currentAnimation != &atac_r) {
-			atac_r.Reset();
-			currentAnimation = &atac_r;
-		}
 
 		//if (delete_bala)
 		//{
 		//	bala->body->SetActive(false);
 		//	bala->body->SetAwake(false);
 		//}
+		bala = app->physics->CreateRectangle(position.x+30, position.y, 32, 16, DYNAMIC);
+		bala->ctype = ColliderType::UNKNOWN;
+		b2Vec2 v = b2Vec2(10, 0);
+
+		bala->body->ApplyForceToCenter(v, true);
+
+	
+		if (currentAnimation != &atac_r) {
+			atac_r.Reset();
+			currentAnimation = &atac_r;
+		}
+		delete_bala = !delete_bala;
+
 	}
 
 
 	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
 	{
-		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
-		bala->ctype = ColliderType::BALA;
-		b2Vec2 v = b2Vec2(1000, 0);
-		bala->body->ApplyForceToCenter(-v, true);
 
-		delete_bala = !delete_bala;
+	
+
+		//if (i10_aux == 10)
+		//{
+		//	i10_aux = 0;
+		//}
+		//if (delete_bala)
+		//{
+		//	bala_aux[i10_aux]->body->SetActive(false);
+		//	bala_aux[i10_aux]->body->SetAwake(false);
+		//}
+		bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
+		bala->ctype = ColliderType::UNKNOWN;
+		b2Vec2 v = b2Vec2(-1, 0);
+
+		bala->body->ApplyForceToCenter(-v, true);
+		
+		//bala->body->SetActive(false);
+		//bala->body->SetAwake(false);
+		//if (i10 < 10)
+		//{
+		//	bala_aux[i10] = bala;
+		//}
+		bala->body->GetPosition();
+	
+		//if (i10 == 10)
+		//{
+		//	delete_bala = !delete_bala;
+		//}
+		//
 		if (currentAnimation != &atac_l) {
 			atac_l.Reset();
 			currentAnimation = &atac_l;
 		}
-
-		//if (delete_bala)
-		//{
-		//	bala->body->SetActive(false);
-		//	bala->body->SetAwake(false);
-		//}
-
+		delete_bala = !delete_bala;
+		//i10++;
+		//i10_aux++;
 	}
+	if (delete_bala)
+	{
+		int x, y;
+		bala->GetPosition(x, y);
+		if (position.x > x + 20 || position.x  + 40 < x)
+		{
+			bala->body->SetActive(false);
+			bala->body->SetAwake(false);
+			delete_bala = false;
+		}
 
+
+		
+	}
 
 
 
