@@ -96,7 +96,7 @@ bool Enemy::Start() {
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
-	EnemyAnimation = &idle_r;
+	EnemyAnimation = &idle_l;
 
 	mouseTileTex = app->tex->Load("Assets/Maps/path_enemigos tierra.png");
 
@@ -185,6 +185,7 @@ bool Enemy::Update()
 		{
 			if (originSelected == true)
 			{
+				EnemyAnimation = &idle_l;
 				LOG("posenemy: %f", PIXEL_TO_METERS(origin.x));
 				app->pathfinding->CreatePath(origin, mouseTile);
 				originSelected = false;
