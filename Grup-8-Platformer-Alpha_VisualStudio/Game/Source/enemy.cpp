@@ -224,6 +224,8 @@ bool Enemy::Update()
 			death.Reset();
 			EnemyAnimation = &death;
 		}
+		pbody->body->SetActive(false);
+		pbody->body->SetAwake(false);
 		pbody->ctype = ColliderType::PLATFORM;
 	}
 
