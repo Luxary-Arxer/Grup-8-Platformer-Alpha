@@ -168,7 +168,7 @@ bool Player::Awake() {
 	atac_r.PushBack({ 64 * 6, 640, 64, 64 });
 	atac_r.PushBack({ 64 * 7, 640, 64, 64 });
 	atac_r.loop = false;
-	atac_r.speed = 0.1f;
+	atac_r.speed = 0.2f;
 
 	atac_l.PushBack({ 64 * 7, 704, 64, 64 });
 	atac_l.PushBack({ 64 * 6, 704, 64, 64 });
@@ -179,7 +179,7 @@ bool Player::Awake() {
 	atac_l.PushBack({ 64 * 1, 704, 64, 64 });
 	atac_l.PushBack({ 64 * 0, 704, 64, 64 });
 	atac_l.loop = false;
-	atac_l.speed = 0.1f;
+	atac_l.speed = 0.2f;
 
 	//L02: DONE 1: Initialize Player parameters
 	//pos = position;
@@ -366,7 +366,10 @@ bool Player::Update()
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) 
 	{
 
-
+		if (currentAnimation != &atac_r) {
+			atac_r.Reset();
+			currentAnimation = &atac_r;
+		}
 		//if (delete_bala)
 		//{
 		//	bala->body->SetActive(false);
@@ -378,11 +381,7 @@ bool Player::Update()
 
 		bala->body->ApplyForceToCenter(v, true);
 
-	
-		if (currentAnimation != &atac_r) {
-			atac_r.Reset();
-			currentAnimation = &atac_r;
-		}
+
 		delete_bala = !delete_bala;
 
 	}
@@ -391,8 +390,8 @@ bool Player::Update()
 	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
 	{
 
-	
-
+		atac_l.Reset();
+		currentAnimation = &atac_l;
 		//if (i10_aux == 10)
 		//{
 		//	i10_aux = 0;
@@ -421,10 +420,7 @@ bool Player::Update()
 		//	delete_bala = !delete_bala;
 		//}
 		//
-		if (currentAnimation != &atac_l) {
-			atac_l.Reset();
-			currentAnimation = &atac_l;
-		}
+
 		delete_bala = !delete_bala;
 		//i10++;
 		//i10_aux++;
