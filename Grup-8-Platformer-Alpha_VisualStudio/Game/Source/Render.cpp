@@ -239,9 +239,47 @@ bool Render::LoadState(pugi::xml_node& data)
 	camera.y = data.child("camera").attribute("y").as_int();
 	int x;
 	int y;
+	bool death;
 	x = data.child("position").attribute("x").as_int();
 	y = data.child("position").attribute("y").as_int();
 	app->scene->player->LoadPosition(x,y);
+
+	//Enemies
+	x = data.child("enemy1").attribute("x").as_int();
+	y = data.child("enemy1").attribute("y").as_int();
+	death = data.child("enemy1").attribute("death").as_bool();
+	app->scene->enemy1->LoadPosition(x, y, death);
+
+	x = data.child("enemy2").attribute("x").as_int();
+	y = data.child("enemy2").attribute("y").as_int();
+	death = data.child("enemy2").attribute("death").as_bool();
+	app->scene->enemy2->LoadPosition(x, y, death);
+
+	x = data.child("enemy3").attribute("x").as_int();
+	y = data.child("enemy3").attribute("y").as_int();
+	death = data.child("enemy3").attribute("death").as_bool();
+	app->scene->enemy3->LoadPosition(x, y, death);
+
+	x = data.child("enemy4").attribute("x").as_int();
+	y = data.child("enemy4").attribute("y").as_int();
+	death = data.child("enemy4").attribute("death").as_bool();
+	app->scene->enemy4->LoadPosition(x, y, death);
+
+	x = data.child("enemy5").attribute("x").as_int();
+	y = data.child("enemy5").attribute("y").as_int();
+	death = data.child("enemy5").attribute("death").as_bool();
+	app->scene->enemy5->LoadPosition(x, y, death);
+
+	//Enemies air
+	x = data.child("enemy1_aire").attribute("x").as_int();
+	y = data.child("enemy1_aire").attribute("y").as_int();
+	death = data.child("enemy1_aire").attribute("death").as_bool();
+	app->scene->enemyaire1->LoadPosition(x, y, death);
+
+	x = data.child("enemy2_aire").attribute("x").as_int();
+	y = data.child("enemy2_aire").attribute("y").as_int();
+	death = data.child("enemy2_aire").attribute("death").as_bool();
+	app->scene->enemyaire2->LoadPosition(x, y, death);
 	
 	return true;
 }
@@ -265,36 +303,44 @@ bool Render::SaveState(pugi::xml_node& data)
 
 	en1.append_attribute("x") = app->scene->enemy1->position.x;
 	en1.append_attribute("y") = app->scene->enemy1->position.y;
+	en1.append_attribute("death") = app->scene->enemy1->hit;
 
 	pugi::xml_node en2 = data.append_child("enemy2");
 
 	en2.append_attribute("x") = app->scene->enemy2->position.x;
 	en2.append_attribute("y") = app->scene->enemy2->position.y;
+	en2.append_attribute("death") = app->scene->enemy2->hit;
 
 	pugi::xml_node en3 = data.append_child("enemy3");
 
 	en3.append_attribute("x") = app->scene->enemy3->position.x;
 	en3.append_attribute("y") = app->scene->enemy3->position.y;
+	en3.append_attribute("death") = app->scene->enemy3->hit;
 
 	pugi::xml_node en4 = data.append_child("enemy4");
 
 	en4.append_attribute("x") = app->scene->enemy4->position.x;
 	en4.append_attribute("y") = app->scene->enemy4->position.y;
+	en4.append_attribute("death") = app->scene->enemy4->hit;
 
 	pugi::xml_node en5 = data.append_child("enemy5");
 
 	en5.append_attribute("x") = app->scene->enemy5->position.x;
 	en5.append_attribute("y") = app->scene->enemy5->position.y;
+	en5.append_attribute("death") = app->scene->enemy5->hit;
+
 
 	pugi::xml_node en1_air = data.append_child("enemy1_aire");
 
 	en1_air.append_attribute("x") = app->scene->enemyaire1->position.x;
 	en1_air.append_attribute("y") = app->scene->enemyaire1->position.y;
+	en1_air.append_attribute("death") = app->scene->enemyaire1->hit;
 
 	pugi::xml_node en2_air = data.append_child("enemy2_aire");
 
 	en2_air.append_attribute("x") = app->scene->enemyaire2->position.x;
 	en2_air.append_attribute("y") = app->scene->enemyaire2->position.y;
+	en2_air.append_attribute("death") = app->scene->enemyaire2->hit;
 
 
 	return true;

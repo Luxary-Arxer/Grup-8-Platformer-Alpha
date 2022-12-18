@@ -43,7 +43,7 @@ public:
 
 	Animation death;
 
-
+	bool hit = false;
 
 	enum BotState
 	{
@@ -72,7 +72,6 @@ private:
 	PhysBody* pbody;
 
 	bool derecha = true;
-	bool hit = false;
 	bool load = false;
 	bool showpath = false;
 	bool rango_jugador = false;
