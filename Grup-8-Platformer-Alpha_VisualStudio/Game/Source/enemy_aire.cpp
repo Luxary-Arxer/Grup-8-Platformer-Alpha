@@ -114,6 +114,7 @@ bool EnemyAire::Update()
 			EnemyAnimation = &death;
 		}
 		vel = b2Vec2(0, -GRAVITY_Y);
+		pbody->ctype = ColliderType::PLATFORM;
 	}
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;

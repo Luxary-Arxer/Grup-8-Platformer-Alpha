@@ -216,19 +216,19 @@ bool Enemy::Update()
 
 
 	if (hit == true) {
-		app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
-		if (death_colision = false) {
-			pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
-			death_colision = true;
-		}
+		//app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
+		//if (death_colision = false) {
+		//	pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
+		//	death_colision = true;
+		//}
 		if (EnemyAnimation != &death) {
 			death.Reset();
 			EnemyAnimation = &death;
 		}
+		pbody->ctype = ColliderType::DEATH;
 	}
-	else {
-		app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
-	}
+
+	app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
 
 	return true;
 }
