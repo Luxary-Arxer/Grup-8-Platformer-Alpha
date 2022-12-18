@@ -64,7 +64,7 @@ private:
 	SDL_Texture* texture;
 	const char* texturePath;
 
-	int speed = 2;
+	int speed = 4;
 
 	//DONE 4: Add a physics to an item
 	PhysBody* pbody;

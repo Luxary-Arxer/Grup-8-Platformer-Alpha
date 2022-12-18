@@ -108,7 +108,7 @@ bool Scene::Start()
 		enemyaire1->position.y = 544;
 		app->entityManager->AddEntity(enemyaire2);
 		enemyaire2->position.x = 3264;
-		enemyaire2->position.y = 64;
+		enemyaire2->position.y = 256;
 	}
 	
 	app->pathfinding->Enable();

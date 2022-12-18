@@ -38,7 +38,7 @@
 	<enemy5 x="4000" y="512" texturepath="Assets/Enemies/enemy_1.png"/>
 
     <enemyaire1 x="1472" y="544" texturepath="Assets/Enemies/enemy_aire.png"/>
-	<enemyaire2 x="3264" y="64" texturepath="Assets/Enemies/enemy_aire.png"/>
+	<enemyaire2 x="3264" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
 
   </scene>
 
