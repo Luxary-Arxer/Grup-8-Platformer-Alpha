@@ -82,7 +82,7 @@ bool Scene::Start()
 	if (FirstScene != true) {
 		//Player
 		app->entityManager->AddEntity(player);
-		player->position.x = 256;
+		player->position.x = 118;
 		player->position.y = 586;
 
 		//Enemies

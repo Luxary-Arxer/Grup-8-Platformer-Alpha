@@ -78,7 +78,7 @@ bool Enemy::Awake() {
 	death.PushBack({ 129 * 6, 129 * 7, 129, 129 });
 	death.PushBack({ 129 * 7, 129 * 7, 129, 129 });
 	death.loop = false;
-	death.speed = 0.1f;
+	death.speed = 0.15f;
 
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
@@ -124,9 +124,8 @@ bool Enemy::Update()
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
-	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT || app->input->GetKey(SDL_SCANCODE_F8) == KEY_REPEAT) {
 		hit = true;
-
 	}
 
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {

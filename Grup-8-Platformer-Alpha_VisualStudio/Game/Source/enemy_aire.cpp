@@ -105,7 +105,7 @@ bool EnemyAire::Update()
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
 	b2Vec2 vel = b2Vec2(0, Gravity);
 
-	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT || app->input->GetKey(SDL_SCANCODE_F8) == KEY_REPEAT) {
 		hit = true;
 	}
 	if (hit == true) {
