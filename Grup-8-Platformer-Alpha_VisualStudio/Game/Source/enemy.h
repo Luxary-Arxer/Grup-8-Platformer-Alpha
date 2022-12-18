@@ -75,7 +75,7 @@ private:
 	bool load = false;
 	bool showpath = false;
 	bool rango_jugador = false;
-
+	bool death_colision = false;
 
 	SDL_Texture* mouseTileTex = nullptr;
 	SDL_Texture* originTex = nullptr;

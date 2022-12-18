@@ -113,6 +113,7 @@ bool Enemy::Start() {
 	pbody->ctype = ColliderType::ENEMY;
 
 	hit = false;
+	death_colision = false;
 	
 
 	return true;
@@ -123,14 +124,11 @@ bool Enemy::Update()
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
-
-	if (hit == true) {
-		if (EnemyAnimation != &death) {
-			death.Reset();
-			EnemyAnimation = &death;
-		}
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+		hit = true;
 
 	}
+
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;
 	}
@@ -216,16 +214,21 @@ bool Enemy::Update()
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x-60, position.y-54, & rect);
 
-
-	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
-		hit = true;
-		pbody = NULL;
-		//pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
+	if (hit == true) {
 		app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
+		if (death_colision = false) {
+			pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
+			death_colision = true;
+		}
+		if (EnemyAnimation != &death) {
+			death.Reset();
+			EnemyAnimation = &death;
+		}
 	}
-
+	else {
+		app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
+	}
 
 	return true;
 }
