@@ -12,6 +12,7 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  - F3 Start from the beginning of the current level.
  - F5 Save the current stat of the game.
  - F6 Load the previous state of the game.
+ - F7 Kill all enemies.
  - F9 View colliders/ Hide and Show Pathfinding tools..
  - F10 GOD Mode.
 
