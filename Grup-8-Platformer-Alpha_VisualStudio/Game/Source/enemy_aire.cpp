@@ -116,7 +116,6 @@ bool EnemyAire::Update()
 		vel = b2Vec2(0, -GRAVITY_Y);
 
 		if (suelo== true) {
-			printf("1");
 			pbody->body->SetActive(false);
 			pbody->body->SetAwake(false);
 		}
