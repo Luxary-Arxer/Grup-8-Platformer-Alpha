@@ -55,14 +55,10 @@ bool EnemyAire::Awake() {
 	run_l.speed = 0.1f;
 
 
-	death.PushBack({ 0, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 1, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 2, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 3, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 4, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 5, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 6, 64 * 7, 64, 64 });
-	death.PushBack({ 64 * 7, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 0, 64 * 4, 64, 64 });
+	death.PushBack({ 64 * 1, 64 * 4, 64, 64 });
+	death.PushBack({ 64 * 2, 64 * 4, 64, 64 });
+	death.PushBack({ 64 * 3, 64 * 4, 64, 64 });
 	death.loop = false;
 	death.speed = 0.1f;
 
@@ -117,6 +113,7 @@ bool EnemyAire::Update()
 			death.Reset();
 			EnemyAnimation = &death;
 		}
+		vel = b2Vec2(0, -GRAVITY_Y);
 	}
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;

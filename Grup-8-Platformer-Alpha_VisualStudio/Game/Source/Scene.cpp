@@ -83,21 +83,21 @@ bool Scene::Start()
 		player->position.y = 586;
 
 		//Enemies
-		app->entityManager->AddEntity(enemy1);
-		enemy1->position.x = 416;
-		enemy1->position.y = 547; 
-		app->entityManager->AddEntity(enemy2);
-		enemy2->position.x = 928;
-		enemy2->position.y = 512;
-		app->entityManager->AddEntity(enemy3);
-		enemy3->position.x = 1728;
-		enemy3->position.y = 256;
-		app->entityManager->AddEntity(enemy4);
-		enemy4->position.x = 2496;
-		enemy4->position.y = 544;
-		app->entityManager->AddEntity(enemy5);
-		enemy5->position.x = 4000;
-		enemy5->position.y = 512;
+		//app->entityManager->AddEntity(enemy1);
+		//enemy1->position.x = 416;
+		//enemy1->position.y = 547; 
+		//app->entityManager->AddEntity(enemy2);
+		//enemy2->position.x = 928;
+		//enemy2->position.y = 512;
+		//app->entityManager->AddEntity(enemy3);
+		//enemy3->position.x = 1728;
+		//enemy3->position.y = 256;
+		//app->entityManager->AddEntity(enemy4);
+		//enemy4->position.x = 2496;
+		//enemy4->position.y = 544;
+		//app->entityManager->AddEntity(enemy5);
+		//enemy5->position.x = 4000;
+		//enemy5->position.y = 512;
 		//enemies aire
 		app->entityManager->AddEntity(enemyaire1);
 		enemyaire1->position.x = 416;

@@ -75,7 +75,7 @@ private:
 	bool showpath = true;
 	bool rango_jugador = false;
 
-	int Gravity = 0.1;
+	float Gravity = -0.2;
 
 
 	SDL_Texture* mouseTileTex = nullptr;
