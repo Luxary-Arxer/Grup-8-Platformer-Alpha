@@ -55,6 +55,9 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemy5 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy5->parameters = config.child("enemy5");
 
+	enemyaire1 = (EnemyAire*)app->entityManager->CreateEntity(EntityType::ENEMY_AIRE);
+	enemyaire1->parameters = config.child("enemyaire1");
+
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
@@ -95,6 +98,10 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy5);
 		enemy5->position.x = 4000;
 		enemy5->position.y = 512;
+		//enemies aire
+		app->entityManager->AddEntity(enemyaire1);
+		enemyaire1->position.x = 416;
+		enemyaire1->position.y = 256;
 	}
 	
 	app->pathfinding->Enable();
@@ -251,10 +258,6 @@ bool Scene::PostUpdate()
 bool Scene::CleanUp()
 {
 	LOG("Freeing scene");
-
-	app->entityManager->DestroyEntity(player);
-	app->entityManager->DestroyEntity(enemy1);
-	app->entityManager->DestroyEntity(enemy2);
 
 	app->pathfinding->Disable();
 	app->physics->Disable();

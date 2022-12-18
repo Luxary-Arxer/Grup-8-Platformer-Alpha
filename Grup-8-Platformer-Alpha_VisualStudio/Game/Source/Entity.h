@@ -13,6 +13,7 @@ enum class EntityType
 	PLAYER,
 	ITEM,
 	ENEMY,
+	ENEMY_AIRE,
 	UNKNOWN
 };
 

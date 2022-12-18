@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Item.h"
 #include "Enemy.h"
+#include "Enemy_aire.h"
 
 struct SDL_Texture;
 
@@ -45,6 +46,8 @@ public:
 	Enemy* enemy3;
 	Enemy* enemy4;
 	Enemy* enemy5;
+
+	EnemyAire* enemyaire1;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = NULL;

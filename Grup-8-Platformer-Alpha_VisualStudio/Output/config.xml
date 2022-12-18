@@ -37,6 +37,8 @@
     <enemy4 x="2496" y="544" texturepath="Assets/Enemies/enemy_1.png"/>
 	<enemy5 x="4000" y="512" texturepath="Assets/Enemies/enemy_1.png"/>
 
+    <enemyaire1 x="416" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
+
   </scene>
 
   <map>

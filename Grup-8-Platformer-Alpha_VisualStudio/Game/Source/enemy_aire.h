@@ -1,5 +1,5 @@
-#ifndef __ENEMY_H__
-#define __ENEMY_H__
+#ifndef __ENEMY_AIRE_H__
+#define __ENEMY_AIRE_H__
 
 #include "Entity.h"
 #include "Point.h"
@@ -9,13 +9,13 @@
 
 struct SDL_Texture;
 
-class Enemy : public Entity
+class EnemyAire : public Entity
 {
 public:
 
-	Enemy();
+	EnemyAire();
 
-	virtual ~Enemy();
+	virtual ~EnemyAire();
 
 	bool Awake();
 
@@ -72,8 +72,10 @@ private:
 	bool derecha = true;
 	bool hit = false;
 	bool load = false;
-	bool showpath = false;
+	bool showpath = true;
 	bool rango_jugador = false;
+
+	int Gravity = 0.1;
 
 
 	SDL_Texture* mouseTileTex = nullptr;

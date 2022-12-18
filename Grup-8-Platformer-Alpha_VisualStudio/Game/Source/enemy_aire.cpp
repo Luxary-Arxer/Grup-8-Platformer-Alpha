@@ -14,14 +14,14 @@
 #include "Pathfinding.h"
 #include "Map.h"
 
-Enemy::Enemy() : Entity(EntityType::ENEMY)
+EnemyAire::EnemyAire() : Entity(EntityType::ENEMY_AIRE)
 {
-	name.Create("Enemy");
+	name.Create("EnemyAire");
 }
 
-Enemy::~Enemy() {}
+EnemyAire::~EnemyAire() {}
 
-bool Enemy::Awake() {
+bool EnemyAire::Awake() {
 
 	//Idle_r animation
 	idle_r.PushBack({ 0, 0, 129, 129 });
@@ -89,10 +89,10 @@ bool Enemy::Awake() {
 	return true;
 }
 
-bool Enemy::Start() {
+bool EnemyAire::Start() {
 
 	int speed = 1;
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+	b2Vec2 vel = b2Vec2(0, Gravity);
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
@@ -118,11 +118,10 @@ bool Enemy::Start() {
 	return true;
 }
 
-bool Enemy::Update()
+bool EnemyAire::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
-
+	b2Vec2 vel = b2Vec2(0, Gravity);
 
 	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
 		hit = true;
@@ -153,7 +152,6 @@ bool Enemy::Update()
 		if (showpath == true) {
 			app->render->DrawTexture(mouseTileTex, highlightedTileWorld.x, highlightedTileWorld.y);
 		}
-
 		//Test compute path function
 		if (true)
 		{
@@ -188,13 +186,13 @@ bool Enemy::Update()
 				if (path->At(0)->x > path->At(1)->x)
 				{
 					position.x = position.x - 1;
-					vel = b2Vec2(-speed, -GRAVITY_Y);
+					vel = b2Vec2(-speed, Gravity);
 					EnemyAnimation = &run_l;
 				}
 				if (path->At(0)->x < path->At(1)->x)
 				{
 					position.x = position.x + 1;
-					vel = b2Vec2(speed, -GRAVITY_Y);
+					vel = b2Vec2(speed, Gravity);
 					EnemyAnimation = &run_r;
 				}
 			}
@@ -203,6 +201,7 @@ bool Enemy::Update()
 
 	if (app->input->GetKey(SDL_SCANCODE_F9) == KEY_DOWN)
 		showpath = !showpath;
+
 
 	//Set the velocity of the pbody of the enemy
 	pbody->body->SetLinearVelocity(vel);
@@ -223,7 +222,7 @@ bool Enemy::Update()
 	return true;
 }
 
-bool Enemy::CleanUp()
+bool EnemyAire::CleanUp()
 {
 
 
@@ -232,7 +231,7 @@ bool Enemy::CleanUp()
 
 
 
-void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
+void EnemyAire::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	// L07 DONE 7: Detect the type of collision
 
