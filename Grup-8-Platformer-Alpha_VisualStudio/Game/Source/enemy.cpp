@@ -124,14 +124,12 @@ bool Enemy::Update()
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
 
 
-	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
-		hit = true;
-	}
 	if (hit == true) {
 		if (EnemyAnimation != &death) {
 			death.Reset();
 			EnemyAnimation = &death;
 		}
+
 	}
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;
@@ -219,6 +217,15 @@ bool Enemy::Update()
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
 	app->render->DrawTexture(texture, position.x-60, position.y-54, & rect);
+
+
+	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT) {
+		hit = true;
+		pbody = NULL;
+		//pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
+		app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
+	}
+
 
 	return true;
 }
