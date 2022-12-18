@@ -48,6 +48,7 @@ public:
 	Enemy* enemy5;
 
 	EnemyAire* enemyaire1;
+	EnemyAire* enemyaire2;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = NULL;

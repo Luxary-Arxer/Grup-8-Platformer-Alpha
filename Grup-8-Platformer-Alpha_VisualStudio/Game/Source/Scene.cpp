@@ -58,6 +58,9 @@ bool Scene::Awake(pugi::xml_node& config)
 	enemyaire1 = (EnemyAire*)app->entityManager->CreateEntity(EntityType::ENEMY_AIRE);
 	enemyaire1->parameters = config.child("enemyaire1");
 
+	enemyaire2 = (EnemyAire*)app->entityManager->CreateEntity(EntityType::ENEMY_AIRE);
+	enemyaire2->parameters = config.child("enemyaire2");
+
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
@@ -101,8 +104,11 @@ bool Scene::Start()
 
 		//enemies aire
 		app->entityManager->AddEntity(enemyaire1);
-		enemyaire1->position.x = 416;
-		enemyaire1->position.y = 256;
+		enemyaire1->position.x = 1472;
+		enemyaire1->position.y = 544;
+		app->entityManager->AddEntity(enemyaire2);
+		enemyaire2->position.x = 3264;
+		enemyaire2->position.y = 64;
 	}
 	
 	app->pathfinding->Enable();
