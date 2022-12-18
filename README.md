@@ -23,6 +23,8 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  - S -> Sit Animation
  - SPACE ->Jump
  - 2 times SPACE -> Double jump
+ - Left arrow -> atack left
+ - Right arrow -> atack right
 
 
 ## Developers
