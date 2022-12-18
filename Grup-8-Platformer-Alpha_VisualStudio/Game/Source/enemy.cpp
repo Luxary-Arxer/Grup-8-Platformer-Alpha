@@ -112,6 +112,8 @@ bool Enemy::Start() {
 	// L07 DONE 7: Assign collider type
 	pbody->ctype = ColliderType::ENEMY;
 
+
+
 	hit = false;
 	death_colision = false;
 	
@@ -261,6 +263,11 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::TERRAIN:
 		LOG("Collision TERRAIN");
+		break;
+
+	case ColliderType::UNKNOWN:
+		LOG("Collision TERRAIN");
+		hit = true;
 		break;
 	}
 

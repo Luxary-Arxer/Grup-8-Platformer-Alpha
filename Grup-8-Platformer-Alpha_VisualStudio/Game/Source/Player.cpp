@@ -10,6 +10,7 @@
 #include "Point.h"
 #include "Physics.h"
 #include "Animation.h"
+#include "enemy.h"
 
 
 #include <windows.h>
@@ -361,6 +362,51 @@ bool Player::Update()
 			}
 		}
 	}
+
+	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) 
+	{
+		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
+		bala->ctype = ColliderType::UNKNOWN;
+		b2Vec2 v = b2Vec2(1000, 0);
+		bala->body->ApplyForceToCenter(v, true);
+
+		delete_bala = !delete_bala;
+		if (currentAnimation != &atac_r) {
+			atac_r.Reset();
+			currentAnimation = &atac_r;
+		}
+
+		//if (delete_bala)
+		//{
+		//	bala->body->SetActive(false);
+		//	bala->body->SetAwake(false);
+		//}
+	}
+
+
+	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
+	{
+		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
+		bala->ctype = ColliderType::UNKNOWN;
+		b2Vec2 v = b2Vec2(1000, 0);
+		bala->body->ApplyForceToCenter(-v, true);
+
+		delete_bala = !delete_bala;
+		if (currentAnimation != &atac_l) {
+			atac_l.Reset();
+			currentAnimation = &atac_l;
+		}
+
+		//if (delete_bala)
+		//{
+		//	bala->body->SetActive(false);
+		//	bala->body->SetAwake(false);
+		//}
+
+	}
+
+
+
 
 	if (salto == true && usalto == true)
 	{

@@ -97,6 +97,7 @@ private:
 	int salto2 = 0;
 	bool godmode = false;
 
+	bool delete_bala = false;
 
 
 	bool derecha = true;
