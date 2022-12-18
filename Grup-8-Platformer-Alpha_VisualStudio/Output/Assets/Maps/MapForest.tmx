@@ -30858,7 +30858,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="12" name="Collisiones_Plataformas" width="128" height="24" visible="0">
+ <layer id="12" name="Collisiones_Plataformas" width="128" height="24">
   <properties>
    <property name="Collisiones" type="int" value="1"/>
    <property name="Navigation" type="bool" value="false"/>
@@ -32194,7 +32194,6 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
@@ -32202,7 +32201,8 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -32650,13 +32650,12 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -32825,7 +32824,8 @@
    <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -33142,12 +33142,11 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -33200,7 +33199,8 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -33283,7 +33283,6 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
@@ -33295,8 +33294,6 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
@@ -33312,7 +33309,10 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -33366,7 +33366,6 @@
    <tile/>
    <tile/>
    <tile/>
-   <tile/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
@@ -33380,7 +33379,8 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile/>
    <tile/>
    <tile/>
@@ -37020,7 +37020,6 @@
  </layer>
  <layer id="32" name="Collisiones_Limites_R" width="128" height="24" visible="0">
   <properties>
-   <property name="Collisiones" type="int" value="4"/>
    <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
@@ -40100,7 +40099,6 @@
  </layer>
  <layer id="24" name="Collisiones_Limites_L" width="128" height="24" visible="0">
   <properties>
-   <property name="Collisiones" type="int" value="3"/>
    <property name="Navigation" type="bool" value="false"/>
   </properties>
   <data>
@@ -43178,7 +43176,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="25" name="Navigation_tierra" width="128" height="24">
+ <layer id="25" name="Navigation_tierra" width="128" height="24" visible="0">
   <properties>
    <property name="Navigation" type="bool" value="true"/>
   </properties>

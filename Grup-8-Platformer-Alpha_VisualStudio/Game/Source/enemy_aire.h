@@ -75,6 +75,7 @@ private:
 	bool load = false;
 	bool showpath = false;
 	bool rango_jugador = false;
+	bool suelo = false;
 
 	float Gravity = -0.2;
 

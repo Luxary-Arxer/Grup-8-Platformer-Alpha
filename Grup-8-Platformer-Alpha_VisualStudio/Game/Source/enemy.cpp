@@ -258,15 +258,6 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 		LOG("Collision PLAYER");
 
 		break;
-	case ColliderType::LIMIT_L:
-		LOG("Collision PLATFORM");
-		derecha = true;
-		break;
-
-	case ColliderType::LIMIT_R:
-		LOG("Collision PLATFORM");
-		derecha = false;
-		break;
 
 	case ColliderType::TERRAIN:
 		LOG("Collision TERRAIN");

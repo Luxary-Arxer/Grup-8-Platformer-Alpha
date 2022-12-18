@@ -95,7 +95,7 @@ bool EnemyAire::Start() {
 	pbody->ctype = ColliderType::ENEMY;
 
 	hit = false;
-	
+	suelo = false;
 
 	return true;
 }
@@ -114,7 +114,12 @@ bool EnemyAire::Update()
 			EnemyAnimation = &death;
 		}
 		vel = b2Vec2(0, -GRAVITY_Y);
-		pbody->ctype = ColliderType::PLATFORM;
+
+		if (suelo== true) {
+			printf("1");
+			pbody->body->SetActive(false);
+			pbody->body->SetAwake(false);
+		}
 	}
 	if (app->scene->player->position.x-position.x > -544 && app->scene->player->position.x - position.x < 544) {
 		rango_jugador = true;
@@ -234,23 +239,15 @@ void EnemyAire::OnCollision(PhysBody* physA, PhysBody* physB) {
 	case ColliderType::DEATH:
 		LOG("Collision DEATH");
 		hit = true;
+		suelo = true;
 		break;
 	case ColliderType::PLAYER:
 		LOG("Collision PLAYER");
 
 		break;
-	case ColliderType::LIMIT_L:
+	case ColliderType::PLATFORM:
 		LOG("Collision PLATFORM");
-		derecha = true;
-		break;
-
-	case ColliderType::LIMIT_R:
-		LOG("Collision PLATFORM");
-		derecha = false;
-		break;
-
-	case ColliderType::TERRAIN:
-		LOG("Collision TERRAIN");
+		suelo = true;
 		break;
 	}
 
