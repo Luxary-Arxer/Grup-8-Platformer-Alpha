@@ -260,5 +260,42 @@ bool Render::SaveState(pugi::xml_node& data)
 	pos.append_attribute("x") = app->scene->player->position.x;
 	pos.append_attribute("y") = app->scene->player->position.y;
 
+
+	pugi::xml_node en1 = data.append_child("enemy1");
+
+	en1.append_attribute("x") = app->scene->enemy1->position.x;
+	en1.append_attribute("y") = app->scene->enemy1->position.y;
+
+	pugi::xml_node en2 = data.append_child("enemy2");
+
+	en2.append_attribute("x") = app->scene->enemy2->position.x;
+	en2.append_attribute("y") = app->scene->enemy2->position.y;
+
+	pugi::xml_node en3 = data.append_child("enemy3");
+
+	en3.append_attribute("x") = app->scene->enemy3->position.x;
+	en3.append_attribute("y") = app->scene->enemy3->position.y;
+
+	pugi::xml_node en4 = data.append_child("enemy4");
+
+	en4.append_attribute("x") = app->scene->enemy4->position.x;
+	en4.append_attribute("y") = app->scene->enemy4->position.y;
+
+	pugi::xml_node en5 = data.append_child("enemy5");
+
+	en5.append_attribute("x") = app->scene->enemy5->position.x;
+	en5.append_attribute("y") = app->scene->enemy5->position.y;
+
+	pugi::xml_node en1_air = data.append_child("enemy1_aire");
+
+	en1_air.append_attribute("x") = app->scene->enemyaire1->position.x;
+	en1_air.append_attribute("y") = app->scene->enemyaire1->position.y;
+
+	pugi::xml_node en2_air = data.append_child("enemy2_aire");
+
+	en2_air.append_attribute("x") = app->scene->enemyaire2->position.x;
+	en2_air.append_attribute("y") = app->scene->enemyaire2->position.y;
+
+
 	return true;
 }

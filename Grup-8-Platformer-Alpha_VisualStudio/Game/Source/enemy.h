@@ -29,6 +29,8 @@ public:
 
 	void OnCollision(PhysBody* physA, PhysBody* physB);
 
+	void LoadPosition(int x, int y, bool death);
+
 public:
 
 	Animation* EnemyAnimation = nullptr;

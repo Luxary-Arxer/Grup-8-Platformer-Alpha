@@ -254,3 +254,10 @@ void EnemyAire::OnCollision(PhysBody* physA, PhysBody* physB) {
 	}
 
 }
+
+
+void EnemyAire::LoadPosition(int x, int y, bool death) {
+
+	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
+	hit = death;
+}
