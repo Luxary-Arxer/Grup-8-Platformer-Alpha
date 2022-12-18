@@ -225,7 +225,7 @@ bool Enemy::Update()
 			death.Reset();
 			EnemyAnimation = &death;
 		}
-		pbody->ctype = ColliderType::DEATH;
+		pbody->ctype = ColliderType::PLATFORM;
 	}
 
 	app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
