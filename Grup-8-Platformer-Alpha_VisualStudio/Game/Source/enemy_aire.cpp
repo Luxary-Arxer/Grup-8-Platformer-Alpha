@@ -32,10 +32,10 @@ bool EnemyAire::Awake() {
 	idle_r.loop = true;
 	idle_r.speed = 0.1f;
 
-	idle_l.PushBack({ 64 * 0, 64, 64, 64 });
-	idle_l.PushBack({ 64 * 1, 64, 64, 64 });
-	idle_l.PushBack({ 64 * 2, 64, 64, 64 });
-	idle_l.PushBack({ 64 * 3, 64, 64, 64 });
+	idle_l.PushBack({ 64 * 0, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 1, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 2, 0, 64, 64 });
+	idle_l.PushBack({ 64 * 3, 0, 64, 64 });
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
@@ -176,6 +176,16 @@ bool EnemyAire::Update()
 					position.x = position.x + 1;
 					vel = b2Vec2(speed, Gravity);
 					EnemyAnimation = &run_r;
+				}
+				if (path->At(0)->y > path->At(1)->y)
+				{
+					position.y = position.y - 1;
+					vel = b2Vec2(0, -speed);
+				}
+				if (path->At(0)->y < path->At(1)->y)
+				{
+					position.y = position.y + 1;
+					vel = b2Vec2(0, speed);
 				}
 			}
 		}

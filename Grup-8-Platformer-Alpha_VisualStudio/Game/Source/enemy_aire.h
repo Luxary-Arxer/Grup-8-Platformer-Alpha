@@ -64,7 +64,7 @@ private:
 	SDL_Texture* texture;
 	const char* texturePath;
 
-	int speed = 2;
+	int speed = 5;
 
 	//DONE 4: Add a physics to an item
 	PhysBody* pbody;
@@ -72,7 +72,7 @@ private:
 	bool derecha = true;
 	bool hit = false;
 	bool load = false;
-	bool showpath = true;
+	bool showpath = false;
 	bool rango_jugador = false;
 
 	float Gravity = -0.2;
