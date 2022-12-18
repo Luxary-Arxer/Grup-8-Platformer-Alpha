@@ -365,8 +365,8 @@ bool Player::Update()
 
 	if (app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_DOWN) 
 	{
-		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
-		bala->ctype = ColliderType::UNKNOWN;
+		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 30, 16, DYNAMIC);
+		bala->ctype = ColliderType::BALA;
 		b2Vec2 v = b2Vec2(1000, 0);
 		bala->body->ApplyForceToCenter(v, true);
 
@@ -387,7 +387,7 @@ bool Player::Update()
 	if (app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_DOWN)
 	{
 		PhysBody* bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
-		bala->ctype = ColliderType::UNKNOWN;
+		bala->ctype = ColliderType::BALA;
 		b2Vec2 v = b2Vec2(1000, 0);
 		bala->body->ApplyForceToCenter(-v, true);
 

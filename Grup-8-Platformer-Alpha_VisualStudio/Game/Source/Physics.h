@@ -36,6 +36,7 @@ enum class ColliderType {
 	WATER,
 	DEATH,
 	ENEMY,
+	BALA,
 	UNKNOWN
 	// ..
 };

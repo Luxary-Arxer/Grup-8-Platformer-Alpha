@@ -248,7 +248,12 @@ void EnemyAire::OnCollision(PhysBody* physA, PhysBody* physB) {
 		LOG("Collision PLATFORM");
 		suelo = true;
 		break;
+	case ColliderType::BALA:
+		LOG("Collision BALA");
+		hit = true;
+		break;
 	}
+	
 
 }
 

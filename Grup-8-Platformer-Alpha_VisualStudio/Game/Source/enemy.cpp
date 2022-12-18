@@ -265,8 +265,8 @@ void Enemy::OnCollision(PhysBody* physA, PhysBody* physB) {
 		LOG("Collision TERRAIN");
 		break;
 
-	case ColliderType::UNKNOWN:
-		LOG("Collision TERRAIN");
+	case ColliderType::BALA:
+		LOG("Collision BALA");
 		hit = true;
 		break;
 	}
