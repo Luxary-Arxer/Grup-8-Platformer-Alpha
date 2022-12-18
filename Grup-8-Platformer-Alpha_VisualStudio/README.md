@@ -4,23 +4,47 @@
 
 The goal is having a simple platformer with levels created with Tiled. There must be a main character moving around while being able to save and load the game's state.
 
-## Key Features
-
- - {Feature01}
- - {Feature02}
- - {Feature03}
- - {Feature04}
- 
 ## Controls
 
- - {WASD + SPACE + F9}
+### DEBUG Keys
+
+ - F1 Start from the first/second leve(Doesn't load the player)
+ - F3 Start from the beginning of the current level.
+ - F5 Save the current stat of the game.
+ - F6 Load the previous state of the game.
+ - F8 Kill all enemies.
+ - F9 View colliders/ Hide and Show Pathfinding tools..
+ - F10 GOD Mode.
+
+### Movement
+
+ - A -> Move left
+ - D -> Move right
+ - S -> Sit Animation
+ - SPACE ->Jump
+ - 2 times SPACE -> Double jump
+
 
 ## Developers
 
- - {Enric Arxer} - {Role(s)}
- - {Dev02} - {Role(s)}
- - {Dev03} - {Role(s)}
- - {Dev04} - {Role(s)}
+ - {Enric Arxer}- {https://github.com/Luxary-92}
+ - {Nixon Correa}- {https://github.com/Nixonbit3}
+
+### Creator of the main character
+
+- {Penzilla}-https://penzilla.itch.io/hooded-protagonist
+- https://twitter.com/PennyPenzilla
+
+### Creator of the enemies
+
+#### Walking enemy
+- {FoozleCC} - https://foozlecc.itch.io/critters-enemy-pack-2
+- https://twitter.com/FoozleCC
+
+#### Flying enemy
+- {Cheshire} - https://jeevo.itch.io/insect-enemies
+- https://twitter.com/lovelytoaster
+
 
 ## License
 
