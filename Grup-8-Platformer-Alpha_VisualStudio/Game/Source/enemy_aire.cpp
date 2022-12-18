@@ -24,59 +24,45 @@ EnemyAire::~EnemyAire() {}
 bool EnemyAire::Awake() {
 
 	//Idle_r animation
-	idle_r.PushBack({ 0, 0, 129, 129 });
-	idle_r.PushBack({ 129*1, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 2, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 3, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 4, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 5, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 6, 0, 129, 129 });
-	idle_r.PushBack({ 129 * 7, 0, 129, 129 });
+
+	idle_r.PushBack({ 64*0, 0, 64, 64 });
+	idle_r.PushBack({ 64 * 1, 0, 64, 64 });
+	idle_r.PushBack({ 64 * 2, 0, 64, 64 });
+	idle_r.PushBack({ 64 * 3, 0, 64, 64 });
 	idle_r.loop = true;
 	idle_r.speed = 0.1f;
 
-	idle_l.PushBack({ 129 * 7, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 6, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 5, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 4, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 3, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 2, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 1, 129, 129, 129 });
-	idle_l.PushBack({ 129 * 0, 129, 129, 129 });
+	idle_l.PushBack({ 64 * 0, 64, 64, 64 });
+	idle_l.PushBack({ 64 * 1, 64, 64, 64 });
+	idle_l.PushBack({ 64 * 2, 64, 64, 64 });
+	idle_l.PushBack({ 64 * 3, 64, 64, 64 });
 	idle_l.loop = true;
 	idle_l.speed = 0.1f;
 
-	run_r.PushBack({ 129 * 0, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 1, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 2, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 3, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 4, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 5, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 6, 129 * 2, 129, 129 });
-	run_r.PushBack({ 129 * 7, 129 * 2, 129, 129 });
+	run_r.PushBack({ 64 * 0, 64 * 2, 64, 64 });
+	run_r.PushBack({ 64 * 1, 64 * 2, 64, 64 });
+	run_r.PushBack({ 64 * 2, 64 * 2, 64, 64 });
+	run_r.PushBack({ 64 * 3, 64 * 2, 64, 64 });
+
 	run_r.loop = true;
 	run_r.speed = 0.1f;
 
-	run_l.PushBack({ 129 * 7, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 6, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 5, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 4, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 3, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 2, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 1, 129 * 3, 129, 129 });
-	run_l.PushBack({ 129 * 0, 129 * 3, 129, 129 });
+	run_l.PushBack({ 64 * 0, 64 * 1, 64, 64 });
+	run_l.PushBack({ 64 * 1, 64 * 1, 64, 64 });
+	run_l.PushBack({ 64 * 2, 64 * 1, 64, 64 });
+	run_l.PushBack({ 64 * 3, 64 * 1, 64, 64 });
 	run_l.loop = true;
 	run_l.speed = 0.1f;
 
 
-	death.PushBack({ 0, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 1, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 2, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 3, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 4, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 5, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 6, 129 * 7, 129, 129 });
-	death.PushBack({ 129 * 7, 129 * 7, 129, 129 });
+	death.PushBack({ 0, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 1, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 2, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 3, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 4, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 5, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 6, 64 * 7, 64, 64 });
+	death.PushBack({ 64 * 7, 64 * 7, 64, 64 });
 	death.loop = false;
 	death.speed = 0.1f;
 
@@ -104,7 +90,7 @@ bool EnemyAire::Start() {
 	originTex = app->tex->Load("Assets/Maps/x.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateCircle(position.x + 16, position.y + 16, 30, bodyType::DYNAMIC);
+	pbody = app->physics->CreateCircle(position.x, position.y, 30, bodyType::DYNAMIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
@@ -166,7 +152,6 @@ bool EnemyAire::Update()
 			{
 				origin = mouseTile;
 				originSelected = true;
-
 				app->pathfinding->ClearLastPath();
 			}
 		}
@@ -210,14 +195,14 @@ bool EnemyAire::Update()
 	position.x = METERS_TO_PIXELS(pbody->body->GetTransform().p.x) - 16;
 	position.y = METERS_TO_PIXELS(pbody->body->GetTransform().p.y) - 16;
 
-	origin.x = (position.x + 4)/32;
-	origin.y = (position.y + 6)/32;
+	origin.x = (position.x)/32;
+	origin.y = (position.y)/32;
 
 
 	EnemyAnimation->Update();
 	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
 
-	app->render->DrawTexture(texture, position.x-60, position.y-54, & rect);
+	app->render->DrawTexture(texture, position.x-15, position.y-15, & rect);
 
 	return true;
 }
