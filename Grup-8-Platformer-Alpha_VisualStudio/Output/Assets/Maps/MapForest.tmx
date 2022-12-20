@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="37" nextobjectid="46">
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" compressionlevel="1" width="128" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="38" nextobjectid="49">
  <properties>
   <property name="Collisiones" type="int" value="1"/>
  </properties>
@@ -33938,6 +33938,18 @@
    <tile/>
   </data>
  </layer>
+ <objectgroup id="37" name="Colisiones test">
+  <properties>
+   <property name="Collisiones" type="int" value="1"/>
+   <property name="Draw" type="bool" value="true"/>
+  </properties>
+  <object id="46" x="93.3333" y="226.667" width="320" height="93.3333">
+   <properties>
+    <property name="Collisiones" type="int" value="1"/>
+   </properties>
+   <polygon points="0,0 320,0 320,93.3333 0,93.3333"/>
+  </object>
+ </objectgroup>
  <layer id="26" name="Collisiones_Muerte" width="128" height="24" visible="0">
   <properties>
    <property name="Collisiones" type="int" value="2"/>

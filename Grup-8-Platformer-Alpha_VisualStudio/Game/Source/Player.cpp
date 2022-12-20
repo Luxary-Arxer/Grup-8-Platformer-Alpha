@@ -237,9 +237,10 @@ bool Player::Update()
 
 	if (hit == true) {	
 
-
-		death.Reset();
-		currentAnimation = &death;
+		if (currentAnimation != &death) {
+			death.Reset();
+			currentAnimation = &death;
+		}
 
 	}
 	if (currentAnimation == &death) {
