@@ -628,6 +628,10 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			salto2 = 0;
 			posy = position.y;
 			break;
+		case ColliderType::CHECK_POINT:
+			LOG("Collision PLATFORM");
+			printf("CHECK_POINT");
+			break;
 	}
 	
 }

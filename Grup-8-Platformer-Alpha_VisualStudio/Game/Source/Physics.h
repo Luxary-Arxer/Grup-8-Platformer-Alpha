@@ -37,6 +37,7 @@ enum class ColliderType {
 	DEATH,
 	ENEMY,
 	BALA,
+	CHECK_POINT,
 	UNKNOWN
 	// ..
 };
