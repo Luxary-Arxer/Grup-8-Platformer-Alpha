@@ -52,6 +52,8 @@ public:
 	EnemyAire* enemyaire1;
 	EnemyAire* enemyaire2;
 
+	Coin* coin1;
+
 	bool FirstScene = true;
 	bool ShowPathfinding = NULL;
 

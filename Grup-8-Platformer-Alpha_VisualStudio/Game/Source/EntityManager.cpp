@@ -103,6 +103,12 @@ Entity* EntityManager::CreateEntity(EntityType type)
 	case EntityType::ENEMY_AIRE:
 		entity = new EnemyAire();
 		break;
+	case EntityType::COIN:
+		entity = new Coin();
+		break;
+	case EntityType::CHECK_POINT:
+		entity = new Checkpoint();
+		break;
 
 	default: break;
 	}

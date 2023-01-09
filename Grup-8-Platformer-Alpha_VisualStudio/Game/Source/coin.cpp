@@ -24,11 +24,23 @@ Coin::~Coin() {}
 bool Coin::Awake() {
 
 	//Idle_r animation
-	idle_r.PushBack({ 0, 0, 129, 129 });
-	idle_r.PushBack({ 129*1, 0, 129, 129 });
-	idle_r.loop = true;
-	idle_r.speed = 0.1f;
+	idle.PushBack({ 0 * 16, 0, 16, 16 });
+	idle.PushBack({ 1 * 16, 0, 16, 16 });
+	idle.PushBack({ 2 * 16, 0, 16, 16 });
+	idle.PushBack({ 3 * 16, 0, 16, 16 });
+	idle.PushBack({ 4 * 16, 0, 16, 16 });
+	idle.PushBack({ 5 * 16, 0, 16, 16 });
+	idle.loop = true;
+	idle.speed = 0.1f;
 
+	death.PushBack({ 0 * 16, 3 * 16, 16, 16 });
+	death.PushBack({ 1 * 16, 3 * 16, 16, 16 });
+	death.PushBack({ 2 * 16, 3 * 16, 16, 16 });
+	death.PushBack({ 3 * 16, 3 * 16, 16, 16 });
+	death.PushBack({ 4 * 16, 3 * 16, 16, 16 });
+	death.PushBack({ 5 * 16, 3 * 16, 16, 16 });
+	death.loop = false;
+	death.speed = 0.1f;
 
 	position.x = parameters.attribute("x").as_int();
 	position.y = parameters.attribute("y").as_int();
@@ -39,19 +51,19 @@ bool Coin::Awake() {
 
 bool Coin::Start() {
 
-	int speed = 1;
-	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
+	int speed = 7;
+	b2Vec2 vel = b2Vec2(0, 0);
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
-	EnemyAnimation = &idle_l;
+	CoinAnimation = &idle;
 
 
 	// Texture to show path origin 
 	originTex = app->tex->Load("Assets/Textures/Coins.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 16,16, bodyType::STATIC);
+	pbody = app->physics->CreateRectangleSensor(position.x, position.y,16,16, bodyType::STATIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
@@ -59,7 +71,8 @@ bool Coin::Start() {
 	// L07 DONE 7: Assign collider type
 	pbody->ctype = ColliderType::COIN;
 
-
+	position.x = parameters.attribute("x").as_int();
+	position.y = parameters.attribute("y").as_int();
 
 	hit = false;
 	death_colision = false;
@@ -77,28 +90,21 @@ bool Coin::Update()
 		hit = true; 
 	}
 
-
-
-	EnemyAnimation->Update();
-	SDL_Rect rect = EnemyAnimation->GetCurrentFrame();
-
+	CoinAnimation->Update();
+	SDL_Rect rect = CoinAnimation->GetCurrentFrame();
 
 	if (hit == true) {
-		//app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
-		//if (death_colision = false) {
-		//	pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
-		//	death_colision = true;
-		//}
-		if (EnemyAnimation != &death) {
+
+		if (CoinAnimation != &death) {
 			death.Reset();
-			EnemyAnimation = &death;
+			CoinAnimation = &death;
 		}
 		pbody->body->SetActive(false);
 		pbody->body->SetAwake(false);
 		pbody->ctype = ColliderType::PLATFORM;
 	}
 
-	app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
+	app->render->DrawTexture(texture, position.x - 16/2, position.y - 16 / 2, &rect);
 
 	return true;
 }

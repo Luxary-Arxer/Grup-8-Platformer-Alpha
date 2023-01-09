@@ -26,9 +26,6 @@
     <player x="118" y="586" texturepath="Assets/Textures/player 64x64.png"/>
         
 	<!--item x="256" y="547" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="416" y="547" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="384" y="352" texturepath="Assets/Textures/goldCoin.png"/>
-    <item x="200" y="682" texturepath="Assets/Textures/goldCoin.png"/>
     <item x="500" y="682" texturepath="Assets/Textures/goldCoin.png"/-->
 
 	<enemy1 x="416" y="547" texturepath="Assets/Enemies/enemy_1.png"/>
@@ -40,6 +37,8 @@
     <enemyaire1 x="1472" y="544" texturepath="Assets/Enemies/enemy_aire.png"/>
 	<enemyaire2 x="3264" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
 
+    <coin1 x="416" y="256" texturepath="Assets/Textures/Coins.png"/>  
+	  
   </scene>
 
   <map>

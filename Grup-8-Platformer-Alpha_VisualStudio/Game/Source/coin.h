@@ -33,10 +33,9 @@ public:
 
 public:
 
-	Animation* EnemyAnimation = nullptr;
+	Animation* CoinAnimation = nullptr;
 
-	Animation idle_r;
-	Animation idle_l;
+	Animation idle;
 
 	Animation death;
 
