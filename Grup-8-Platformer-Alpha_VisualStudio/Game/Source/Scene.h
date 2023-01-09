@@ -6,6 +6,7 @@
 #include "Item.h"
 #include "Enemy.h"
 #include "Enemy_aire.h"
+#include "Coin.h"
 
 struct SDL_Texture;
 

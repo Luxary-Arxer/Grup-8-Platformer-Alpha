@@ -14,6 +14,7 @@ enum class EntityType
 	ITEM,
 	ENEMY,
 	ENEMY_AIRE,
+	COIN,
 	UNKNOWN
 };
 

@@ -1,42 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\Window.cpp" />
-    <ClCompile Include="Source\Textures.cpp" />
-    <ClCompile Include="Source\Scene.cpp" />
-    <ClCompile Include="Source\Render.cpp" />
-    <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\Input.cpp" />
-    <ClCompile Include="Source\Audio.cpp" />
-    <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Log.cpp">
       <Filter>Utils</Filter>
     </ClCompile>
     <ClCompile Include="Source\External\PugiXml\src\pugixml.cpp">
       <Filter>External\PugiXml</Filter>
     </ClCompile>
-    <ClCompile Include="Source\EntityManager.cpp" />
-    <ClCompile Include="Source\Player.cpp" />
-    <ClCompile Include="Source\Item.cpp" />
-    <ClCompile Include="Source\Map.cpp" />
-    <ClCompile Include="Source\Physics.cpp" />
-    <ClCompile Include="Source\FadeToBlack.cpp" />
-    <ClCompile Include="Source\SceneLogo.cpp" />
-    <ClCompile Include="Source\sceneEnding.cpp" />
-    <ClCompile Include="Source\sceneTitle.cpp" />
-    <ClCompile Include="Source\Pathfinding.cpp" />
-    <ClCompile Include="Source\enemy.cpp" />
-    <ClCompile Include="Source\enemy_aire.cpp" />
+    <ClCompile Include="Source\App.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Audio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FadeToBlack.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Input.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Item.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Pathfinding.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Physics.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Render.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Textures.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Window.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\enemy.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\enemy_aire.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\EntityManager.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene.cpp">
+      <Filter>Source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\sceneEnding.cpp">
+      <Filter>Source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneLogo.cpp">
+      <Filter>Source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\sceneTitle.cpp">
+      <Filter>Source\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\coin.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Window.h" />
-    <ClInclude Include="Source\Textures.h" />
-    <ClInclude Include="Source\Scene.h" />
-    <ClInclude Include="Source\Render.h" />
-    <ClInclude Include="Source\Module.h" />
-    <ClInclude Include="Source\Input.h" />
-    <ClInclude Include="Source\Audio.h" />
-    <ClInclude Include="Source\App.h" />
     <ClInclude Include="Source\Defs.h">
       <Filter>Utils</Filter>
     </ClInclude>
@@ -64,20 +99,75 @@
     <ClInclude Include="Source\Queue.h">
       <Filter>Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Source\EntityManager.h" />
-    <ClInclude Include="Source\Player.h" />
-    <ClInclude Include="Source\Entity.h" />
-    <ClInclude Include="Source\Item.h" />
-    <ClInclude Include="Source\Map.h" />
-    <ClInclude Include="Source\Physics.h" />
-    <ClInclude Include="Source\Animation.h" />
-    <ClInclude Include="Source\FadeToBlack.h" />
-    <ClInclude Include="Source\SceneLogo.h" />
-    <ClInclude Include="Source\sceneEnding.h" />
-    <ClInclude Include="Source\sceneTitle.h" />
-    <ClInclude Include="Source\Pathfinding.h" />
-    <ClInclude Include="Source\enemy.h" />
-    <ClInclude Include="Source\enemy_aire.h" />
+    <ClInclude Include="Source\Animation.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\App.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Audio.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FadeToBlack.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Input.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Item.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Module.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Pathfinding.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Physics.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Render.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Textures.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Window.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\enemy.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\enemy_aire.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Player.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Entity.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityManager.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene.h">
+      <Filter>Source\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\sceneEnding.h">
+      <Filter>Source\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneLogo.h">
+      <Filter>Source\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\sceneTitle.h">
+      <Filter>Source\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\coin.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="External">
@@ -88,6 +178,15 @@
     </Filter>
     <Filter Include="External\PugiXml">
       <UniqueIdentifier>{2855ff7f-53a1-413d-a75b-18b4ade921dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{eab2251c-9c6a-454d-9d23-7d1a269082f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Enitites">
+      <UniqueIdentifier>{46b64faa-49cb-4088-a854-e50205918a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Scenes">
+      <UniqueIdentifier>{8e449914-1d4f-4976-baaa-f9a3000f9911}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

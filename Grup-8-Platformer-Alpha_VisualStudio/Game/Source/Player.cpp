@@ -375,7 +375,7 @@ bool Player::Update()
 		//	bala->body->SetAwake(false);
 		//}
 		bala = app->physics->CreateRectangle(position.x+30, position.y, 32, 16, DYNAMIC);
-		bala->ctype = ColliderType::UNKNOWN;
+		bala->ctype = ColliderType::BALA;
 		b2Vec2 v = b2Vec2(10, 0);
 
 		bala->body->ApplyForceToCenter(v, true);
@@ -401,7 +401,7 @@ bool Player::Update()
 		//	bala_aux[i10_aux]->body->SetAwake(false);
 		//}
 		bala = app->physics->CreateRectangle(position.x, position.y, 32, 16, DYNAMIC);
-		bala->ctype = ColliderType::UNKNOWN;
+		bala->ctype = ColliderType::BALA;
 		b2Vec2 v = b2Vec2(-1, 0);
 
 		bala->body->ApplyForceToCenter(-v, true);
