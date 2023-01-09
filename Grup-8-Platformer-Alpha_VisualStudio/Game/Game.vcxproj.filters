@@ -25,9 +25,6 @@
     <ClCompile Include="Source\Main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Map.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Pathfinding.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -72,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="Source\checkpoint.cpp">
       <Filter>Source\Enitites</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map.cpp">
+      <Filter>Source\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,9 +118,6 @@
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\Item.h">
-      <Filter>Source</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map.h">
       <Filter>Source</Filter>
     </ClInclude>
     <ClInclude Include="Source\Module.h">
@@ -173,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="Source\checkpoint.h">
       <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map.h">
+      <Filter>Source\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

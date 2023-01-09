@@ -104,7 +104,7 @@ bool Coin::Update()
 		pbody->ctype = ColliderType::PLATFORM;
 	}
 
-	app->render->DrawTexture(texture, position.x - 16/2, position.y - 16 / 2, &rect);
+	app->render->DrawTexture(texture, position.x - (16/2), position.y - (16 / 2), &rect);
 
 	return true;
 }
