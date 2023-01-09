@@ -202,8 +202,6 @@ bool Player::Start() {
 	texture = app->tex->Load(texturePath);
 	currentAnimation = &idle_r;
 
-
-
 	// L07 DONE 5: Add physics to the player - initialize physics body
 	pbody = app->physics->CreateCircle(position.x+16, position.y+16, 30, bodyType::DYNAMIC);
 
@@ -629,8 +627,9 @@ void Player::OnCollision(PhysBody* physA, PhysBody* physB) {
 			posy = position.y;
 			break;
 		case ColliderType::CHECK_POINT:
-			LOG("Collision PLATFORM");
+			LOG("Collision CHECK_POINT");
 			printf("CHECK_POINT");
+			app->SaveGameRequest();
 			break;
 	}
 	

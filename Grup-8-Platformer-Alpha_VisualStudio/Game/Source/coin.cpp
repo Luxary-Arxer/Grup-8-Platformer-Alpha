@@ -124,22 +124,8 @@ void Coin::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	switch (physB->ctype)
 	{
-
-	case ColliderType::DEATH:
-		LOG("Collision DEATH");
-		hit = true;
-		break;
 	case ColliderType::PLAYER:
 		LOG("Collision PLAYER");
-
-		break;
-
-	case ColliderType::TERRAIN:
-		LOG("Collision TERRAIN");
-		break;
-
-	case ColliderType::UNKNOWN:
-		LOG("Collision BALA");
 		hit = true;
 		break;
 	}

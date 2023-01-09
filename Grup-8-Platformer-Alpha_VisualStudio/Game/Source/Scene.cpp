@@ -114,8 +114,8 @@ bool Scene::Start()
 		enemyaire2->position.y = 256;
 		// coins 
 		app->entityManager->AddEntity(coin1);
-		coin1->position.x = 416;
-		coin1->position.y = 544;
+		coin1->position.x = 416+200;
+		coin1->position.y = 256;
 	}
 	
 	app->pathfinding->Enable();
