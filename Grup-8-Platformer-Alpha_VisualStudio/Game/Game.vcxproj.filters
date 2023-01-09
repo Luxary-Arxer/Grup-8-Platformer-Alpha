@@ -70,6 +70,9 @@
     <ClCompile Include="Source\coin.cpp">
       <Filter>Source\Enitites</Filter>
     </ClCompile>
+    <ClCompile Include="Source\checkpoint.cpp">
+      <Filter>Source\Enitites</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Defs.h">
@@ -166,6 +169,9 @@
       <Filter>Source\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="Source\coin.h">
+      <Filter>Source\Enitites</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\checkpoint.h">
       <Filter>Source\Enitites</Filter>
     </ClInclude>
   </ItemGroup>

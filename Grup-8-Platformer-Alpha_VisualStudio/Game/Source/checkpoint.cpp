@@ -1,4 +1,4 @@
-#include "Coin.h"
+#include "Checkpoint.h"
 #include "App.h"
 #include "Textures.h"
 #include "Audio.h"
@@ -14,14 +14,14 @@
 #include "Pathfinding.h"
 #include "Map.h"
 
-Coin::Coin() : Entity(EntityType::COIN)
+Checkpoint::Checkpoint() : Entity(EntityType::CHECK_POINT)
 {
-	name.Create("Coin");
+	name.Create("Checkpoint");
 }
 
-Coin::~Coin() {}
+Checkpoint::~Checkpoint() {}
 
-bool Coin::Awake() {
+bool Checkpoint::Awake() {
 
 	//Idle_r animation
 	idle_r.PushBack({ 0, 0, 129, 129 });
@@ -37,7 +37,7 @@ bool Coin::Awake() {
 	return true;
 }
 
-bool Coin::Start() {
+bool Checkpoint::Start() {
 
 	int speed = 1;
 	b2Vec2 vel = b2Vec2(0, -GRAVITY_Y + 3);
@@ -48,16 +48,16 @@ bool Coin::Start() {
 
 
 	// Texture to show path origin 
-	originTex = app->tex->Load("Assets/Textures/Coins.png");
+	originTex = app->tex->Load("Assets/Textures/Checkpoints.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 16,16, bodyType::STATIC);
+	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 16, 16, bodyType::STATIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
 
 	// L07 DONE 7: Assign collider type
-	pbody->ctype = ColliderType::COIN;
+	pbody->ctype = ColliderType::CHECK_POINT;
 
 
 
@@ -68,7 +68,7 @@ bool Coin::Start() {
 	return true;
 }
 
-bool Coin::Update()
+bool Checkpoint::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
 	b2Vec2 vel = b2Vec2(0, Gravity);
@@ -103,7 +103,7 @@ bool Coin::Update()
 	return true;
 }
 
-bool Coin::CleanUp()
+bool Checkpoint::CleanUp()
 {
 
 
@@ -112,7 +112,7 @@ bool Coin::CleanUp()
 
 
 
-void Coin::OnCollision(PhysBody* physA, PhysBody* physB) {
+void Checkpoint::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	// L07 DONE 7: Detect the type of collision
 
@@ -140,7 +140,7 @@ void Coin::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 }
 
-void Coin::LoadPosition(int x, int y, bool death) {
+void Checkpoint::LoadPosition(int x, int y, bool death) {
 
 	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
 	hit = death;
