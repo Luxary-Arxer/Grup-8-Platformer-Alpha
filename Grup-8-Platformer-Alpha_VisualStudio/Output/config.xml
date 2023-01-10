@@ -37,8 +37,10 @@
     <enemyaire1 x="1472" y="544" texturepath="Assets/Enemies/enemy_aire.png"/>
 	<enemyaire2 x="3264" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
 
-    <coin1 x="416" y="256" texturepath="Assets/Textures/Coins.png"/>  
-	  
+    <coin1 x="416" y="256" texturepath="Assets/Textures/Coins.png"/>
+
+	<checkpont1 x="360" y="576" texturepath="Assets/Textures/Checkpoint.png"/>
+
   </scene>
 
   <map>

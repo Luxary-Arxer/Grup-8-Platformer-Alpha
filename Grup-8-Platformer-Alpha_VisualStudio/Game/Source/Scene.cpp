@@ -64,6 +64,9 @@ bool Scene::Awake(pugi::xml_node& config)
 	coin1 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
 	coin1->parameters = config.child("coin1");
 
+	checkpoint1 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
+	checkpoint1->parameters = config.child("checkpont1");
+
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
 	player->parameters = config.child("player");
@@ -116,6 +119,10 @@ bool Scene::Start()
 		app->entityManager->AddEntity(coin1);
 		coin1->position.x = 416;
 		coin1->position.y = 256;
+		//Checkpoints 
+		app->entityManager->AddEntity(checkpoint1);
+		checkpoint1->position.x = 360;
+		checkpoint1->position.y = 576;
 	}
 	
 	app->pathfinding->Enable();

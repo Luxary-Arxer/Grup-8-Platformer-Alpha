@@ -24,10 +24,16 @@ Checkpoint::~Checkpoint() {}
 bool Checkpoint::Awake() {
 
 	//Idle_r animation
-	idle_r.PushBack({ 0, 0, 129, 129 });
-	idle_r.PushBack({ 129*1, 0, 129, 129 });
-	idle_r.loop = true;
-	idle_r.speed = 0.1f;
+	idle.PushBack({ 0, 0, 64, 129 });
+	idle.loop = false;
+
+	active.PushBack({ 1 * 64,0 , 64, 129 });
+	active.PushBack({ 2 * 64, 0, 64, 129 });
+	active.PushBack({ 3 * 64, 0, 64, 129 });
+	active.PushBack({ 4 * 64, 0, 64, 129 });
+	active.PushBack({ 5 * 64, 0, 64, 129 });
+	active.loop = false;
+	active.speed = 0.1f;
 
 
 	position.x = parameters.attribute("x").as_int();
@@ -44,14 +50,14 @@ bool Checkpoint::Start() {
 
 	//initilize textures
 	texture = app->tex->Load(texturePath);
-	EnemyAnimation = &idle_l;
+	EnemyAnimation = &idle;
 
 
 	// Texture to show path origin 
 	originTex = app->tex->Load("Assets/Textures/Checkpoints.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 16, 16, bodyType::STATIC);
+	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 52, 64, bodyType::STATIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
@@ -62,8 +68,6 @@ bool Checkpoint::Start() {
 
 
 	hit = false;
-	death_colision = false;
-	
 
 	return true;
 }
@@ -71,7 +75,7 @@ bool Checkpoint::Start() {
 bool Checkpoint::Update()
 {
 	// L07 DONE 4: Add a physics to an item - update the position of the object from the physics.  
-	b2Vec2 vel = b2Vec2(0, Gravity);
+	b2Vec2 vel = b2Vec2(0, 0);
 
 	if (app->input->GetKey(SDL_SCANCODE_J) == KEY_REPEAT || app->input->GetKey(SDL_SCANCODE_F8) == KEY_REPEAT) {
 		hit = true; 
@@ -84,21 +88,15 @@ bool Checkpoint::Update()
 
 
 	if (hit == true) {
-		//app->render->DrawTexture(texture, position.x - 60, position.y - 80, &rect);
-		//if (death_colision = false) {
-		//	pbody = app->physics->CreateRectangle(position.x + 16, position.y + 16, 30, 2, bodyType::DYNAMIC);
-		//	death_colision = true;
-		//}
-		if (EnemyAnimation != &death) {
-			death.Reset();
-			EnemyAnimation = &death;
+
+		if (EnemyAnimation != &active) {
+			active.Reset();
+			EnemyAnimation = &active;
 		}
-		pbody->body->SetActive(false);
-		pbody->body->SetAwake(false);
-		pbody->ctype = ColliderType::PLATFORM;
+
 	}
 
-	app->render->DrawTexture(texture, position.x - 60, position.y - 54, &rect);
+	app->render->DrawTexture(texture, position.x - (52 / 2), position.y - (64 / 2)-64, &rect);
 
 	return true;
 }
@@ -121,11 +119,11 @@ void Checkpoint::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::DEATH:
 		LOG("Collision DEATH");
-		hit = true;
+
 		break;
 	case ColliderType::PLAYER:
 		LOG("Collision PLAYER");
-
+		hit = true;
 		break;
 
 	case ColliderType::TERRAIN:

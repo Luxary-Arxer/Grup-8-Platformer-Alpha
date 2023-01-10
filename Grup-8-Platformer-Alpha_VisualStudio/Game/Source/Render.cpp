@@ -280,6 +280,12 @@ bool Render::LoadState(pugi::xml_node& data)
 	y = data.child("enemy2_aire").attribute("y").as_int();
 	death = data.child("enemy2_aire").attribute("death").as_bool();
 	app->scene->enemyaire2->LoadPosition(x, y, death);
+	//Coins 
+	x = data.child("coin1").attribute("x").as_int();
+	y = data.child("coin1").attribute("y").as_int();
+	death = data.child("coin1").attribute("death").as_bool();
+	app->scene->coin1->LoadPosition(x, y, death);
+
 	
 	return true;
 }
@@ -298,7 +304,7 @@ bool Render::SaveState(pugi::xml_node& data)
 	pos.append_attribute("x") = app->scene->player->position.x;
 	pos.append_attribute("y") = app->scene->player->position.y;
 
-
+	//Enemies
 	pugi::xml_node en1 = data.append_child("enemy1");
 
 	en1.append_attribute("x") = app->scene->enemy1->position.x;
@@ -329,7 +335,7 @@ bool Render::SaveState(pugi::xml_node& data)
 	en5.append_attribute("y") = app->scene->enemy5->position.y;
 	en5.append_attribute("death") = app->scene->enemy5->hit;
 
-
+	//Enemies air
 	pugi::xml_node en1_air = data.append_child("enemy1_aire");
 
 	en1_air.append_attribute("x") = app->scene->enemyaire1->position.x;
@@ -341,6 +347,16 @@ bool Render::SaveState(pugi::xml_node& data)
 	en2_air.append_attribute("x") = app->scene->enemyaire2->position.x;
 	en2_air.append_attribute("y") = app->scene->enemyaire2->position.y;
 	en2_air.append_attribute("death") = app->scene->enemyaire2->hit;
+
+	//Coins 
+	pugi::xml_node coin1 = data.append_child("coin1");
+
+	coin1.append_attribute("x") = app->scene->coin1->position.x;
+	coin1.append_attribute("y") = app->scene->coin1->position.y;
+	coin1.append_attribute("death") = app->scene->coin1->hit;
+
+
+	//Checkpoint
 
 
 	return true;

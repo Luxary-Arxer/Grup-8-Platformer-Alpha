@@ -75,7 +75,7 @@ bool Coin::Start() {
 	position.y = parameters.attribute("y").as_int();
 
 	hit = false;
-	death_colision = false;
+
 	
 
 	return true;
@@ -90,9 +90,6 @@ bool Coin::Update()
 		hit = true; 
 	}
 
-	CoinAnimation->Update();
-	SDL_Rect rect = CoinAnimation->GetCurrentFrame();
-
 	if (hit == true) {
 
 		if (CoinAnimation != &death) {
@@ -103,8 +100,16 @@ bool Coin::Update()
 		pbody->body->SetAwake(false);
 		pbody->ctype = ColliderType::PLATFORM;
 	}
+	if (hit == false) {
+		CoinAnimation = &idle;
+	}
 
-	app->render->DrawTexture(texture, position.x - (16/2), position.y - (16 / 2), &rect);
+
+	CoinAnimation->Update();
+	SDL_Rect rect = CoinAnimation->GetCurrentFrame();
+	app->render->DrawTexture(texture, position.x - (16 / 2), position.y - (16 / 2), &rect);
+
+
 
 	return true;
 }

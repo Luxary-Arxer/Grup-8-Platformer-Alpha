@@ -35,10 +35,10 @@ public:
 
 	Animation* EnemyAnimation = nullptr;
 
-	Animation idle_r;
-	Animation idle_l;
+	Animation idle;
 
-	Animation death;
+
+	Animation active;
 
 	bool hit = false;
 
@@ -70,9 +70,6 @@ private:
 
 	bool load = false;
 
-	bool death_colision = false;
-
-	float Gravity = -0.2;
 
 	SDL_Texture* mouseTileTex = nullptr;
 	SDL_Texture* originTex = nullptr;
