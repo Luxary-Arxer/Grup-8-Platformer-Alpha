@@ -57,7 +57,7 @@ bool Checkpoint::Start() {
 	originTex = app->tex->Load("Assets/Textures/Checkpoints.png");
 	
 	// L07 DONE 4: Add a physics to an item - initialize the physics body
-	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 52, 64, bodyType::STATIC);
+	pbody = app->physics->CreateRectangleSensor(position.x, position.y, 50, 64, bodyType::STATIC);
 
 	// L07 DONE 6: Assign player class (using "this") to the listener of the pbody. This makes the Physics module to call the OnCollision method
 	pbody->listener = this;
@@ -96,7 +96,7 @@ bool Checkpoint::Update()
 
 	}
 
-	app->render->DrawTexture(texture, position.x - (52 / 2), position.y - (64 / 2)-64, &rect);
+	app->render->DrawTexture(texture, position.x - (50 / 2), position.y - (64 / 2)-64, &rect);
 
 	return true;
 }
