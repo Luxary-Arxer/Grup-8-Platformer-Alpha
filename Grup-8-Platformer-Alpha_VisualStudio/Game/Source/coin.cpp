@@ -137,8 +137,8 @@ void Coin::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 }
 
-void Coin::LoadPosition(int x, int y, bool death) {
+void Coin::LoadPosition(bool death) {
 
-	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
+	
 	hit = death;
 }

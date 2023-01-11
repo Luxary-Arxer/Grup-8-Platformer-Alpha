@@ -281,10 +281,8 @@ bool Render::LoadState(pugi::xml_node& data)
 	death = data.child("enemy2_aire").attribute("death").as_bool();
 	app->scene->enemyaire2->LoadPosition(x, y, death);
 	//Coins 
-	x = data.child("coin1").attribute("x").as_int();
-	y = data.child("coin1").attribute("y").as_int();
 	death = data.child("coin1").attribute("death").as_bool();
-	app->scene->coin1->LoadPosition(x, y, death);
+	app->scene->coin1->LoadPosition(death);
 
 	
 	return true;
@@ -351,8 +349,6 @@ bool Render::SaveState(pugi::xml_node& data)
 	//Coins 
 	pugi::xml_node coin1 = data.append_child("coin1");
 
-	coin1.append_attribute("x") = app->scene->coin1->position.x;
-	coin1.append_attribute("y") = app->scene->coin1->position.y;
 	coin1.append_attribute("death") = app->scene->coin1->hit;
 
 
