@@ -55,6 +55,7 @@ public:
 	Coin* coin1;
 
 	Checkpoint* checkpoint1;
+	Checkpoint* checkpoint2;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = NULL;

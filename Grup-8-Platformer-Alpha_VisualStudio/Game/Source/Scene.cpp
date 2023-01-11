@@ -31,14 +31,19 @@ bool Scene::Awake(pugi::xml_node& config)
 	LOG("Loading Scene");
 	bool ret = true;
 
+	checkpoint1 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
+	checkpoint1->parameters = config.child("checkpoint1");
+	checkpoint2 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
+	checkpoint2->parameters = config.child("checkpoint2");
+
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
-	for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
-	{
-		Item* item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
-		item->parameters = itemNode;
+	//for (pugi::xml_node itemNode = config.child("item"); itemNode; itemNode = itemNode.next_sibling("item"))
+	//{
+	//	Item* item = (Item*)app->entityManager->CreateEntity(EntityType::ITEM);
+	//	item->parameters = itemNode;
 
-	}
+	//}
 
 	enemy1 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy1->parameters = config.child("enemy1");
@@ -64,8 +69,7 @@ bool Scene::Awake(pugi::xml_node& config)
 	coin1 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
 	coin1->parameters = config.child("coin1");
 
-	checkpoint1 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
-	checkpoint1->parameters = config.child("checkpont1");
+
 
 	//L02: DONE 3: Instantiate the player using the entity manager
 	player = (Player*)app->entityManager->CreateEntity(EntityType::PLAYER);
@@ -86,6 +90,13 @@ bool Scene::Start()
 	app->map->Enable();
 
 	if (FirstScene != true) {
+		//Checkpoints 
+		app->entityManager->AddEntity(checkpoint1);
+		checkpoint1->position.x = 2592;
+		checkpoint1->position.y = 576;
+		app->entityManager->AddEntity(checkpoint2);
+		checkpoint2->position.x = 5440;
+		checkpoint2->position.y = 480;
 		//Player
 		app->entityManager->AddEntity(player);
 		player->position.x = 118;
@@ -119,10 +130,8 @@ bool Scene::Start()
 		app->entityManager->AddEntity(coin1);
 		coin1->position.x = 416;
 		coin1->position.y = 256;
-		//Checkpoints 
-		app->entityManager->AddEntity(checkpoint1);
-		checkpoint1->position.x = 360;
-		checkpoint1->position.y = 576;
+
+
 	}
 	
 	app->pathfinding->Enable();

@@ -349,7 +349,7 @@ bool Map::Load()
     PhysBody*collider13 = app->physics->CreateRectangle(-4, 384 -96, 4, 768, STATIC);
     collider13->ctype = ColliderType::TERRAIN;
 
-    PhysBody* collider14 = app->physics->CreateRectangle(172 * 32, 384 -96, 4, 768, STATIC);
+    PhysBody* collider14 = app->physics->CreateRectangle(250 * 32, 384 -96, 4, 768, STATIC);
     collider14->ctype = ColliderType::TERRAIN;
 
     //PhysBody* checkpoint = app->physics->CreateRectangleSensor(50, 96, 64, 64, STATIC);

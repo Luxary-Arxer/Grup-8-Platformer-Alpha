@@ -39,7 +39,8 @@
 
     <coin1 x="416" y="256" texturepath="Assets/Textures/Coins.png"/>
 
-	<checkpont1 x="360" y="576" texturepath="Assets/Textures/Checkpoint.png"/>
+	<checkpoint1 x="2592" y="576" texturepath="Assets/Textures/Checkpoint.png"/>
+	<checkpoint2 x="5440" y="480" texturepath="Assets/Textures/Checkpoint.png"/>
 
   </scene>
 

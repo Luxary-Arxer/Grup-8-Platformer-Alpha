@@ -14,15 +14,15 @@
 	<entitymanager />
 	<map />
 	<renderer>
-		<camera x="0" y="0" />
-		<position x="288" y="561" />
-		<enemy1 x="228" y="561" death="false" />
-		<enemy2 x="891" y="529" death="false" />
-		<enemy3 x="1694" y="273" death="false" />
-		<enemy4 x="2464" y="561" death="false" />
-		<enemy5 x="3968" y="529" death="false" />
-		<enemy1_aire x="1422" y="490" death="false" />
-		<enemy2_aire x="3216" y="202" death="false" />
+		<camera x="-4973" y="0" />
+		<position x="5476" y="465" />
+		<enemy1 x="306" y="561" death="false" />
+		<enemy2 x="918" y="529" death="false" />
+		<enemy3 x="1778" y="273" death="false" />
+		<enemy4 x="2359" y="561" death="false" />
+		<enemy5 x="4654" y="689" death="true" />
+		<enemy1_aire x="1387" y="298" death="false" />
+		<enemy2_aire x="3247" y="388" death="false" />
 		<coin1 death="false" />
 	</renderer>
 </save_state>
