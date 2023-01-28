@@ -49,6 +49,7 @@ public:
 	Enemy* enemy4;
 	Enemy* enemy5;
 	Enemy* enemy6;
+	Enemy* enemy7;
 
 	EnemyAire* enemyaire1;
 	EnemyAire* enemyaire2;

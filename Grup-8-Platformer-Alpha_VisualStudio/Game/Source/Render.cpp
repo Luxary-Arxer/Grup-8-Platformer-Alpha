@@ -275,6 +275,11 @@ bool Render::LoadState(pugi::xml_node& data)
 	death = data.child("enemy6").attribute("death").as_bool();
 	app->scene->enemy6->LoadPosition(x, y, death);
 
+	x = data.child("enemy7").attribute("x").as_int();
+	y = data.child("enemy7").attribute("y").as_int();
+	death = data.child("enemy7").attribute("death").as_bool();
+	app->scene->enemy7->LoadPosition(x, y, death);
+
 	//Enemies air
 	x = data.child("enemy1_aire").attribute("x").as_int();
 	y = data.child("enemy1_aire").attribute("y").as_int();
@@ -351,6 +356,12 @@ bool Render::SaveState(pugi::xml_node& data)
 	en6.append_attribute("x") = app->scene->enemy6->position.x;
 	en6.append_attribute("y") = app->scene->enemy6->position.y;
 	en6.append_attribute("death") = app->scene->enemy6->hit;
+
+	pugi::xml_node en7 = data.append_child("enemy7");
+
+	en7.append_attribute("x") = app->scene->enemy7->position.x;
+	en7.append_attribute("y") = app->scene->enemy7->position.y;
+	en7.append_attribute("death") = app->scene->enemy7->hit;
 
 	//Enemies air
 	pugi::xml_node en1_air = data.append_child("enemy1_aire");
