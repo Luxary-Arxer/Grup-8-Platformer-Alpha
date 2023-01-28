@@ -29,7 +29,7 @@ public:
 
 	void OnCollision(PhysBody* physA, PhysBody* physB);
 
-	void LoadPosition(int x, int y, bool death);
+	void LoadPosition(bool death);
 
 public:
 

@@ -35,6 +35,8 @@ bool Scene::Awake(pugi::xml_node& config)
 	checkpoint1->parameters = config.child("checkpoint1");
 	checkpoint2 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
 	checkpoint2->parameters = config.child("checkpoint2");
+	checkpoint3 = (Checkpoint*)app->entityManager->CreateEntity(EntityType::CHECK_POINT);
+	checkpoint3->parameters = config.child("checkpoint3");
 
 	// iterate all objects in the scene
 	// Check https://pugixml.org/docs/quickstart.html#access
@@ -59,6 +61,9 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	enemy5 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
 	enemy5->parameters = config.child("enemy5");
+
+	enemy6 = (Enemy*)app->entityManager->CreateEntity(EntityType::ENEMY);
+	enemy6->parameters = config.child("enemy6");
 
 	enemyaire1 = (EnemyAire*)app->entityManager->CreateEntity(EntityType::ENEMY_AIRE);
 	enemyaire1->parameters = config.child("enemyaire1");
@@ -97,6 +102,9 @@ bool Scene::Start()
 		app->entityManager->AddEntity(checkpoint2);
 		checkpoint2->position.x = 5440;
 		checkpoint2->position.y = 480;
+		app->entityManager->AddEntity(checkpoint3);
+		checkpoint3->position.x = 7872;
+		checkpoint3->position.y = 480;
 		//Player
 		app->entityManager->AddEntity(player);
 		player->position.x = 118;
@@ -118,6 +126,9 @@ bool Scene::Start()
 		app->entityManager->AddEntity(enemy5);
 		enemy5->position.x = 4000;
 		enemy5->position.y = 512;
+		app->entityManager->AddEntity(enemy6);
+		enemy6->position.x = 5536;
+		enemy6->position.y = 384;
 
 		//enemies aire
 		app->entityManager->AddEntity(enemyaire1);

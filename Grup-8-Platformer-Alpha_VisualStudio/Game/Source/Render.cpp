@@ -269,6 +269,11 @@ bool Render::LoadState(pugi::xml_node& data)
 	y = data.child("enemy5").attribute("y").as_int();
 	death = data.child("enemy5").attribute("death").as_bool();
 	app->scene->enemy5->LoadPosition(x, y, death);
+	
+	x = data.child("enemy6").attribute("x").as_int();
+	y = data.child("enemy6").attribute("y").as_int();
+	death = data.child("enemy6").attribute("death").as_bool();
+	app->scene->enemy6->LoadPosition(x, y, death);
 
 	//Enemies air
 	x = data.child("enemy1_aire").attribute("x").as_int();
@@ -283,7 +288,15 @@ bool Render::LoadState(pugi::xml_node& data)
 	//Coins 
 	death = data.child("coin1").attribute("death").as_bool();
 	app->scene->coin1->LoadPosition(death);
+	//Checkpoint
+	death = data.child("checkpoint1").attribute("death").as_bool();
+	app->scene->checkpoint1->LoadPosition(death);
 
+	death = data.child("checkpoint2").attribute("death").as_bool();
+	app->scene->checkpoint2->LoadPosition(death);
+
+	death = data.child("checkpoint3").attribute("death").as_bool();
+	app->scene->checkpoint3->LoadPosition(death);
 	
 	return true;
 }
@@ -333,6 +346,12 @@ bool Render::SaveState(pugi::xml_node& data)
 	en5.append_attribute("y") = app->scene->enemy5->position.y;
 	en5.append_attribute("death") = app->scene->enemy5->hit;
 
+	pugi::xml_node en6 = data.append_child("enemy6");
+
+	en6.append_attribute("x") = app->scene->enemy6->position.x;
+	en6.append_attribute("y") = app->scene->enemy6->position.y;
+	en6.append_attribute("death") = app->scene->enemy6->hit;
+
 	//Enemies air
 	pugi::xml_node en1_air = data.append_child("enemy1_aire");
 
@@ -350,10 +369,15 @@ bool Render::SaveState(pugi::xml_node& data)
 	pugi::xml_node coin1 = data.append_child("coin1");
 
 	coin1.append_attribute("death") = app->scene->coin1->hit;
-
-
 	//Checkpoint
+	pugi::xml_node checkpoint1 = data.append_child("checkpoint1");
+	checkpoint1.append_attribute("death") = app->scene->checkpoint1->hit;
 
+	pugi::xml_node checkpoint2 = data.append_child("checkpoint2");
+	checkpoint2.append_attribute("death") = app->scene->checkpoint2->hit;
+
+	pugi::xml_node checkpoint3 = data.append_child("checkpoint3");
+	checkpoint3.append_attribute("death") = app->scene->checkpoint3->hit;
 
 	return true;
 }

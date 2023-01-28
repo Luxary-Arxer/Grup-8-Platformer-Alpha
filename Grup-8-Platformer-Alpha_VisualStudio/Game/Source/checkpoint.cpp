@@ -132,14 +132,12 @@ void Checkpoint::OnCollision(PhysBody* physA, PhysBody* physB) {
 
 	case ColliderType::UNKNOWN:
 		LOG("Collision BALA");
-		hit = true;
 		break;
 	}
 
 }
 
-void Checkpoint::LoadPosition(int x, int y, bool death) {
+void Checkpoint::LoadPosition(bool death) {
 
-	pbody->body->SetTransform({ PIXEL_TO_METERS(x),PIXEL_TO_METERS(y) }, 0);
 	hit = death;
 }

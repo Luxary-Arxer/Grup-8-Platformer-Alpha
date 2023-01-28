@@ -33,6 +33,7 @@
 	<enemy3 x="1728" y="256" texturepath="Assets/Enemies/enemy_1.png"/>
     <enemy4 x="2496" y="544" texturepath="Assets/Enemies/enemy_1.png"/>
 	<enemy5 x="4000" y="512" texturepath="Assets/Enemies/enemy_1.png"/>
+	<enemy6 x="5536" y="384" texturepath="Assets/Enemies/enemy_1.png"/>
 
     <enemyaire1 x="1472" y="544" texturepath="Assets/Enemies/enemy_aire.png"/>
 	<enemyaire2 x="3264" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
@@ -41,6 +42,7 @@
 
 	<checkpoint1 x="2592" y="576" texturepath="Assets/Textures/Checkpoint.png"/>
 	<checkpoint2 x="5440" y="480" texturepath="Assets/Textures/Checkpoint.png"/>
+	<checkpoint3 x="7872" y="480" texturepath="Assets/Textures/Checkpoint.png"/>
 
   </scene>
 

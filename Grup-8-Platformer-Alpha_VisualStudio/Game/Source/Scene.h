@@ -48,6 +48,7 @@ public:
 	Enemy* enemy3;
 	Enemy* enemy4;
 	Enemy* enemy5;
+	Enemy* enemy6;
 
 	EnemyAire* enemyaire1;
 	EnemyAire* enemyaire2;
@@ -56,6 +57,7 @@ public:
 
 	Checkpoint* checkpoint1;
 	Checkpoint* checkpoint2;
+	Checkpoint* checkpoint3;
 
 	bool FirstScene = true;
 	bool ShowPathfinding = NULL;
