@@ -3,6 +3,8 @@
 
 #include "Module.h"
 #include "List.h"
+#include "PerfTimer.h"
+#include "Timer.h"
 
 #include "PugiXml/src/pugixml.hpp"
 
@@ -26,6 +28,7 @@ class Map;
 class Physics;
 class FadeToBlack;
 class PathFinding;
+class GuiManager;
 
 class App
 {
@@ -102,6 +105,7 @@ public:
 	Physics* physics;
 	FadeToBlack* fade;
 	PathFinding* pathfinding;
+	GuiManager* guiManager;
 
 private:
 

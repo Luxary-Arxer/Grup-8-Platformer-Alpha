@@ -13,6 +13,7 @@
 #include "Physics.h"
 #include "FadeToBlack.h"
 #include "Pathfinding.h"
+#include "GuiManager.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -44,7 +45,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	physics = new Physics(this, false);
 	pathfinding = new PathFinding(this, false);
 	sceneEnding = new SceneEnding(this, false);
-
+	guiManager = new GuiManager(this, false);
 
 
 	// Ordered for awake / Start / Update
@@ -64,6 +65,7 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(sceneEnding);
 	AddModule(entityManager);
 	AddModule(map);
+	AddModule(guiManager);
 
 	// Render last to swap buffer
 	AddModule(render);
