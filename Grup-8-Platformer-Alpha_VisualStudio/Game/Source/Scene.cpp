@@ -76,6 +76,42 @@ bool Scene::Awake(pugi::xml_node& config)
 
 	coin1 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
 	coin1->parameters = config.child("coin1");
+	coin2 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin2->parameters = config.child("coin2");
+	coin3 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin3->parameters = config.child("coin3");
+	coin4 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin4->parameters = config.child("coin4");
+	coin5 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin5->parameters = config.child("coin5");
+	coin6 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin6->parameters = config.child("coin6");
+	coin7 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin7->parameters = config.child("coin7");
+	coin8 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin8->parameters = config.child("coin8");
+	coin9 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin9->parameters = config.child("coin9");
+	coin10 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin10->parameters = config.child("coin10");
+	coin11 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin11->parameters = config.child("coin11");
+	coin12 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin12->parameters = config.child("coin12");
+	coin13 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin13->parameters = config.child("coin13");
+	coin14 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin14->parameters = config.child("coin14");
+	coin15 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin15->parameters = config.child("coin15");
+	coin16 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin16->parameters = config.child("coin16");
+	coin17 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin17->parameters = config.child("coin17");
+	coin18 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin18->parameters = config.child("coin18");
+	coin19 = (Coin*)app->entityManager->CreateEntity(EntityType::COIN);
+	coin19->parameters = config.child("coin19");
 
 
 
@@ -145,8 +181,65 @@ bool Scene::Start()
 		enemyaire2->position.y = 256;
 		// coins 
 		app->entityManager->AddEntity(coin1);
-		coin1->position.x = 416;
-		coin1->position.y = 256;
+		coin1->position.x = 1248;
+		coin1->position.y = 448;
+		app->entityManager->AddEntity(coin2);
+		coin2->position.x = 1280;
+		coin2->position.y = 448;
+		app->entityManager->AddEntity(coin3);
+		coin3->position.x = 1312;
+		coin3->position.y = 448;
+
+		app->entityManager->AddEntity(coin4);
+		coin4->position.x = 3328;
+		coin4->position.y = 512;
+		app->entityManager->AddEntity(coin5);
+		coin5->position.x = 3360;
+		coin5->position.y = 512;
+		app->entityManager->AddEntity(coin6);
+		coin6->position.x = 3392;
+		coin6->position.y = 512;
+
+		app->entityManager->AddEntity(coin7);
+		coin7->position.x = 4208;
+		coin7->position.y = 240;
+		app->entityManager->AddEntity(coin8);
+		coin8->position.x = 4240;
+		coin8->position.y = 240;
+		app->entityManager->AddEntity(coin9);
+		coin9->position.x = 4272;
+		coin9->position.y = 240;
+		app->entityManager->AddEntity(coin10);
+		coin10->position.x = 4304;
+		coin10->position.y = 208;
+		app->entityManager->AddEntity(coin11);
+		coin11->position.x = 4336;
+		coin11->position.y = 208;
+
+		app->entityManager->AddEntity(coin12);
+		coin12->position.x = 4624;
+		coin12->position.y = 416;
+		app->entityManager->AddEntity(coin13);
+		coin13->position.x = 4688;
+		coin13->position.y = 416;
+		app->entityManager->AddEntity(coin14);
+		coin14->position.x = 4880;
+		coin14->position.y = 224;
+		app->entityManager->AddEntity(coin15);
+		coin15->position.x = 4944;
+		coin15->position.y = 224;
+		app->entityManager->AddEntity(coin16);
+		coin16->position.x = 7024;
+		coin16->position.y = 256;
+		app->entityManager->AddEntity(coin17);
+		coin17->position.x = 7088;
+		coin17->position.y = 256;
+		app->entityManager->AddEntity(coin18);
+		coin18->position.x = 7344;
+		coin18->position.y = 384;
+		app->entityManager->AddEntity(coin19);
+		coin19->position.x = 7408;
+		coin19->position.y = 384;
 
 
 	}

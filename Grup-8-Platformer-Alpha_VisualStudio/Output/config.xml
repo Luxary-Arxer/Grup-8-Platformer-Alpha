@@ -39,7 +39,31 @@
     <enemyaire1 x="1472" y="544" texturepath="Assets/Enemies/enemy_aire.png"/>
 	<enemyaire2 x="3264" y="256" texturepath="Assets/Enemies/enemy_aire.png"/>
 
-    <coin1 x="416" y="256" texturepath="Assets/Textures/Coins.png"/>
+    <coin1 x="1248" y="448" texturepath="Assets/Textures/Coins.png"/>
+	<coin2 x="1280" y="448" texturepath="Assets/Textures/Coins.png"/>
+	<coin3 x="1312" y="448" texturepath="Assets/Textures/Coins.png"/>
+	  
+	<coin4 x="3328" y="512" texturepath="Assets/Textures/Coins.png"/>
+	<coin5 x="3360" y="512" texturepath="Assets/Textures/Coins.png"/>
+	<coin6 x="3392" y="512" texturepath="Assets/Textures/Coins.png"/>
+
+	<coin7 x="4208" y="240" texturepath="Assets/Textures/Coins.png"/>
+	<coin8 x="4240" y="240" texturepath="Assets/Textures/Coins.png"/>
+	<coin9 x="4272" y="240" texturepath="Assets/Textures/Coins.png"/>
+	<coin10 x="4304" y="208" texturepath="Assets/Textures/Coins.png"/>
+	<coin11 x="4336" y="208" texturepath="Assets/Textures/Coins.png"/>
+
+	<coin12 x="4624" y="416" texturepath="Assets/Textures/Coins.png"/>
+	<coin13 x="4688" y="416" texturepath="Assets/Textures/Coins.png"/>
+	<coin14 x="4880" y="224" texturepath="Assets/Textures/Coins.png"/>
+	<coin15 x="4944" y="224" texturepath="Assets/Textures/Coins.png"/>
+	<coin16 x="7024" y="256" texturepath="Assets/Textures/Coins.png"/>
+	<coin17 x="7088" y="256" texturepath="Assets/Textures/Coins.png"/>
+	<coin18 x="7344" y="384" texturepath="Assets/Textures/Coins.png"/>
+	<coin19 x="7408" y="384" texturepath="Assets/Textures/Coins.png"/>
+	  
+	  
+	  
 
 	<checkpoint1 x="2592" y="576" texturepath="Assets/Textures/Checkpoint.png"/>
 	<checkpoint2 x="5440" y="480" texturepath="Assets/Textures/Checkpoint.png"/>

@@ -14,18 +14,37 @@
 	<entitymanager />
 	<map />
 	<renderer>
-		<camera x="-2106" y="0" />
-		<position x="2619" y="561" />
-		<enemy1 x="324" y="561" death="false" />
-		<enemy2 x="872" y="529" death="false" />
-		<enemy3 x="1728" y="273" death="false" />
-		<enemy4 x="2559" y="561" death="false" />
+		<camera x="-1123" y="0" />
+		<position x="1634" y="273" />
+		<enemy1 x="364" y="561" death="false" />
+		<enemy2 x="796" y="529" death="false" />
+		<enemy3 x="1694" y="273" death="false" />
+		<enemy4 x="2496" y="561" death="false" />
 		<enemy5 x="4000" y="529" death="false" />
 		<enemy6 x="5536" y="465" death="false" />
-		<enemy1_aire x="1788" y="604" death="false" />
-		<enemy2_aire x="3248" y="224" death="false" />
-		<coin1 death="false" />
-		<checkpoint1 death="true" />
+		<enemy7 x="6303" y="337" death="false" />
+		<enemy1_aire x="1298" y="357" death="false" />
+		<enemy2_aire x="3248" y="230" death="false" />
+		<coin1 death="true" />
+		<coin2 death="true" />
+		<coin3 death="true" />
+		<coin4 death="false" />
+		<coin5 death="false" />
+		<coin6 death="false" />
+		<coin7 death="false" />
+		<coin8 death="false" />
+		<coin9 death="false" />
+		<coin10 death="false" />
+		<coin11 death="false" />
+		<coin12 death="false" />
+		<coin13 death="false" />
+		<coin14 death="false" />
+		<coin15 death="false" />
+		<coin16 death="false" />
+		<coin17 death="false" />
+		<coin18 death="false" />
+		<coin19 death="false" />
+		<checkpoint1 death="false" />
 		<checkpoint2 death="false" />
 		<checkpoint3 death="false" />
 	</renderer>

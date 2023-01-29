@@ -293,6 +293,42 @@ bool Render::LoadState(pugi::xml_node& data)
 	//Coins 
 	death = data.child("coin1").attribute("death").as_bool();
 	app->scene->coin1->LoadPosition(death);
+	death = data.child("coin2").attribute("death").as_bool();
+	app->scene->coin2->LoadPosition(death);
+	death = data.child("coin3").attribute("death").as_bool();
+	app->scene->coin3->LoadPosition(death);
+	death = data.child("coin4").attribute("death").as_bool();
+	app->scene->coin4->LoadPosition(death);
+	death = data.child("coin5").attribute("death").as_bool();
+	app->scene->coin5->LoadPosition(death);
+	death = data.child("coin6").attribute("death").as_bool();
+	app->scene->coin6->LoadPosition(death);
+	death = data.child("coin7").attribute("death").as_bool();
+	app->scene->coin7->LoadPosition(death);
+	death = data.child("coin8").attribute("death").as_bool();
+	app->scene->coin8->LoadPosition(death);
+	death = data.child("coin9").attribute("death").as_bool();
+	app->scene->coin9->LoadPosition(death);
+	death = data.child("coin10").attribute("death").as_bool();
+	app->scene->coin10->LoadPosition(death);
+	death = data.child("coin11").attribute("death").as_bool();
+	app->scene->coin11->LoadPosition(death);
+	death = data.child("coin12").attribute("death").as_bool();
+	app->scene->coin12->LoadPosition(death);
+	death = data.child("coin13").attribute("death").as_bool();
+	app->scene->coin13->LoadPosition(death);
+	death = data.child("coin14").attribute("death").as_bool();
+	app->scene->coin14->LoadPosition(death);
+	death = data.child("coin15").attribute("death").as_bool();
+	app->scene->coin15->LoadPosition(death);
+	death = data.child("coin16").attribute("death").as_bool();
+	app->scene->coin16->LoadPosition(death);
+	death = data.child("coin17").attribute("death").as_bool();
+	app->scene->coin17->LoadPosition(death);
+	death = data.child("coin18").attribute("death").as_bool();
+	app->scene->coin18->LoadPosition(death);
+	death = data.child("coin19").attribute("death").as_bool();
+	app->scene->coin19->LoadPosition(death);
 	//Checkpoint
 	death = data.child("checkpoint1").attribute("death").as_bool();
 	app->scene->checkpoint1->LoadPosition(death);
@@ -378,8 +414,44 @@ bool Render::SaveState(pugi::xml_node& data)
 
 	//Coins 
 	pugi::xml_node coin1 = data.append_child("coin1");
-
 	coin1.append_attribute("death") = app->scene->coin1->hit;
+	pugi::xml_node coin2 = data.append_child("coin2");
+	coin2.append_attribute("death") = app->scene->coin2->hit;
+	pugi::xml_node coin3 = data.append_child("coin3");
+	coin3.append_attribute("death") = app->scene->coin3->hit;
+	pugi::xml_node coin4 = data.append_child("coin4");
+	coin4.append_attribute("death") = app->scene->coin4->hit;
+	pugi::xml_node coin5 = data.append_child("coin5");
+	coin5.append_attribute("death") = app->scene->coin5->hit;
+	pugi::xml_node coin6 = data.append_child("coin6");
+	coin6.append_attribute("death") = app->scene->coin6->hit;
+	pugi::xml_node coin7 = data.append_child("coin7");
+	coin7.append_attribute("death") = app->scene->coin7->hit;
+	pugi::xml_node coin8 = data.append_child("coin8");
+	coin8.append_attribute("death") = app->scene->coin8->hit;
+	pugi::xml_node coin9 = data.append_child("coin9");
+	coin9.append_attribute("death") = app->scene->coin9->hit;
+	pugi::xml_node coin10 = data.append_child("coin10");
+	coin10.append_attribute("death") = app->scene->coin10->hit;
+	pugi::xml_node coin11 = data.append_child("coin11");
+	coin11.append_attribute("death") = app->scene->coin11->hit;
+	pugi::xml_node coin12 = data.append_child("coin12");
+	coin12.append_attribute("death") = app->scene->coin12->hit;
+	pugi::xml_node coin13 = data.append_child("coin13");
+	coin13.append_attribute("death") = app->scene->coin13->hit;
+	pugi::xml_node coin14 = data.append_child("coin14");
+	coin14.append_attribute("death") = app->scene->coin14->hit;
+	pugi::xml_node coin15 = data.append_child("coin15");
+	coin15.append_attribute("death") = app->scene->coin15->hit;
+	pugi::xml_node coin16 = data.append_child("coin16");
+	coin16.append_attribute("death") = app->scene->coin16->hit;
+	pugi::xml_node coin17 = data.append_child("coin17");
+	coin17.append_attribute("death") = app->scene->coin17->hit;
+	pugi::xml_node coin18 = data.append_child("coin18");
+	coin18.append_attribute("death") = app->scene->coin18->hit;
+	pugi::xml_node coin19 = data.append_child("coin19");
+	coin19.append_attribute("death") = app->scene->coin19->hit;
+
 	//Checkpoint
 	pugi::xml_node checkpoint1 = data.append_child("checkpoint1");
 	checkpoint1.append_attribute("death") = app->scene->checkpoint1->hit;

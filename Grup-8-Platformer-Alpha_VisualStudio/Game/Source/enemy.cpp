@@ -138,13 +138,14 @@ bool Enemy::Update()
 	}
 
 	//-------------------------------------
-	int mouseX, mouseY;
-	app->input->GetMousePosition(mouseX, mouseY);
-	mouseX = app->scene->player->position.x;
-	mouseY = (app->scene->player->position.y+32);
-	iPoint mouseTile = app->map->WorldToMap(mouseX,mouseY);
+
 
 	if (hit == false && rango_jugador == true) {
+		int mouseX, mouseY;
+		app->input->GetMousePosition(mouseX, mouseY);
+		mouseX = app->scene->player->position.x;
+		mouseY = (app->scene->player->position.y + 32);
+		iPoint mouseTile = app->map->WorldToMap(mouseX, mouseY);
 		//Convert again the tile coordinates to world coordinates to render the texture of the tile
 		iPoint highlightedTileWorld = app->map->MapToWorld(mouseTile.x, mouseTile.y);
 		if (showpath == true) {

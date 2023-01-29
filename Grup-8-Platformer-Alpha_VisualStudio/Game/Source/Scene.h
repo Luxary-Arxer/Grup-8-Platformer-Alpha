@@ -55,6 +55,24 @@ public:
 	EnemyAire* enemyaire2;
 
 	Coin* coin1;
+	Coin* coin2;
+	Coin* coin3;
+	Coin* coin4;
+	Coin* coin5;
+	Coin* coin6;
+	Coin* coin7;
+	Coin* coin8;
+	Coin* coin9;
+	Coin* coin10;
+	Coin* coin11;
+	Coin* coin12;
+	Coin* coin13;
+	Coin* coin14;
+	Coin* coin15;
+	Coin* coin16;
+	Coin* coin17;
+	Coin* coin18;
+	Coin* coin19;
 
 	Checkpoint* checkpoint1;
 	Checkpoint* checkpoint2;
