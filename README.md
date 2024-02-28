@@ -1,5 +1,13 @@
 # {Grup-8-Platformer-Alpha}
 
+## Media
+
+- Title Screen
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_1.png">
+-Game Play
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_2.png">
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_3.png" >
+
 ## Description
 
 The goal is having a simple platformer with levels created with Tiled. There must be a main character moving around while being able to save and load the game's state.
@@ -31,15 +39,6 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  - 2 times SPACE -> Double jump
  - Left arrow -> atack left
  - Right arrow -> atack right
-
-## Media
-
-- Title Screen
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_1.png" width="500">
--Game Play
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_2.png" width="500 >
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_3.png" width="500 >
-
 
 ## Sprite Credits
 
