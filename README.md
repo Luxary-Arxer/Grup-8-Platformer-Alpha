@@ -10,13 +10,6 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  
  - {Nixon Correa} - {https://github.com/Nixonbit3}
 
-## Media
-
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_1.png" width="500">
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_2.png" width="500 >
-<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_3.png" width="500 >
-
-
 ## Controls
 
 ### DEBUG Keys
@@ -39,7 +32,13 @@ The goal is having a simple platformer with levels created with Tiled. There mus
  - Left arrow -> atack left
  - Right arrow -> atack right
 
+## Media
 
+- Title Screen
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_1.png" width="500">
+-Game Play
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_2.png" width="500 >
+<img src="https://github.com/Luxary-92/Grup-8-Platformer-Alpha/blob/main/Game%20Screenshots/Screenshot_3.png" width="500 >
 
 
 ## Sprite Credits
