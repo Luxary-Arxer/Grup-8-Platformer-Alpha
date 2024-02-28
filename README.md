@@ -36,6 +36,7 @@ The goal is having a simple platformer with levels created with Tiled. There mus
 ## Developers
 
  - {Enric Arxer}- {https://github.com/Luxary-92}
+ 
  - {Nixon Correa}- {https://github.com/Nixonbit3}
 
 ## Sprite Credits
